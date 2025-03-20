@@ -37,3 +37,6 @@ logs
 # System Files
 .DS_Store
 Thumbs.db
+
+# En
+.env

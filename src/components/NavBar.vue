@@ -3,7 +3,7 @@
       <div class="container navbar-container">
         <div class="navbar-brand">
           <router-link to="/" class="navbar-logo">
-            <img src="/images/captain-logo.svg" alt="Captain Logo">
+            <img src="/images/terminal-icon.svg" alt="Terminal Icon">
             <span class="logo-text">Terminal Navigation Toolkit</span>
           </router-link>
         </div>
