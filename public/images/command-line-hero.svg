@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#0a3d62" />
+  
+  <!-- Ocean/Waves Pattern -->
+  <path d="M0 450 C200 400, 400 500, 600 450 C800 400, 1000 500, 1200 450 L1200 600 L0 600 Z" fill="#38ada9" opacity="0.7" />
+  <path d="M0 480 C200 430, 400 530, 600 480 C800 430, 1000 530, 1200 480 L1200 600 L0 600 Z" fill="#38ada9" opacity="0.5" />
+  <path d="M0 510 C200 460, 400 560, 600 510 C800 460, 1000 560, 1200 510 L1200 600 L0 600 Z" fill="#38ada9" opacity="0.3" />
+  
+  <!-- Stars/Code Points in Sky -->
+  <g fill="white" opacity="0.5">
+    <circle cx="120" cy="100" r="1.5" />
+    <circle cx="190" cy="150" r="1" />
+    <circle cx="280" cy="80" r="1.5" />
+    <circle cx="350" cy="180" r="1" />
+    <circle cx="420" cy="120" r="1.5" />
+    <circle cx="490" cy="70" r="1" />
+    <circle cx="580" cy="130" r="1.5" />
+    <circle cx="650" cy="90" r="1" />
+    <circle cx="720" cy="160" r="1.5" />
+    <circle cx="790" cy="100" r="1" />
+    <circle cx="880" cy="140" r="1.5" />
+    <circle cx="950" cy="70" r="1" />
+    <circle cx="1020" cy="120" r="1.5" />
+    <circle cx="1090" cy="170" r="1" />
+    <circle cx="1150" cy="90" r="1.5" />
+  </g>
+  
+  <!-- Connect some stars with lines to form code-like constellations -->
+  <g stroke="white" stroke-width="0.5" opacity="0.3">
+    <path d="M120 100 L190 150 L280 80" />
+    <path d="M420 120 L490 70 L580 130 L650 90" />
+    <path d="M790 100 L880 140 L950 70 L1020 120" />
+  </g>
+  
+  <!-- Main Terminal Window -->
+  <rect x="300" y="150" width="600" height="350" rx="10" fill="#1e1e1e" stroke="#38ada9" stroke-width="3" />
+  
+  <!-- Terminal Header -->
+  <rect x="300" y="150" width="600" height="30" rx="10" fill="#323232" stroke="#38ada9" stroke-width="3" />
+  
+  <!-- Window Controls -->
+  <circle cx="320" cy="165" r="6" fill="#ff5f56" />
+  <circle cx="340" cy="165" r="6" fill="#ffbd2e" />
+  <circle cx="360" cy="165" r="6" fill="#27c93f" />
+  
+  <!-- Terminal Title -->
+  <text x="600" y="172" font-family="Inter, sans-serif" font-size="14" fill="#a0aec0" text-anchor="middle">terminal ~ captain@jordanurbs.com</text>
+  
+  <!-- Captain's Symbol on the Right of Header -->
+  <circle cx="880" cy="165"

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
+  <!-- Background Circle -->
+  <circle cx="30" cy="30" r="28" fill="#0a3d62" />
+  
+  <!-- Terminal Window -->
+  <rect x="15" y="15" width="30" height="30" rx="3" fill="#1e1e1e" stroke="#38ada9" stroke-width="1.5" />
+  
+  <!-- Terminal Window Header -->
+  <rect x="15" y="15" width="30" height="5" rx="3" fill="#323232" stroke="#38ada9" stroke-width="1.5" />
+  
+  <!-- Window Controls -->
+  <circle cx="18" cy="17.5" r="1" fill="#ff5f56" />
+  <circle cx="22" cy="17.5" r="1" fill="#ffbd2e" />
+  <circle cx="26" cy="17.5" r="1" fill="#27c93f" />
+  
+  <!-- Command Prompt Symbol -->
+  <path d="M20 27 L25 32 L20 37" fill="none" stroke="#f6b93b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Command Cursor -->
+  <rect x="28" y="32" width="1.5" height="10" fill="#f6b93b">
+    <animate attributeName="opacity" values="1;0;1" dur="1.5s" repeatCount="indefinite" />
+  </rect>
+  
+  <!-- Captain's Helm Icon -->
+  <circle cx="42" cy="45" r="10" fill="#f6b93b" opacity="0.2" />
+  <circle cx="42" cy="45" r="7" fill="none" stroke="#f6b93b" stroke-width="1.5" />
+  <circle cx="42" cy="45" r="4" fill="none" stroke="#f6b93b" stroke-width="1" />
+  
+  <!-- Helm handles -->
+  <path d="M42 38 L42 36" stroke="#f6b93b" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M42 54 L42 52" stroke="#f6b93b" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M35 45 L33 45" stroke="#f6b93b" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M51 45 L49 45" stroke="#f6b93b" stroke-width="1.5" stroke-linecap="round" />
+  
+  <path d="M37 40 L35.5 38.5" stroke="#f6b93b" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M48.5 51.5 L47 50" stroke="#f6b93b" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M37 50 L35.5 51.5" stroke="#f6b93b" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M48.5 38.5 L47 40" stroke="#f6b93b" stroke-width="1.5" stroke-linecap="round" />
+</svg>

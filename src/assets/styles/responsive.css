@@ -1,0 +1,409 @@
+/* Responsive styles for Terminal Navigation Toolkit */
+
+/* Base responsive container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Extra large devices (large desktops) */
+  @media (max-width: 1200px) {
+    .container {
+      max-width: 960px;
+    }
+    
+    .feature-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .commands-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* Large devices (desktops) */
+  @media (max-width: 992px) {
+    .container {
+      max-width: 720px;
+    }
+    
+    h1 {
+      font-size: 2.2rem;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    .section-title {
+      font-size: 1.6rem;
+    }
+    
+    .hero-container {
+      flex-direction: column;
+    }
+    
+    .hero-content, .hero-image {
+      width: 100%;
+    }
+    
+    .hero-image {
+      margin-top: 2rem;
+    }
+    
+    .feature-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .journey-steps {
+      grid-template-columns: 1fr;
+    }
+    
+    .testimonial-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .command-card {
+      flex-direction: column;
+    }
+    
+    .command-details {
+      width: 100%;
+    }
+    
+    .command-example {
+      width: 100%;
+      border-left: none;
+      border-top: 1px solid var(--border);
+    }
+  }
+  
+  /* Medium devices (tablets) */
+  @media (max-width: 768px) {
+    .container {
+      max-width: 540px;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+    
+    h3 {
+      font-size: 1.4rem;
+    }
+    
+    .navbar-container {
+      flex-direction: column;
+    }
+    
+    .navbar-brand {
+      margin-bottom: 1rem;
+    }
+    
+    .navbar-links {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .commands-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .filtering-controls {
+      flex-direction: column;
+    }
+    
+    .filter-group {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    
+    .filter-buttons {
+      flex-wrap: wrap;
+    }
+    
+    .search-group {
+      width: 100%;
+    }
+    
+    .onboarding-form {
+      flex-direction: column;
+    }
+    
+    .name-input {
+      margin-bottom: 1rem;
+      border-radius: 4px;
+    }
+    
+    .onboarding-form .btn {
+      width: 100%;
+      border-radius: 4px;
+    }
+    
+    .error-categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+    }
+    
+    .error-category-button {
+      width: 100%;
+    }
+    
+    .command-actions {
+      flex-direction: column;
+    }
+    
+    .command-actions .btn {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    
+    .week-navigation {
+      flex-wrap: wrap;
+    }
+    
+    .week-tab {
+      flex: 1 0 50%;
+    }
+    
+    .challenge-actions {
+      flex-direction: column;
+    }
+  }
+  
+  /* Small devices (landscape phones) */
+  @media (max-width: 576px) {
+    .container {
+      padding: 0 0.75rem;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+    
+    h3 {
+      font-size: 1.3rem;
+    }
+    
+    .page-title {
+      font-size: 1.6rem;
+    }
+    
+    .page-subtitle {
+      font-size: 1.1rem;
+    }
+    
+    .button-group {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .button-group .btn {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    
+    .error-categories {
+      grid-template-columns: 1fr;
+    }
+    
+    .terminal-preview {
+      height: 250px;
+    }
+    
+    .terminal-body {
+      font-size: 12px;
+    }
+    
+    .btn {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+    
+    .flowchart-step {
+      flex-direction: column;
+    }
+    
+    .step-number {
+      margin-bottom: 1rem;
+    }
+    
+    .step-content {
+      padding-left: 0;
+    }
+    
+    .custom-options {
+      grid-template-columns: 1fr;
+    }
+    
+    .faq-question {
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .terminal-titlebar {
+      padding: 5px 8px;
+    }
+    
+    .command-test {
+      flex-direction: column;
+    }
+    
+    .test-command {
+      margin-bottom: 0.5rem;
+    }
+    
+    .week-tab {
+      flex: 1 0 100%;
+    }
+  }
+  
+  /* Very small devices */
+  @media (max-width: 375px) {
+    h1 {
+      font-size: 1.6rem;
+    }
+    
+    .terminal-header {
+      padding: 0.25rem 0.5rem;
+    }
+    
+    .terminal-dot {
+      width: 8px;
+      height: 8px;
+      margin-right: 4px;
+    }
+    
+    .terminal-title {
+      font-size: 12px;
+    }
+    
+    .terminal-body {
+      padding: 0.75rem;
+      font-size: 11px;
+      height: 220px;
+    }
+    
+    .command-code {
+      font-size: 11px;
+      padding: 0.5rem;
+    }
+    
+    .page-title {
+      font-size: 1.4rem;
+    }
+    
+    .page-subtitle {
+      font-size: 1rem;
+    }
+    
+    .setup-steps ol {
+      padding-left: 1.25rem;
+    }
+  }
+  
+  /* Print styles for cheat sheets and guides */
+  @media print {
+    body {
+      font-size: 12pt;
+      line-height: 1.4;
+      color: #000;
+      background: #fff;
+    }
+    
+    .navbar, .footer, .setup-content, .faq-section, .terminal-simulator,
+    .challenge-actions, .filtering-controls, .search-section, .cta-section,
+    .video-player, .script-features, .next-steps, .user-progress {
+      display: none !important;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      page-break-after: avoid;
+      page-break-inside: avoid;
+    }
+    
+    img, pre, blockquote, table {
+      page-break-inside: avoid;
+    }
+    
+    a {
+      color: #000;
+      text-decoration: underline;
+    }
+    
+    /* Print-specific command cheat sheet format */
+    .commands-grid {
+      display: block;
+    }
+    
+    .command-card {
+      page-break-inside: avoid;
+      border: 1px solid #ccc;
+      margin-bottom: 0.5cm;
+      padding: 0.25cm;
+    }
+    
+    /* Print-specific troubleshooting guide format */
+    .error-card {
+      page-break-inside: avoid;
+      border: 1px solid #ccc;
+      margin-bottom: 0.5cm;
+    }
+    
+    /* Print-specific challenge calendar format */
+    .challenge-card {
+      page-break-inside: avoid;
+      border: 1px solid #ccc;
+      margin-bottom: 0.5cm;
+    }
+    
+    /* Add URLs after links for reference */
+    a[href^="http"]:after {
+      content: " (" attr(href) ")";
+      font-size: 90%;
+    }
+    
+    /* Print-specific header for each page */
+    @page {
+      margin: 1cm;
+    }
+    
+    @page :first {
+      margin-top: 2cm;
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .print-mode-only {
+      display: none;
+    }
+  }
