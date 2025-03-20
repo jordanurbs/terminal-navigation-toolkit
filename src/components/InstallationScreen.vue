@@ -24,7 +24,7 @@
           </button>
         </div>
         <p class="purchase-link">
-          Don't have an API key? <a href="https://toolkit.ai-captains.com/" target="_blank" rel="noopener noreferrer">Purchase one here</a>
+          Don't have an API key? <a href="https://ccc.ai-captains.com/" target="_blank" rel="noopener noreferrer">Purchase one here</a>
         </p>
         <div v-if="error" class="error-message">
           {{ error }}
@@ -75,7 +75,7 @@ export default {
 
       try {
         // Validate API key
-        const validationResponse = await fetch('https://toolkit.ai-captains.com/.netlify/functions/validate', {
+        const validationResponse = await fetch('https://ccc.ai-captains.com/.netlify/functions/validate', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ export default {
         this.currentStep = 2;
 
         // Fetch challenges
-        const response = await fetch('https://toolkit.ai-captains.com/.netlify/functions/challenges', {
+        const response = await fetch('https://ccc.ai-captains.com/.netlify/functions/challenges', {
           headers: {
             'x-api-key': this.apiKey.trim()
           }

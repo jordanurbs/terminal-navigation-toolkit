@@ -28,8 +28,8 @@
     <div class="api-key-info">
       <h3>Don't have an API key?</h3>
       <p>You'll need to purchase an API key to access the challenge content. Once purchased, add the API key to your .env file as CAPTAINS_TOOLKIT_API_KEY.</p>
-      <a href="https://example.com/purchase" target="_blank" class="purchase-link">
-        Purchase Access
+      <a href="https://ccc.ai-captains.com/" target="_blank" rel="noopener noreferrer" class="purchase-link">
+        Purchase one here
       </a>
     </div>
   </div>
@@ -60,7 +60,7 @@ export default {
 
       try {
         // First validate the API key
-        const validationResponse = await fetch('https://toolkit.ai-captains.com/.netlify/functions/validate', {
+        const validationResponse = await fetch('https://ccc.ai-captains.com/.netlify/functions/validate', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ export default {
         }
 
         // Then fetch challenges
-        const response = await fetch('https://toolkit.ai-captains.com/.netlify/functions/challenges', {
+        const response = await fetch('https://ccc.ai-captains.com/.netlify/functions/challenges', {
           headers: {
             'x-api-key': this.apiKey.trim()
           }

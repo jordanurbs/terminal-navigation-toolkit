@@ -65,7 +65,7 @@ const validateApiKey = async (req, res, next) => {
   }
   
   try {
-    const validationEndpoint = 'https://toolkit.ai-captains.com/.netlify/functions/validate';
+    const validationEndpoint = 'https://ccc.ai-captains.com/.netlify/functions/validate';
     
     const response = await fetch(validationEndpoint, {
       method: 'POST',

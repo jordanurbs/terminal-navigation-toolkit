@@ -2,7 +2,7 @@
 
 This project is a progressive learning journey to master terminal commands so you can boost your productivity with AI.
 
-This interface is free & open-source; however to access the 30-Day Content Commander Challenge, you'll need to purchase a lifetime API key from https://toolkit.ai-captains.com
+This interface is free & open-source; however to access the 30-Day Content Commander Challenge, you'll need to purchase a lifetime API key from https://ccc.ai-captains.com
 
 ## Quick Start
 

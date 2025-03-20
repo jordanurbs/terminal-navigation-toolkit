@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-const API_ENDPOINT = 'https://toolkit.ai-captains.com/.netlify/functions/validate';
+const API_ENDPOINT = 'https://ccc.ai-captains.com/.netlify/functions/validate';
 
 export async function validateApiKey(apiKey: string): Promise<{ valid: boolean; userId?: string }> {
   try {

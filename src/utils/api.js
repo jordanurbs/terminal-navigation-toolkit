@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create an axios instance with the API key
 const api = axios.create({
-  baseURL: 'https://toolkit.ai-captains.com/.netlify/functions',
+  baseURL: 'https://ccc.ai-captains.com/.netlify/functions',
   headers: {
     'Content-Type': 'application/json',
     'x-api-key': import.meta.env.CAPTAINS_TOOLKIT_API_KEY
@@ -29,7 +29,7 @@ api.interceptors.request.use(config => {
 // API functions
 export const validateApiKey = async (apiKey) => {
   try {
-    const response = await fetch('https://toolkit.ai-captains.com/.netlify/functions/validate', {
+    const response = await fetch('https://ccc.ai-captains.com/.netlify/functions/validate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
