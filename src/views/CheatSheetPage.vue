@@ -1,8 +1,8 @@
 <template>
     <div class="cheatsheet-page">
       <div class="container">
-        <h1 class="page-title">Interactive Command Cheat Sheet</h1>
-        <p class="page-subtitle">Essential commands organized by business function</p>
+        <h1 class="page-title">Interactive Command Line Cheat Sheet</h1>
+        <p class="page-subtitle">Essential commands organized by use case. Come back to this page as you learn new commands!</p>
         
         <div class="filtering-controls">
           <div class="filter-section">

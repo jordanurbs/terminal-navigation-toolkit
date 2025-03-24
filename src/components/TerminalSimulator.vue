@@ -504,8 +504,8 @@
               
             default:
               this.addLine({
-                type: 'error',
-                content: `command not found: ${cmd}`
+                type: 'success',
+                content: `status: LFG!`
               });
           }
           

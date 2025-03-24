@@ -6,8 +6,21 @@
     </main>
     <footer class="footer">
       <div class="container">
-        <p>© {{ currentYear }} Jordan Urbs | From AI Passenger to AI Captain</p>
-        <p class="small">Terminal Navigation Toolkit v1.0.0</p>
+        <p>© {{ currentYear }} Jordan Urbs & <a style="color: white;" href="https://spirals.me" target="_blank" rel="noopener noreferrer">Spirals Activation, LLC</a></p>
+        <div class="social-links">
+          <a href="https://jordanurbs.com" target="_blank" rel="noopener noreferrer" class="social-icon">
+            <i class="fas fa-globe"></i>
+          </a>
+          <a href="https://blog.jordanurbs.com" target="_blank" rel="noopener noreferrer" class="social-icon">
+            <i class="fas fa-blog"></i>
+          </a>
+          <a href="https://youtube.com/jordanurbsai" target="_blank" rel="noopener noreferrer" class="social-icon">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://x.com/jordanurbs" target="_blank" rel="noopener noreferrer" class="social-icon">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+        </div>
       </div>
     </footer>
   </div>
@@ -168,5 +181,23 @@ code, pre {
   color: #cccccc;
   margin-top: 0.25rem;
   margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-icon {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: var(--accent);
 }
 </style>

@@ -6,7 +6,7 @@
         
         <div class="intro-card">
           <p class="intro-text">
-            <em>The secret developers don't tell you: Everyone gets error messages. The difference is that experienced captains know how to decode and fix them.</em>
+            <em>Even the bes developers get error messages.<br>The difference is that experienced captains know how to decode and fix them!</em>
           </p>
         </div>
         
@@ -292,7 +292,7 @@
               <li><strong>Try the simplest fix first</strong> - Often it's just a typo or missing dependency</li>
               <li><strong>Document solutions in your Captain's Log</strong> - You'll face this error again someday</li>
             </ol>
-            <p class="mindset-reminder">Remember: The difference between a passenger and a captain isn't avoiding errors—it's knowing how to navigate through them.</p>
+            <p class="mindset-reminder">Remember: The difference between a passenger and AI Captain isn't avoiding errors—it's knowing how to navigate through them.</p>
           </div>
         </div>
         
