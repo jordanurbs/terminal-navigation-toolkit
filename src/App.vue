@@ -20,6 +20,9 @@
           <a href="https://x.com/jordanurbs" target="_blank" rel="noopener noreferrer" class="social-icon">
             <i class="fab fa-x-twitter"></i>
           </a>
+          <a href="https://github.com/jordanurbs" target="_blank" rel="noopener noreferrer" class="social-icon">
+            <i class="fab fa-github"></i>
+          </a>
         </div>
       </div>
     </footer>

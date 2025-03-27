@@ -14,6 +14,9 @@
           <router-link to="/challenges" class="nav-link">30-Day Challenge</router-link>
           <router-link to="/troubleshooting" class="nav-link">Troubleshooting</router-link>
           <router-link to="/progress" class="nav-link highlight">My Progress</router-link>
+          <a href="https://github.com/jordanurbs/terminal-navigation-toolkit" target="_blank" rel="noopener noreferrer" class="nav-link github-link">
+            <i class="fab fa-github"></i>
+          </a>
         </div>
         
         <button class="mobile-menu-toggle" @click="toggleMobileMenu">
@@ -153,6 +156,20 @@
     border-radius: 10px;
   }
   
+  .github-link {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+  }
+  
+  .github-link:hover {
+    color: var(--accent);
+  }
+  
+  .github-link::after {
+    display: none;
+  }
+  
   @media (max-width: 768px) {
     .navbar-links {
       position: fixed;
@@ -181,6 +198,11 @@
     
     .mobile-menu-toggle {
       display: flex;
+    }
+    
+    .github-link {
+      justify-content: center;
+      padding: 0.75rem 0;
     }
   }
   </style>
