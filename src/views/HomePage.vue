@@ -65,6 +65,14 @@
             <p>The essential commands you'll need at your fingertips. No more Googling basic commands—everything explained in plain English.</p>
             <router-link to="/cheatsheet" class="feature-link">Explore Commands</router-link>
           </div>
+
+
+          <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>30-Day Content Commander Challenge</h3>
+            <p>The step-by-step journey that transforms you from AI passenger to AI captain by building a practical tool you'll actually use.</p>
+            <a href="https://ccc.ai-captains.com" class="feature-link">Get API Key</a>
+          </div>
           
           <div class="feature-card">
             <div class="feature-icon">🔧</div>
@@ -73,12 +81,6 @@
             <router-link to="/troubleshooting" class="feature-link">Fix Common Issues</router-link>
           </div>
           
-          <div class="feature-card">
-            <div class="feature-icon">🚀</div>
-            <h3>30-Day Content Commander Challenge</h3>
-            <p>The step-by-step journey that transforms you from AI passenger to AI captain by building a practical tool you'll actually use.</p>
-            <a href="https://ccc.ai-captains.com" class="feature-link">Get API Key</a>
-          </div>
         </div>
       </div>
     </section>
@@ -100,7 +102,7 @@
             <router-link to="/dependencies" class="btn btn-accent">Set Up Your Environment</router-link>
           </div>
           <div class="getting-started-image">
-            <img src="/images/terminal-setup.svg" alt="Terminal Setup" />
+            <img src="@/assets/images/terminal-setup.svg" alt="Terminal Setup" />
           </div>
         </div>
       </div>
@@ -188,7 +190,7 @@
           <div class="faq-item">
             <h3 class="faq-question">Why should I listen to you?</h3>
             <div class="faq-answer">
-              <p>Don't! Seriously. Google everything I'm saying to verify it.</p><p>The benefit isn't that I'm some genius developer (I'm not)—it's that I've curated the minimal technical foundation you need as a business builder and organized it in a way that makes sense for non-technical folks.</p>
+              <p>Don't! Seriously. <em>Don't trust, verify.</em> Google everything I'm saying to verify it.</p><p>The benefit isn't that I'm some genius developer (I'm not)—it's that I've curated the minimal technical foundation you need as a business builder and organized it in a way that makes sense for non-technical folks.</p>
             </div>
           </div>
           
@@ -1187,11 +1189,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 300px;
 }
 
 .getting-started-image img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
 @media (max-width: 768px) {
