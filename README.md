@@ -12,13 +12,6 @@ A comprehensive learning platform designed to help you master terminal commands 
 - Modern Vue 3 frontend with Vuex state management
 - Express.js backend with MongoDB Memory Server for development
 
-## Tech Stack
-
-- Frontend: Vue 3, Vuex, Vue Router
-- Backend: Express.js, MongoDB (with MongoDB Memory Server for development)
-- Build Tools: Vite
-- Additional Libraries: Axios, Marked, Prism.js, Canvas Confetti
-
 ## Quick Start
 
 1. Clone this repository:
@@ -32,19 +25,13 @@ A comprehensive learning platform designed to help you master terminal commands 
    npm install
    ```
 
-3. Set up environment variables:
-   ```bash
-   cp .env.example .env
-   ```
-   Edit the `.env` file with your configuration.
-
-4. Start the development server:
+3. Start the development server:
    ```bash
    npm run dev
    ```
    This will start both the frontend (Vite) and backend (Express) servers concurrently.
 
-5. Open your browser and navigate to `http://localhost:5173`
+4. Open your browser and navigate to `http://localhost:5173`
 
 ## Development Scripts
 
