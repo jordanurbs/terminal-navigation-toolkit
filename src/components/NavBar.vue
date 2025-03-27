@@ -10,6 +10,7 @@
         
         <div class="navbar-links" :class="{ 'active': mobileMenuOpen }">
           <router-link to="/dependencies" class="nav-link">Getting Started</router-link>
+          <a href="/#bootcamp" class="nav-link">Bootcamp</a>
           <router-link to="/cheatsheet" class="nav-link">Cheat Sheet</router-link>
           <router-link to="/challenges" class="nav-link">30-Day Challenge</router-link>
           <router-link to="/troubleshooting" class="nav-link">Troubleshooting</router-link>

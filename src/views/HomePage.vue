@@ -6,7 +6,14 @@
           <h1>From Command Line Intimidation to Terminal Mastery</h1>
           <p class="tagline">The difference between AI passengers and AI Captains isn't advanced technical knowledge—it's a foundation of basic control and confidence.</p>
           
-          <div class="hero-cta" v-if="!userName">
+          <div class="hero-cta" v-if="!hasApiKey">
+            <div class="button-group">
+              <router-link to="/dependencies" class="btn btn-accent">Set-Up Your Machine</router-link>
+              <button @click="scrollToChallenge" class="btn btn-secondary">Start Building</button>
+            </div>
+          </div>
+          
+          <div class="hero-cta" v-else-if="!userName">
             <div class="onboarding-form">
               <input 
                 type="text" 
@@ -239,7 +246,7 @@
     </section>
     
 
-    <section class="bootcamp-reminder">
+    <section class="bootcamp-reminder" id="bootcamp">
       <div class="container">
         <div class="bootcamp-card">
           <h2 class="bootcamp-title">Haven't Completed the<br>Command Line Bootcamp Yet?</h2>
@@ -332,8 +339,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import TerminalSimulator from '../components/TerminalSimulator.vue'
+import { mapState } from 'vuex'
+import TerminalSimulator from '@/components/TerminalSimulator.vue'
 
 export default {
   name: 'HomePage',
@@ -348,31 +355,75 @@ export default {
       isSubmitting: false,
       turnstileToken: null,
       initialTerminalLines: [
-        {
-          type: 'prompt',
-          path: '~',
-          content: 'echo "Welcome aboard, future AI Captain!"'
-        },
-        {
-          type: 'output',
-          content: 'Welcome aboard, future AI Captain!'
-        }
-      ],
+  { type: 'output', content: '\x1b[1;32m=== WELCOME TO THE TERMINAL NAVIGATOR ===\x1b[0m' },
+  { type: 'output', content: '\x1b[36mPrepare to embark on your journey as an AI Captain!\x1b[0m' },
+  { type: 'output', content: '\x1b[33mDay 1: First steps in the digital ocean...\x1b[0m' },
+  { type: 'command', content: 'cd ~/ai-voyage' },
+  { type: 'output', content: '\x1b[34mNavigating to your AI command center...\x1b[0m' },
+  { type: 'command', content: 'ls' },
+  { type: 'output', content: '\x1b[1mtraining-data/  models/  logs/  first-mission.md\x1b[0m' },
+  { type: 'command', content: 'cat first-mission.md' },
+  { type: 'output', content: '\x1b[35m"Captain\'s First Mission: Initialize your AI toolkit and prepare for departure!"\x1b[0m' },
+  { type: 'command', content: 'mkdir new-project' },
+  { type: 'output', content: '\x1b[32mCreating your first project space...\x1b[0m' },
+  { type: 'command', content: 'cd new-project' },
+  { type: 'output', content: '\x1b[34mEntering the project realm. Your journey begins here!\x1b[0m' },
+  { type: 'command', content: 'git init' },
+  { type: 'output', content: '\x1b[33mInitialized empty Git repository in ~/ai-voyage/new-project/.git/\x1b[0m\n\x1b[33mYour time machine is ready! Now you can track all changes to your digital universe.\x1b[0m' },
+  { type: 'command', content: 'echo "# AI Captain\'s Log" > README.md' },
+  { type: 'output', content: '\x1b[32mCreating your first log entry...\x1b[0m' },
+  { type: 'command', content: 'git add README.md' },
+  { type: 'output', content: '\x1b[36mPreparing your first file for the journey ahead...\x1b[0m' },
+  { type: 'command', content: 'git commit -m "First commit: The journey begins"' },
+  { type: 'output', content: '\x1b[1;32m[main (root-commit) f3d7a2c] First commit: The journey begins\n 1 file changed, 1 insertion(+)\n create mode 100644 README.md\x1b[0m' },
+  { type: 'command', content: 'npm init -y' },
+  { type: 'output', content: '\x1b[32mPackage.json created successfully\x1b[0m' },
+  { type: 'command', content: 'npm install ai-toolkit@latest' },
+  { type: 'output', content: '\x1b[36madded 157 packages\nfound 0 vulnerabilities\x1b[0m' },
+  { type: 'command', content: 'python -m venv .env' },
+  { type: 'output', content: '\x1b[35mCreating a protected environment for your AI experiments...\x1b[0m' },
+  { type: 'command', content: 'source .env/bin/activate' },
+  { type: 'output', content: '\x1b[1;32m(.env) \x1b[0m\x1b[32mEnvironment activated! Your ship is now protected from cosmic interference.\x1b[0m' },
+  { type: 'command', content: 'pip install transformers torch numpy' },
+  { type: 'output', content: '\x1b[36mSuccessfully installed numpy torch transformers\x1b[0m' },
+  { type: 'command', content: 'ls' },
+  { type: 'output', content: '\x1b[1mREADME.md  package.json  node_modules/  .env/  package-lock.json\x1b[0m' },
+  { type: 'command', content: 'echo "console.log(\'Hello, AI Captain!\')" > captain.js' },
+  { type: 'output', content: '\x1b[32mWriting your first command script...\x1b[0m' },
+  { type: 'command', content: 'node captain.js' },
+  { type: 'output', content: '\x1b[1;36mHello, AI Captain!\x1b[0m' },
+  { type: 'output', content: '\x1b[1;33m=== CONGRATULATIONS! ===\x1b[0m' },
+  { type: 'output', content: '\x1b[32mYou\'ve successfully prepared your terminal environment for the AI voyage ahead.\x1b[0m' },
+  { type: 'output', content: '\x1b[36mYour tools are initialized, your repository is tracking changes,\nand both JavaScript and Python environments are ready for your commands.\x1b[0m' },
+  { type: 'output', content: '\x1b[35m"With great terminal power comes great AI responsibility."\x1b[0m' },
+  { type: 'output', content: '\x1b[1;32m=== READY FOR YOUR NEXT COMMAND, CAPTAIN! ===\x1b[0m' }
+],
       demoCommands: [
-        'ls projects',
-        'cd projects/ai-tools',
-        'git status'
+        'git status',
+        'npm install',
+        'npm run dev'
       ]
     }
   },
   computed: {
-    ...mapGetters(['userName'])
+    ...mapState(['userName', 'hasApiKey'])
   },
   methods: {
     startJourney() {
       if (this.newUserName.trim()) {
         this.$store.commit('setUserName', this.newUserName.trim())
-        this.$store.dispatch('initializeUser')
+      }
+    },
+    scrollToChallenge() {
+      const challengeSection = document.querySelector('.commander-challenge')
+      if (challengeSection) {
+        challengeSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    },
+    scrollToBootcamp() {
+      const bootcampSection = document.querySelector('.bootcamp-reminder')
+      if (bootcampSection) {
+        bootcampSection.scrollIntoView({ behavior: 'smooth' })
       }
     },
     handleSubmit() {
@@ -468,6 +519,8 @@ export default {
 .button-group {
   display: flex;
   gap: 1rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 /* About Toolkit Section */
@@ -1004,10 +1057,12 @@ export default {
   
   .button-group {
     flex-direction: column;
+    align-items: center;
   }
   
   .button-group .btn {
     width: 100%;
+    max-width: 300px;
   }
   
   .bootcamp-days {
@@ -1210,6 +1265,108 @@ export default {
   
   .getting-started-image {
     order: -1;
+  }
+}
+
+.getting-started-cta {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.getting-started-cta .btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .getting-started-cta {
+    margin-top: 2rem;
+  }
+}
+
+.bootcamp-signup {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bootcamp-text {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+.bootcamp-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent);
+  color: var(--primary);
+  border: none;
+  border-radius: 4px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #e5a92e;
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.arrow {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bootcamp-signup {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
   }
 }
 </style>

@@ -326,39 +326,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Support Agent Icon and Chat Window -->
-      <div class="support-widget" :class="{ 'chat-open': isChatOpen }">
-        <div v-if="isChatOpen" class="chat-window">
-          <div class="chat-header">
-            <h3>Support Agent</h3>
-            <button class="close-button" @click="toggleChat">×</button>
-          </div>
-          <div class="chat-messages" ref="chatMessages">
-            <div v-for="(message, index) in chatMessages" :key="index" 
-                 :class="['message', message.type]">
-              <div class="message-content">{{ message.text }}</div>
-            </div>
-          </div>
-          <div class="chat-input">
-            <input 
-              type="text" 
-              v-model="userMessage" 
-              @keyup.enter="sendMessage"
-              placeholder="Type your question..."
-            >
-            <button @click="sendMessage">Send</button>
-          </div>
-        </div>
-        
-        <button class="support-button" @click="toggleChat">
-          <div class="support-icon">
-            <span v-if="!isChatOpen">?</span>
-            <span v-else>×</span>
-          </div>
-          <span class="support-tooltip" v-if="!isChatOpen">Need help?</span>
-        </button>
-      </div>
     </div>
   </template>
   
@@ -405,15 +372,14 @@
           {
             id: 'command-not-found',
             message: 'command not found',
-            category: 'command',
-            meaning: 'The command you\'re trying to run isn\'t installed or isn\'t in your system\'s PATH.',
+            category: 'dependency',
+            meaning: 'The command you\'re trying to run isn\'t installed or isn\'t in your PATH.',
             steps: [
-              'Check spelling first',
-              'Install the missing tool (e.g., `npm install -g package-name`)',
-              'Check if you need to use a package manager (`pip`, `npm`, `brew`, etc.)',
-              'On Mac/Linux, try: `which command-name` to see if it exists'
+              'Check if the program is installed',
+              'Verify it\'s in your system\'s PATH',
+              'Try using the full path to the program'
             ],
-            businessExample: 'You\'re trying to run a Git command, but Git isn\'t installed on your new computer.'
+            businessExample: 'You\'re trying to run `git` but haven\'t installed Git yet.'
           },
           {
             id: 'not-git-repo',
@@ -462,14 +428,6 @@
               'Consider using virtual environments for Python projects'
             ],
             businessExample: 'You\'re trying to run an AI script on a new computer that doesn\'t have Python configured.'
-          }
-        ],
-        isChatOpen: false,
-        userMessage: '',
-        chatMessages: [
-          {
-            type: 'agent',
-            text: 'Hi! I\'m your command line support agent. How can I help you today?'
           }
         ]
       }
@@ -527,40 +485,6 @@
       getCategoryName(categoryId) {
         const category = this.errorCategories.find(cat => cat.id === categoryId);
         return category ? category.name : 'General Error';
-      },
-      toggleChat() {
-        this.isChatOpen = !this.isChatOpen;
-        if (this.isChatOpen) {
-          this.$nextTick(() => {
-            this.scrollToBottom();
-          });
-        }
-      },
-      sendMessage() {
-        if (!this.userMessage.trim()) return;
-        
-        // Add user message
-        this.chatMessages.push({
-          type: 'user',
-          text: this.userMessage
-        });
-
-        // Simulate agent response
-        setTimeout(() => {
-          this.chatMessages.push({
-            type: 'agent',
-            text: 'I\'ll help you with that! Let me search through our troubleshooting database...'
-          });
-          this.scrollToBottom();
-        }, 500);
-
-        this.userMessage = '';
-        this.scrollToBottom();
-      },
-      scrollToBottom() {
-        if (this.$refs.chatMessages) {
-          this.$refs.chatMessages.scrollTop = this.$refs.chatMessages.scrollHeight;
-        }
       }
     }
   }
@@ -1063,166 +987,5 @@
   
   .btn-primary:hover {
     background-color: var(--primary-dark);
-  }
-
-  .support-widget {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 1000;
-  }
-
-  .support-button {
-    width: 60px;
-    height: 60px;
-    border-radius: 30px;
-    background: var(--primary);
-    border: none;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .support-button:hover {
-    transform: scale(1.1);
-    background: var(--primary-dark);
-  }
-
-  .support-icon {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .support-tooltip {
-    position: absolute;
-    right: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    background: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    margin-right: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    font-size: 0.875rem;
-    color: var(--text);
-    white-space: nowrap;
-  }
-
-  .support-tooltip::after {
-    content: '';
-    position: absolute;
-    right: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-left: 6px solid white;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-  }
-
-  .chat-window {
-    position: absolute;
-    bottom: calc(100% + 1rem);
-    right: 0;
-    width: 320px;
-    height: 400px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
-
-  .chat-header {
-    padding: 1rem;
-    background: var(--primary);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .chat-header h3 {
-    margin: 0;
-    font-size: 1rem;
-  }
-
-  .close-button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0;
-    line-height: 1;
-  }
-
-  .chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .message {
-    max-width: 80%;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    font-size: 0.875rem;
-  }
-
-  .message.user {
-    background: var(--primary);
-    color: white;
-    align-self: flex-end;
-  }
-
-  .message.agent {
-    background: #f1f5f9;
-    color: var(--text);
-    align-self: flex-start;
-  }
-
-  .chat-input {
-    padding: 1rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  .chat-input input {
-    flex: 1;
-    padding: 0.5rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    font-size: 0.875rem;
-  }
-
-  .chat-input button {
-    padding: 0.5rem 1rem;
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 500;
-  }
-
-  .chat-input button:hover {
-    background: var(--primary-dark);
-  }
-
-  @media (max-width: 768px) {
-    .chat-window {
-      position: fixed;
-      bottom: 80px;
-      right: 1rem;
-      left: 1rem;
-      width: auto;
-    }
   }
   </style>

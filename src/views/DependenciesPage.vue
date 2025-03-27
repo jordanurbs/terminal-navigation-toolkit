@@ -161,16 +161,27 @@
         </transition>
       </div>
     </div>
+
+    <div class="dependencies-cta">
+      <a :href="hasApiKey ? '/challenges' : 'https://ccc.ai-captains.com'" class="btn btn-accent btn-large">
+        Start Building
+      </a>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'DependenciesPage',
   data() {
     return {
       openSection: 'essential'
     }
+  },
+  computed: {
+    ...mapState(['hasApiKey'])
   },
   methods: {
     toggleSection(section) {
@@ -292,5 +303,28 @@ h3 {
   padding: 0;
   margin: 0;
   overflow: hidden;
+}
+
+.dependencies-cta {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-top: 1px solid var(--border);
+}
+
+.dependencies-cta .btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .dependencies-cta {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 </style> 
