@@ -4,13 +4,13 @@
         <div class="navbar-brand">
           <router-link to="/" class="navbar-logo">
             <img src="/images/terminal-icon.svg" alt="Terminal Icon">
-            <span class="logo-text">Terminal Navigation Toolkit</span>
+            <span class="logo-text">Terminal Nav Toolkit</span>
           </router-link>
         </div>
         
         <div class="navbar-links" :class="{ 'active': mobileMenuOpen }">
-          <router-link to="/" class="nav-link">Home</router-link>
-          <router-link to="/cheatsheet" class="nav-link">Command Cheat Sheet</router-link>
+          <router-link to="/dependencies" class="nav-link">Getting Started</router-link>
+          <router-link to="/cheatsheet" class="nav-link">Cheat Sheet</router-link>
           <router-link to="/challenges" class="nav-link">30-Day Challenge</router-link>
           <router-link to="/troubleshooting" class="nav-link">Troubleshooting</router-link>
           <router-link to="/progress" class="nav-link highlight">My Progress</router-link>

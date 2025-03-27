@@ -620,6 +620,99 @@ export const commandCategories = [
       osSupport: ["mac", "linux", "windows"],
       difficulty: "advanced"
     },
+    {
+      id: "git-reset-soft",
+      category: "git",
+      command: "git reset HEAD~1",
+      description: "Undo the last commit while keeping the changes in your working directory",
+      businessApplication: "Fix commit messages or split a commit into multiple smaller ones",
+      example: {
+        input: "git reset HEAD~1",
+        output: "(undoes last commit, keeps changes)"
+      },
+      osSupport: ["mac", "linux", "windows"],
+      difficulty: "intermediate"
+    },
+    {
+      id: "git-reset-hard",
+      category: "git",
+      command: "git reset --hard HEAD~1",
+      description: "Completely remove the last commit and its changes",
+      businessApplication: "Remove experimental changes that were accidentally committed",
+      example: {
+        input: "git reset --hard HEAD~1",
+        output: "(removes last commit and changes)"
+      },
+      osSupport: ["mac", "linux", "windows"],
+      difficulty: "advanced",
+      warning: "This permanently deletes the changes in the commit"
+    },
+    {
+      id: "git-log",
+      category: "git",
+      command: "git log",
+      description: "Show commit history with commit hashes",
+      businessApplication: "Find specific commits to revert or examine project histor.\n\nHINT: Exit with 'q' after you're done.",
+      example: {
+        input: "git log",
+        output: "commit abc123...\nAuthor: Dev Name\nDate: ...\n\n    Commit message"
+      },
+      osSupport: ["mac", "linux", "windows"],
+      difficulty: "beginner"
+    },
+    {
+      id: "git-checkout-commit",
+      category: "git",
+      command: "git checkout [commit-hash]",
+      description: "View the state of your project at a specific commit",
+      businessApplication: "Examine old versions of your project or find when a bug was introduced",
+      example: {
+        input: "git checkout abc123",
+        output: "(switches to that commit state)"
+      },
+      osSupport: ["mac", "linux", "windows"],
+      difficulty: "intermediate",
+      warning: "You'll be in 'detached HEAD' state. Use git checkout main to return to latest version"
+    },
+    {
+      id: "git-revert-commit",
+      category: "git",
+      command: "git revert [commit-hash]",
+      description: "Create a new commit that undoes the changes from a specific commit",
+      businessApplication: "Safely undo changes while maintaining project history",
+      example: {
+        input: "git revert abc123",
+        output: "(creates new commit undoing changes)"
+      },
+      osSupport: ["mac", "linux", "windows"],
+      difficulty: "intermediate"
+    },
+    {
+      id: "git-stash",
+      category: "git",
+      command: "git stash",
+      description: "Temporarily store uncommitted changes",
+      businessApplication: "Save work in progress when you need to switch tasks",
+      example: {
+        input: "git stash",
+        output: "Saved working directory and index state WIP on main: abc123"
+      },
+      osSupport: ["mac", "linux", "windows"],
+      difficulty: "intermediate"
+    },
+    {
+      id: "git-stash-pop",
+      category: "git",
+      command: "git stash pop",
+      description: "Restore the most recently stashed changes",
+      businessApplication: "Resume work on previously saved changes",
+      example: {
+        input: "git stash pop",
+        output: "On branch main\nChanges not staged for commit: ..."
+      },
+      osSupport: ["mac", "linux", "windows"],
+      difficulty: "intermediate"
+    },
     
     // AI Development Commands
     {

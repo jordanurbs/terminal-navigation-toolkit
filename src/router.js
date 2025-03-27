@@ -7,6 +7,7 @@ import ChallengeCalendarPage from './views/ChallengeCalendarPage.vue'
 import TroubleshootingPage from './views/TroubleshootingPage.vue'
 import SetupScriptsPage from './views/SetupScriptsPage.vue'
 import ProgressPage from './views/ProgressPage.vue'
+import DependenciesPage from './views/DependenciesPage.vue'
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
     path: '/progress',
     name: 'Progress',
     component: ProgressPage
+  },
+  {
+    path: '/dependencies',
+    name: 'Dependencies',
+    component: DependenciesPage
   }
 ]
 

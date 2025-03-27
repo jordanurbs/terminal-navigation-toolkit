@@ -16,9 +16,11 @@
     },
     "dependencies": {
         "axios": "^1.8.3",
+        "canvas-confetti": "^1.9.3",
         "cors": "^2.8.5",
         "dotenv": "^16.3.1",
         "express": "^4.18.2",
+        "highlight.js": "^11.11.1",
         "marked": "^7.0.5",
         "mongodb": "^6.3.0",
         "mongodb-memory-server": "^9.1.3",

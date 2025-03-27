@@ -83,6 +83,29 @@
       </div>
     </section>
     
+    <section class="getting-started">
+      <div class="container">
+        <h2 class="section-title">Getting Started Guide</h2>
+        <p class="getting-started-lead">Before you begin your journey, you'll need to set up your development environment. Don't worry—we'll guide you through installing everything you need.</p>
+        
+        <div class="getting-started-content">
+          <div class="getting-started-text">
+            <p>To work with the command line and build your own tools, you'll need a few essential programs installed on your computer:</p>
+            <ul>
+              <li><strong>Git</strong> - For version control and collaboration</li>
+              <li><strong>Node.js</strong> - For running JavaScript applications</li>
+              <li><strong>Python</strong> - For data processing and AI integration</li>
+            </ul>
+            <p>Our step-by-step guide will walk you through installing these tools on your system, whether you're using macOS, Windows, or Linux.</p>
+            <router-link to="/dependencies" class="btn btn-accent">Set Up Your Environment</router-link>
+          </div>
+          <div class="getting-started-image">
+            <img src="/images/terminal-setup.svg" alt="Terminal Setup" />
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <section class="commander-challenge">
       <div class="container">
         <h2 class="section-title">The 30-Day Content Commander Challenge</h2>
@@ -127,7 +150,7 @@
         </div>
         
         <div class="commander-cta">
-          <p class="cta-text">This is your bridge from technically intimidated to technically capable.</p>
+          <p class="cta-text">This converts your technical anxiety into implementation confidence!</p>
           <a href="https://ccc.ai-captains.com" class="btn btn-accent btn-large">Get Started with the Challenge</a>
         </div>
       </div>
@@ -1111,6 +1134,78 @@ export default {
 @media (max-width: 768px) {
   .form-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Getting Started Section */
+.getting-started {
+  padding: 4rem 0;
+  background-color: white;
+}
+
+.getting-started-lead {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: var(--text-light);
+}
+
+.getting-started-content {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.getting-started-text {
+  flex: 1;
+}
+
+.getting-started-text p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.getting-started-text ul {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.getting-started-text li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.getting-started-text strong {
+  color: var(--primary);
+}
+
+.getting-started-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.getting-started-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .getting-started-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .getting-started-text ul {
+    text-align: left;
+  }
+  
+  .getting-started-image {
+    order: -1;
   }
 }
 </style>

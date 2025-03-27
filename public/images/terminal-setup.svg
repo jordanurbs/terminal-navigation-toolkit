@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Terminal Window -->
+  <rect x="20" y="20" width="360" height="260" rx="8" fill="#1E1E1E"/>
+  
+  <!-- Terminal Header -->
+  <rect x="20" y="20" width="360" height="30" rx="8" fill="#2D2D2D"/>
+  <circle cx="35" cy="35" r="5" fill="#FF5F56"/>
+  <circle cx="50" cy="35" r="5" fill="#FFBD2E"/>
+  <circle cx="65" cy="35" r="5" fill="#27C93F"/>
+  
+  <!-- Terminal Content -->
+  <g font-family="monospace" font-size="14" fill="#FFFFFF">
+    <!-- Prompt -->
+    <text x="30" y="70" fill="#27C93F">$</text>
+    <text x="45" y="70">brew install git</text>
+    
+    <!-- Output -->
+    <text x="30" y="100" fill="#CCCCCC">==> Downloading git...</text>
+    <text x="30" y="120" fill="#CCCCCC">==> Installing git...</text>
+    
+    <!-- Next Command -->
+    <text x="30" y="150" fill="#27C93F">$</text>
+    <text x="45" y="150">brew install node</text>
+    
+    <!-- Next Output -->
+    <text x="30" y="180" fill="#CCCCCC">==> Downloading node...</text>
+    <text x="30" y="200" fill="#CCCCCC">==> Installing node...</text>
+    
+    <!-- Final Command -->
+    <text x="30" y="230" fill="#27C93F">$</text>
+    <text x="45" y="230">brew install python</text>
+    
+    <!-- Final Output -->
+    <text x="30" y="260" fill="#CCCCCC">==> Downloading python...</text>
+    <text x="30" y="280" fill="#CCCCCC">==> Installing python...</text>
+  </g>
+</svg> 

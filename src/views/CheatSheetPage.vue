@@ -12,7 +12,7 @@
                 @change="handleCategoryChange($event)"
                 :value="selectedCategories.length ? selectedCategories[0] : ''"
               >
-                <option value="">Categories ▾</option>
+                <option value="">Categories </option>
                 <option 
                   v-for="category in commandCategories" 
                   :key="category.id"
