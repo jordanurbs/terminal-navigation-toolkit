@@ -54,9 +54,9 @@
       <div class="container">
         <h2 class="section-title">The Bridge You've Been Missing</h2>
         <div class="about-content">
-          <p class="about-lead">It's that mental block that keeps so many of us stuck: when AI tools suggest something that starts with "Open your terminal and type..." we immediately close the tab.</p>
-          <p>The Terminal Navigation Toolkit is your comprehensive hub for conquering command line intimidation and becoming technically capable—without becoming a programmer.</p>
-          <p>Whether you blitz through in a few days or take the full 30-day journey, you'll transform from fearing the command line to confidently directing AI to build exactly what you need—not just what pre-built platforms allow.</p>
+          <p class="about-lead">The Terminal Navigation Toolkit: Your comprehensive gateway to conquering command line anxiety and becoming technically empowered—without becoming a full-stack developer.</p>
+          <p>Whether you master the basics in a weekend or take the full 30-day challenge, you'll transform from avoiding the terminal to confidently directing AI to build custom tools for your specific needs.</p>
+          <p>With this toolkit, you'll bridge the gap between having great AI-powered ideas and having the confidence to bring them to life. The command line isn't just for "real programmers"—it's for builders who want control over what they create.</p>
         </div>
       </div>
     </section>
@@ -159,7 +159,7 @@
         </div>
         
         <div class="commander-cta">
-          <p class="cta-text">This converts your technical anxiety into implementation confidence!</p>
+      
           <a href="https://ccc.ai-captains.com" class="btn btn-accent btn-large">Get Started with the Challenge</a>
         </div>
       </div>
@@ -177,12 +177,12 @@
           </div>
           <div class="jordan-bio">
             <h2 class="section-title">Why I Created This Toolkit</h2>
-            <p>For years, I avoided anything that required using the command line. Every time I saw those intimidating black screens with white text in coding tutorials, I'd immediately close the tab. "This is for real developers," I told myself, "not for people like me."</p>
-            <p>But when ChatGPT and other AI tools started emerging, I quickly hit walls. I'd ask these AIs to help me build things, but then get stuck when they gave me instructions that started with "Open your terminal and type..."</p>
-            <p>The shocking discovery? Learning just enough command line and coding basics is easier than ever now with AI co-pilots.</p>
-            <p>Now, I'm using AI to build web applications and automation tools I never thought possible without a computer science degree.</p>
+            <p>For years, I avoided anything that required using the command line. Every time I saw those intimidating black screens with white text in coding tutorials, I'd immediately close the tab because I just didn't want to deal with it.</p>
+            <p>But when AI tools like Cursor started emerging, I quickly realized this was the future. I'd ask these AIs to help me build things, but then get stuck when it came time to post the site online, make it easy to update, or connect APIs.</p>
+            <p>The shocking discovery? Learning just enough command line and coding basics is now easier than ever with AI co-pilots.</p>
+            <p>Suddenly, I'm using AI to build web applications and automation tools I never thought possible without a computer science degree.</p>
             <p>And you can, too.</p>
-            <p>I created these resources to help you skip the years of intimidation I experienced and jump straight to technical confidence.</p>
+            <p>I created the Terminal Navigation Toolkit to help you skip the years of intimidation I experienced, and jump straight to technical confidence.</p>
             <p>Let's get it!</p>
           </div>
         </div>
