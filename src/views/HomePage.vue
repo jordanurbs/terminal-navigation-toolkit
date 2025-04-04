@@ -54,7 +54,7 @@
       <div class="container">
         <h2 class="section-title">The Bridge You've Been Missing</h2>
         <div class="about-content">
-          <p class="about-lead">The Terminal Navigation Toolkit: Your comprehensive gateway to conquering command line anxiety and becoming technically empowered—without becoming a full-stack developer.</p>
+          <p class="about-lead">The Terminal Navigation Toolkit is Your comprehensive gateway to conquering the foundational knowledge to start vibe coding your own tools — without becoming a full-stack developer!</p>
           <p>Whether you master the basics in a weekend or take the full 30-day challenge, you'll transform from avoiding the terminal to confidently directing AI to build custom tools for your specific needs.</p>
           <p>With this toolkit, you'll bridge the gap between having great AI-powered ideas and having the confidence to bring them to life. The command line isn't just for "real programmers"—it's for builders who want control over what they create.</p>
         </div>
