@@ -29,7 +29,7 @@
       <h3>Don't have an API key?</h3>
       <p>You'll need to purchase an API key to access the challenge content. Once purchased, add the API key to your .env file as CAPTAINS_TOOLKIT_API_KEY.</p>
       <a href="https://ccc.ai-captains.com/" target="_blank" rel="noopener noreferrer" class="purchase-link">
-        Purchase one here
+        Get one here
       </a>
     </div>
   </div>
