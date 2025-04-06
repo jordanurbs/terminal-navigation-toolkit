@@ -1,4 +1,4 @@
-# Terminal Navigation Toolkit v1
+# Terminal Navigation Toolkit
 
 The confidence-building gateway that transforms command line anxiety into technical empowerment—without becoming a full-stack developer.
 
