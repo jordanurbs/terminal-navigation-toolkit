@@ -15,7 +15,7 @@ This repo will help you start feeling comfortable with Github and running projec
 - **Troubleshooting Tips**: Turn error messages from 'scary' to 'solvable'
 - **30-Day Content Commander Challenge** (Premium): Build your first practical AI-powered tool step-by-step
 
-## Getting Started in 3 Simple Steps
+## Getting Started
 
 ### 1. Download This Project
 
