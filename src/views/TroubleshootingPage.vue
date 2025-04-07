@@ -6,7 +6,7 @@
         
         <div class="intro-card">
           <p class="intro-text">
-            <em>Even the bes developers get error messages.<br>The difference is that experienced captains know how to decode and fix them!</em>
+            <em>Even the best developers get error messages.<br>The difference is that experienced captains know how to decode and fix them!</em>
           </p>
         </div>
         
