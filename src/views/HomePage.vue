@@ -4,7 +4,7 @@
       <div class="container hero-container">
         <div class="hero-content">
           <h1>From Command Line Intimidation to Terminal Mastery</h1>
-          <p class="tagline">The difference between AI passengers and AI Captains isn't advanced technical knowledge—it's a foundation of basic control and confidence.</p>
+          <p class="tagline">The difference between no-code passengers and AI Captains isn't advanced technical knowledge—it's a foundation of basic control and confidence.</p>
           
           <div class="hero-cta" v-if="!hasApiKey">
             <div class="button-group">
@@ -77,7 +77,7 @@
           <div class="feature-card">
             <div class="feature-icon">🚀</div>
             <h3>30-Day Content Commander Challenge</h3>
-            <p>The step-by-step journey that transforms you from AI passenger to AI captain by building a practical tool you'll actually use.</p>
+            <p>The step-by-step journey that transforms you from no-code passenger to AI captain by building a practical tool you'll actually use.</p>
             <a href="https://ccc.ai-captains.com" class="feature-link">Get API Key</a>
           </div>
           

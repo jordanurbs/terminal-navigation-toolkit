@@ -292,7 +292,7 @@
               <li><strong>Try the simplest fix first</strong> - Often it's just a typo or missing dependency</li>
               <li><strong>Document solutions in your Captain's Log</strong> - You'll face this error again someday</li>
             </ol>
-            <p class="mindset-reminder">Remember: The difference between a passenger and AI Captain isn't avoiding errors—it's knowing how to navigate through them.</p>
+            <p class="mindset-reminder">Remember: The difference between a passenger and a captain isn't avoiding errors—it's knowing how to navigate through them.</p>
           </div>
         </div>
         

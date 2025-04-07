@@ -621,7 +621,7 @@
           if (filename === 'readme.txt') {
             content = 'Welcome to the Terminal Navigation Toolkit!\n\nThis interactive terminal simulator helps you practice command line skills in a safe environment.\n\nType "help" to see available commands.';
           } else if (filename === 'captains_log.txt') {
-            content = 'Captain\'s Log, Terminal Date 2023.03.14\n\nToday I began my journey from AI passenger to AI captain.\nThe command line is becoming less intimidating with each command I learn.\n\nEnd of log entry.';
+            content = 'Captain\'s Log, Terminal Date 2023.03.14\n\nToday I began my journey from no-code passenger to AI captain.\nThe command line is becoming less intimidating with each command I learn.\n\nEnd of log entry.';
           } else {
             content = `Contents of ${filename}`;
           }
@@ -762,7 +762,7 @@
           if (file.name === 'readme.txt') {
             this.selectedFileContent = 'Welcome to the Terminal Navigation Toolkit!\n\nThis interactive terminal simulator helps you practice command line skills in a safe environment.\n\nType "help" to see available commands.';
           } else if (file.name === 'captains_log.txt') {
-            this.selectedFileContent = 'Captain\'s Log, Terminal Date 2023.03.14\n\nToday I began my journey from AI passenger to AI captain.\nThe command line is becoming less intimidating with each command I learn.\n\nEnd of log entry.';
+            this.selectedFileContent = 'Captain\'s Log, Terminal Date 2023.03.14\n\nToday I began my journey from no-code passenger to AI captain.\nThe command line is becoming less intimidating with each command I learn.\n\nEnd of log entry.';
           } else {
             this.selectedFileContent = `Contents of ${file.name}`;
           }
