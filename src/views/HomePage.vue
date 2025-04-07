@@ -124,7 +124,7 @@
           <div class="journey-step">
             <div class="step-number">1</div>
             <div class="step-content">
-              <h3>Command Line Basics</h3>
+              <h3>Command Line Fundamentals</h3>
               <p>Master essential commands and set up your project workspace with confidence.</p>
               <div class="step-week">Week 1</div>
             </div>
@@ -133,8 +133,8 @@
           <div class="journey-step">
             <div class="step-number">2</div>
             <div class="step-content">
-              <h3>Content Management</h3>
-              <p>Build a system to capture, organize, and retrieve your content ideas effortlessly.</p>
+              <h3>Git & Project Building</h3>
+              <p>Master version control with Git and build your first project with confidence.</p>
               <div class="step-week">Week 2</div>
             </div>
           </div>
