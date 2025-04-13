@@ -76,16 +76,6 @@
                 <span class="status-text">Locked</span>
               </template>
             </div>
-            <div class="challenge-tasks" v-if="getChallengeForDay(day)">
-              <div 
-                v-for="task in getChallengeForDay(day).tasks" 
-                :key="task.id"
-                class="task-item"
-                :class="{ 'completed': getTaskStatus(day, task.id) }"
-              >
-                {{ task.description }}
-              </div>
-            </div>
             <!-- Add Captain's Log entry if it exists -->
             <div v-if="captainsLog[day]" class="challenge-log">
               <div class="log-title">Captain's Log</div>
@@ -324,23 +314,6 @@ export default {
 .status-text {
   font-size: 0.875rem;
   color: var(--text-light);
-}
-
-.challenge-tasks {
-  font-size: 0.875rem;
-}
-
-.task-item {
-  padding: 0.25rem 0;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.task-item.completed {
-  color: var(--success);
-  text-decoration: line-through;
 }
 
 .challenge-log {
