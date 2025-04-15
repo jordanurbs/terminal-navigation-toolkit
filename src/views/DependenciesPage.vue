@@ -67,6 +67,27 @@
       </div>
 
       <div class="card">
+        <div class="card-header" @click="toggleSection('chocolatey')" :aria-expanded="openSection === 'chocolatey'">
+          <h2>Chocolatey Installation (Windows)</h2>
+          <span class="arrow" :class="{ 'arrow-down': openSection === 'chocolatey' }">▼</span>
+        </div>
+        <transition name="slide">
+          <div class="card-body" v-show="openSection === 'chocolatey'">
+            <p>Chocolatey is a popular package manager for Windows that makes it easy to install and manage software from the command line.</p>
+            <p><strong>Requirements:</strong> Windows 7+ / Windows Server 2003+, PowerShell v2+ (v3+ recommended), .NET Framework 4.8+.</p>
+            <ol>
+              <li>Open <strong>PowerShell</strong> as <strong>Administrator</strong>.</li>
+              <li>Run the following command to install Chocolatey:</li>
+            </ol>
+            <div class="terminal">
+              <div class="terminal-input">Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))</div>
+            </div>
+            <p>For more details and troubleshooting, visit the <a href="https://chocolatey.org/install" target="_blank" rel="noopener noreferrer">official Chocolatey installation guide</a>.</p>
+          </div>
+        </transition>
+      </div>
+
+      <div class="card">
         <div class="card-header" @click="toggleSection('git')" :aria-expanded="openSection === 'git'">
           <h2>Git Installation</h2>
           <span class="arrow" :class="{ 'arrow-down': openSection === 'git' }">▼</span>
@@ -86,8 +107,11 @@
             </div>
 
             <h3>Windows</h3>
-            <p>Download the Git installer from the official website:</p>
-            <a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Git for Windows</a>
+            <p>Using Chocolatey package manager:</p>
+            <div class="terminal">
+              <div class="terminal-input">choco install git</div>
+            </div>
+            <p>You may need to restart your console after installation for Git commands to be recognized.</p>
           </div>
         </transition>
       </div>
@@ -112,8 +136,11 @@
             </div>
 
             <h3>Windows</h3>
-            <p>Download the Node.js installer from the official website:</p>
-            <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Node.js</a>
+            <p>Using Chocolatey package manager:</p>
+            <div class="terminal">
+              <div class="terminal-input">choco install nodejs.install</div>
+            </div>
+            <p>This will install both Node.js and npm. You may need to restart your console after installation.</p>
           </div>
         </transition>
       </div>
@@ -138,8 +165,11 @@
             </div>
 
             <h3>Windows</h3>
-            <p>Download the Python installer from the official website:</p>
-            <a href="https://www.python.org/downloads/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Python</a>
+            <p>Using Chocolatey package manager:</p>
+            <div class="terminal">
+              <div class="terminal-input">choco install python</div>
+            </div>
+            <p>After installation, you should be able to run <code>python3</code> directly from the console. You may need to restart your console first.</p>
           </div>
         </transition>
       </div>
