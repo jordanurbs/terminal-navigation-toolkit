@@ -87,28 +87,10 @@
           </div>
         </div>
         
-        <!-- Week selector -->
-        <div class="week-selector">
-          <button 
-            v-for="week in 4" 
-            :key="week"
-            :class="['week-button', currentWeek === week ? 'active' : '']"
-            @click="setCurrentWeek(week)"
-          >
-            Week {{ week }}
-          </button>
-        </div>
-        
-        <!-- Current week theme -->
-        <div v-if="currentWeekTheme" class="week-theme">
-          <h2>{{ currentWeekTheme.theme }}</h2>
-          <p>{{ currentWeekTheme.description }}</p>
-        </div>
-
         <!-- Info sections row -->
         <div class="info-sections-container">
           <div class="info-sections-header">
-            <h3>Getting Started Guide</h3>
+            <h3>Getting Started Guide + Video Overview</h3>
             <button 
               class="toggle-button"
               @click="toggleInfoSections"
@@ -118,6 +100,11 @@
           </div>
           
           <div v-show="showInfoSections" class="info-sections">
+            <!-- Video overview -->
+            <div class="video-overview">
+              <div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1080334862?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="CCC Overview"></iframe></div>
+            </div>
+            
             <!-- Setup section -->
             <div class="setup-section">
               <h3>What are we building?</h3>
@@ -193,6 +180,24 @@
           </div>
         </div>
         
+        <!-- Week selector -->
+        <div class="week-selector">
+          <button 
+            v-for="week in 4" 
+            :key="week"
+            :class="['week-button', currentWeek === week ? 'active' : '']"
+            @click="setCurrentWeek(week)"
+          >
+            Week {{ week }}
+          </button>
+        </div>
+        
+        <!-- Current week theme -->
+        <div v-if="currentWeekTheme" class="week-theme">
+          <h2>{{ currentWeekTheme.theme }}</h2>
+          <p>{{ currentWeekTheme.description }}</p>
+        </div>
+
         <!-- Challenge cards -->
         <div class="challenge-grid">
           <div 
@@ -329,7 +334,8 @@
       ?
     </button>
     <div v-if="showHelp" class="help-message">
-      <p>If you encounter an error with a script, don't panic!</p><p><strong>You're working with AI now.</strong></p><p>Simply highlight the error message and send it to the Cursor agent (Command + I) for instant analysis.</p><p>Remember that not all issues are code errors—many stem from version incompatibilities or system-specific configurations.</p><p>Since every computer environment is unique, occasional customizations may be necessary to make scripts work on your particular setup.</p>
+      <p>If you encounter an error with a script, don't panic!</p><p><strong>You're working with AI now.</strong></p><p>Simply highlight the error message and send it to the Cursor agent for instant analysis.</p><p>Remember that not all issues are code errors—many stem from version incompatibilities or system-specific configurations.</p><p>Since every computer environment is unique, occasional customizations may be necessary to make scripts work on your particular setup.</p>
+      <p>If you're still having trouble, come <a href="https://discord.gg/VxdR8M4UCZ" target="_blank" rel="noopener noreferrer">ask in Discord</a>!</p>
       <button class="close-help" @click="toggleHelp">×</button>
     </div>
   </div>
@@ -705,6 +711,14 @@ export default {
       languages: ['javascript', 'bash', 'shell'],
       ignoreUnescapedHTML: true
     });
+    
+    // Load Vimeo player script
+    if (!document.querySelector('script[src="https://player.vimeo.com/api/player.js"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://player.vimeo.com/api/player.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
   },
   beforeDestroy() {
     // Remove scroll event listener
@@ -1384,6 +1398,14 @@ export default {
 .setup-section, .completion-notes {
   margin: 0;
   height: 100%;
+}
+
+.video-overview {
+  grid-column: 1 / -1;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
