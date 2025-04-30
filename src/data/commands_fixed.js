@@ -70,20 +70,7 @@ export const commands = [
       input: "pwd",
       output: "/Users/jordan/client-projects/acme-website"
     },
-    osSupport: ["mac", "linux"],
-    difficulty: "beginner"
-  },
-  {
-    id: "cd",
-    category: "navigation",
-    command: "cd",
-    description: "Print Working Directory - Shows your current location",
-    businessApplication: "Confirm you're in the right project folder before making changes",
-    example: {
-      input: "cd",
-      output: "C:\\Users\\jordan\\"
-    },
-    osSupport: ["windows-git-bash"],
+    osSupport: ["mac", "linux", "windows-git-bash"],
     difficulty: "beginner"
   },
   {
@@ -96,7 +83,7 @@ export const commands = [
       input: "ls",
       output: "css  images  index.html  js  README.md"
     },
-    osSupport: ["mac", "linux"],
+    osSupport: ["mac", "linux", "windows-git-bash"],
     difficulty: "beginner"
   },
   {
@@ -163,20 +150,7 @@ export const commands = [
       input: "touch meeting-notes.md",
       output: "(creates empty file)"
     },
-    osSupport: ["mac", "linux"],
-    difficulty: "beginner"
-  },
-  {
-    id: "echo ''",
-    category: "files",
-    command: "echo '' > [filename]",
-    description: "Create a new empty file",
-    businessApplication: "Quickly set up placeholder files for your project structure",
-    example: {
-      input: "echo '' > meeting-notes.md",
-      output: "(creates empty file called meeting-notes.md)"
-    },
-    osSupport: ["windows-git-bash"],
+    osSupport: ["mac", "linux", "windows-git-bash"],
     difficulty: "beginner"
   },
   {
@@ -190,19 +164,6 @@ export const commands = [
       output: "(creates new directory)"
     },
     osSupport: ["mac", "linux", "windows"],
-    difficulty: "beginner"
-  },
-  {
-    id: "md",
-    category: "files",
-    command: "md [foldername]",
-    description: "Make Directory - Creates a new folder",
-    businessApplication: "Organize project components without clicking through interfaces",
-    example: {
-      input: "md client-assets",
-      output: "(creates new directory)"
-    },
-    osSupport: ["windows"],
     difficulty: "beginner"
   },
   {
