@@ -32,7 +32,9 @@ const store = createStore({
       isApiKeyValid: false,
       isLoading: false,
       error: null,
-      isSetupComplete: localStorage.getItem('setupComplete') === 'true'
+      isSetupComplete: localStorage.getItem('setupComplete') === 'true',
+      favoritePrompts: JSON.parse(localStorage.getItem('favorite_prompts') || '[]'),
+      notification: null
     }
   },
   getters: {
@@ -70,6 +72,9 @@ const store = createStore({
     },
     isAuthenticated(state) {
       return state.isSetupComplete;
+    },
+    favoritePrompts(state) {
+      return state.favoritePrompts;
     }
   },
   mutations: {
@@ -144,6 +149,23 @@ const store = createStore({
       state.isSetupComplete = isComplete;
       localStorage.setItem('setupComplete', isComplete);
     },
+    addFavoritePrompt(state, prompt) {
+      const exists = state.favoritePrompts.some(p => p.id === prompt.id);
+      if (!exists) {
+        state.favoritePrompts.push(prompt);
+        localStorage.setItem('favorite_prompts', JSON.stringify(state.favoritePrompts));
+      }
+    },
+    removeFavoritePrompt(state, promptId) {
+      state.favoritePrompts = state.favoritePrompts.filter(p => p.id !== promptId);
+      localStorage.setItem('favorite_prompts', JSON.stringify(state.favoritePrompts));
+    },
+    setNotification(state, notification) {
+      state.notification = notification;
+    },
+    clearNotification(state) {
+      state.notification = null;
+    },
     clearAllData(state) {
       // Clear user data
       state.user.name = '';
@@ -169,6 +191,10 @@ const store = createStore({
       localStorage.removeItem('challenges');
       localStorage.removeItem('apiKey');
       localStorage.removeItem('setupComplete');
+
+      // Clear favorite prompts
+      state.favoritePrompts = [];
+      localStorage.removeItem('favorite_prompts');
 
       // Reset current day
       state.currentDay = 1;
@@ -198,73 +224,74 @@ const store = createStore({
     
     async completeSetup({ commit, dispatch }, apiKey) {
       try {
-        commit('setApiKey', apiKey);
-        commit('setApiKeyValid', true);
-        commit('setSetupComplete', true);
-        return true;
+        commit('setLoading', true);
+        
+        // Validate API key and fetch challenges if valid
+        const isValid = await dispatch('validateApiKey', apiKey);
+        
+        if (isValid) {
+          await dispatch('fetchChallenges');
+          commit('setSetupComplete', true);
+        }
+        
+        return isValid;
       } catch (error) {
-        console.error('Error completing setup:', error);
+        console.error('Setup error:', error);
+        commit('setError', 'Failed to complete setup. Please try again.');
         return false;
+      } finally {
+        commit('setLoading', false);
       }
     },
     
     async fetchChallenges({ commit, state }) {
-      commit('setLoading', true)
-      commit('setError', null)
-      
       try {
-        // If setup is complete, only use local data
-        if (state.isSetupComplete) {
-          await dispatch('loadLocalChallenges');
-          commit('setLoading', false);
-          return;
-        }
-
-        // Only try API fetch if we have an API key and setup isn't complete
-        if (state.apiKey) {
-          const storedKey = localStorage.getItem('apiKey');
-          if (storedKey && storedKey !== state.apiKey) {
-            commit('setApiKey', storedKey);
+        commit('setLoading', true);
+        
+        let challenges = [];
+        
+        // Try to fetch challenges from API
+        if (state.apiKey && state.isApiKeyValid) {
+          try {
+            challenges = await fetchChallenges(state.apiKey);
+          } catch (apiError) {
+            console.error('API error:', apiError);
+            // Fallback to local data if API fails
+            challenges = localChallengesData;
           }
-          
-          const result = await fetchChallenges();
-          
-          if (result.success && result.data && result.data.length > 0) {
-            commit('setChallenges', result.data);
-            commit('setApiKeyValidity', true);
-            commit('setLoading', false);
-            return;
-          }
+        } else {
+          challenges = localChallengesData;
         }
         
-        // Fallback to local data
-        commit('setChallenges', localChallengesData || []);
+        // Store challenges in localStorage
+        localStorage.setItem('challenges', JSON.stringify(challenges));
+        
+        commit('setChallenges', challenges);
+        return true;
       } catch (error) {
         console.error('Error fetching challenges:', error);
-        commit('setError', 'Failed to fetch challenges. Using local data as fallback.');
-        commit('setChallenges', localChallengesData || []);
+        commit('setError', 'Failed to fetch challenges. Please try again.');
+        commit('setChallenges', localChallengesData);
+        return false;
       } finally {
         commit('setLoading', false);
       }
     },
     
     async validateApiKey({ commit }, apiKey) {
-      commit('setLoading', true);
-      commit('setError', null);
-      
       try {
+        commit('setLoading', true);
+        
+        // Validate the API key
         const isValid = await validateApiKey(apiKey);
         
-        if (isValid) {
-          commit('setApiKey', apiKey);
-          commit('setApiKeyValidity', true);
-          return true;
-        } else {
-          commit('setApiKeyValidity', false);
-          return false;
-        }
+        commit('setApiKey', apiKey);
+        commit('setApiKeyValidity', isValid);
+        
+        return isValid;
       } catch (error) {
         console.error('Error validating API key:', error);
+        commit('setError', 'Failed to validate API key. Please try again.');
         commit('setApiKeyValidity', false);
         return false;
       } finally {
@@ -273,6 +300,7 @@ const store = createStore({
     },
     
     async completeChallenge({ commit, state }, day) {
+      await updateProgress(state.apiKey, { day, completed: true });
       commit('completeDay', day);
     },
     
@@ -281,24 +309,37 @@ const store = createStore({
     },
     
     async initializeUser({ commit, dispatch, state }) {
-      // Set initial user state
-      commit('setCurrentDay', 1);
-      commit('setCompletedDays', []);
-      commit('setAllTaskStatus', {});
-      commit('setCaptainsLog', {});
-      
-      // Load challenges from local storage
-      await dispatch('loadLocalChallenges');
+      if (state.apiKey) {
+        try {
+          const isValid = await validateApiKey(state.apiKey);
+          commit('setApiKeyValidity', isValid);
+          
+          if (isValid) {
+            await dispatch('fetchChallenges');
+          }
+        } catch (error) {
+          console.error('Error initializing user:', error);
+        }
+      }
     },
     
     async startOver({ commit }) {
-      try {
-        commit('clearAllData');
-        return true;
-      } catch (error) {
-        console.error('Error starting over:', error);
-        return false;
-      }
+      commit('clearAllData');
+    },
+
+    addFavoritePrompt({ commit }, prompt) {
+      commit('addFavoritePrompt', prompt);
+    },
+
+    removeFavoritePrompt({ commit }, promptId) {
+      commit('removeFavoritePrompt', promptId);
+    },
+
+    showNotification({ commit }, { message, type, timeout = 3000 }) {
+      commit('setNotification', { message, type });
+      setTimeout(() => {
+        commit('clearNotification');
+      }, timeout);
     }
   }
 })

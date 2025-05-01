@@ -9,11 +9,12 @@
         </div>
         
         <div class="navbar-links" :class="{ 'active': mobileMenuOpen }">
-          <router-link to="/dependencies" class="nav-link">Getting Started</router-link>
-          <a href="/#bootcamp" class="nav-link">Bootcamp</a>
+          <router-link to="/dependencies" class="nav-link">Start Here</router-link>
+          <a href="/#bootcamp" class="nav-link">Free Bootcamp</a>
+          <router-link to="/prompts" class="nav-link">Prompts</router-link>
           <router-link to="/cheatsheet" class="nav-link">Cheat Sheet</router-link>
-          <router-link to="/challenges" class="nav-link">30-Day Challenge</router-link>
-          <router-link to="/troubleshooting" class="nav-link">Troubleshooting</router-link>
+          <router-link to="/challenges" class="nav-link">Challenge</router-link>
+          <router-link to="/troubleshooting" class="nav-link">Troubleshoot</router-link>
           <router-link to="/progress" class="nav-link highlight">My Progress</router-link>
           <a href="https://github.com/jordanurbs/terminal-navigation-toolkit" target="_blank" rel="noopener noreferrer" class="nav-link github-link">
             <i class="fab fa-github"></i>

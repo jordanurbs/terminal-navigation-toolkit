@@ -39,7 +39,11 @@
               </button>
             </div>
           </div>
+          <p class="purchase-link" style="margin-top: 1rem; color: #333; font-size:.8em">
+          Don't have an API key? <a href="https://ccc.ai-captains.com/" target="_blank" rel="noopener noreferrer">Purchase one here</a>
+        </p>
         </div>
+
       </div>
 
       <div class="start-over-section">

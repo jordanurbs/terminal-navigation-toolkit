@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <NavBar />
+    <Notification />
     <main class="main-content">
       <router-view />
     </main>
@@ -31,11 +32,13 @@
 
 <script>
 import NavBar from './components/NavBar.vue'
+import Notification from './components/Notification.vue'
 
 export default {
   name: 'App',
   components: {
-    NavBar
+    NavBar,
+    Notification
   },
   computed: {
     currentYear() {
@@ -146,6 +149,11 @@ code, pre {
   background-color: #e5a92e;
 }
 
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
 .card {
   background-color: white;
   border-radius: 0.5rem;
@@ -202,5 +210,11 @@ code, pre {
 
 .social-icon:hover {
   color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
 }
 </style>

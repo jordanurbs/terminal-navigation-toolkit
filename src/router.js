@@ -8,6 +8,7 @@ import TroubleshootingPage from './views/TroubleshootingPage.vue'
 import SetupScriptsPage from './views/SetupScriptsPage.vue'
 import ProgressPage from './views/ProgressPage.vue'
 import DependenciesPage from './views/DependenciesPage.vue'
+import PromptsPage from './views/PromptsPage.vue'
 
 const routes = [
   {
@@ -44,6 +45,11 @@ const routes = [
     path: '/dependencies',
     name: 'Dependencies',
     component: DependenciesPage
+  },
+  {
+    path: '/prompts',
+    name: 'Prompts',
+    component: PromptsPage
   }
 ]
 

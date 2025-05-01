@@ -9,7 +9,7 @@
           <div class="hero-cta" v-if="!hasApiKey">
             <div class="button-group">
               <router-link to="/dependencies" class="btn btn-accent">Set-Up Your Machine</router-link>
-              <button @click="scrollToChallenge" class="btn btn-secondary">Start Building</button>
+              <router-link to="/prompts" class="btn btn-secondary">AI Prompts</router-link>
             </div>
           </div>
           
@@ -249,7 +249,7 @@
     <section class="bootcamp-reminder" id="bootcamp">
       <div class="container">
         <div class="bootcamp-card">
-          <h2 class="bootcamp-title">Haven't Completed the<br>Command Line Bootcamp Yet?</h2>
+          <h2 class="bootcamp-title">5-Day Command Line Bootcamp</h2>
           <p class="bootcamp-desc">If you haven't taken the <a style="color: white;" href="https://cli-bootcamp.jordanurbs.com">free 5-Day AI Captain's Command Line Bootcamp</a>, now's the perfect time!</p><p>This mini-course teaches you the basics before diving into the more comprehensive 30-day challenge:</p>
           
           <div class="bootcamp-days">
@@ -330,7 +330,7 @@
         <p class="get-started-text">The moment you run your first successful command, everything changes. The universe will open up once you realize what's possible beyond the walled gardens of no-code AI services.</p>
         
         <div class="get-started-cta">
-          <a href="https://ccc.ai-captains.com" class="btn btn-accent btn-large">Start Your Journey as an AI Captain</a>
+          <a href="https://ccc.ai-captains.com" class="btn btn-accent btn-large">Start Your AI Captain Journey</a>
         </div>
       </div>
     </section>
