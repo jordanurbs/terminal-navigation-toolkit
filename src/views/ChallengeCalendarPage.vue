@@ -1674,6 +1674,7 @@ export default {
   margin: 0.25em 0;
   width: 100%;
   overflow-x: hidden;
+  max-height: 150px;
 }
 
 .task-description :deep(.copy-code-btn) {
