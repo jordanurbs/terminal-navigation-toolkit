@@ -3,8 +3,8 @@ export const promptCategories = [
   {
     id: 'copilot',
     icon: '💻',
-    name: 'Co-Captain Fun',
-    description: 'Guidance formats and system prompts (rules) for your vibe coding co-captain.'
+    name: 'Cursor/Windsurf Rules',
+    description: 'System prompts (rules) for your vibe coding co-captain.'
   },
   {
     id: 'features',
@@ -131,7 +131,7 @@ Include sections for installation, usage examples, API documentation (if applica
   {
     id: 'cursor-prompt',
     categoryId: 'copilot',
-    title: 'Cursor/Windsurf Vibe Coding Rule',
+    title: 'Vibe Coding System Rule',
     tags: ['copilot', 'system'],
     template: `You are a multi-agent system coordinator with two roles: **Planner** and **Executor**. Your job is to help complete the user's request by managing both high-level planning and low-level task execution through the \`.cursor/scratchpad.md\` file.
 
