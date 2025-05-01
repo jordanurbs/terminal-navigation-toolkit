@@ -5,10 +5,31 @@ import { fetchChallenges, updateProgress, getProgress, validateApiKey } from './
 const localChallengesData = [
   {
     day: 1,
-    title: "Sample Challenge",
-    description: "This is a placeholder challenge until API data is loaded",
-    tasks: [{ id: 1, description: "Sample task" }],
-    commands: [{ command: "echo 'hello'", explanation: "Sample command" }],
+    title: "Getting Started with Terminal",
+    description: "Learn the basics of the terminal and command line navigation.",
+    tasks: [
+      { id: 1, description: "Open your terminal" },
+      { id: 2, description: "Run 'pwd' to see your current directory" },
+      { id: 3, description: "Run 'ls' to list files" }
+    ],
+    commands: [
+      { command: "pwd", explanation: "Print working directory" },
+      { command: "ls", explanation: "List files in current directory" }
+    ],
+    week: 1
+  },
+  {
+    day: 2,
+    title: "Basic File Navigation",
+    description: "Learn how to navigate between directories.",
+    tasks: [
+      { id: 1, description: "Use 'cd' to change directories" },
+      { id: 2, description: "Use 'mkdir' to create a new directory" }
+    ],
+    commands: [
+      { command: "cd [directory]", explanation: "Change to specified directory" },
+      { command: "mkdir [name]", explanation: "Create a new directory" }
+    ],
     week: 1
   }
 ];
@@ -88,9 +109,21 @@ const store = createStore({
     },
     setChallenges(state, challenges) {
       console.log('Setting challenges in state:', challenges.length, 'challenges');
-      console.log('First challenge:', challenges[0]);
-      state.challenges = challenges;
+      
+      if (!Array.isArray(challenges)) {
+        console.error('Invalid challenges data - not an array:', challenges);
+        state.challenges = [...localChallengesData];
+        console.log('Using fallback challenge data instead');
+      } else if (challenges.length === 0) {
+        console.warn('Empty challenges array provided');
+        state.challenges = [...localChallengesData];
+        console.log('Using fallback challenge data instead');
+      } else {
+        state.challenges = [...challenges];
+      }
+      
       console.log('Updated state challenges length:', state.challenges.length);
+      console.log('First challenge:', state.challenges[0]);
     },
     completeDay(state, day) {
       if (!state.progress.completedDays.includes(day)) {
@@ -204,20 +237,37 @@ const store = createStore({
   actions: {
     async loadLocalChallenges({ commit }) {
       try {
+        console.log('Attempting to load challenges from localStorage');
         // Get challenges from localStorage
         const storedChallenges = localStorage.getItem('challenges');
         if (storedChallenges) {
+          console.log('Found challenges in localStorage');
           const challenges = JSON.parse(storedChallenges);
-          commit('setChallenges', challenges);
-          return true;
+          console.log(`Parsed ${challenges.length} challenges from localStorage`);
+          
+          if (challenges && Array.isArray(challenges) && challenges.length > 0) {
+            commit('setChallenges', challenges);
+            console.log('Successfully loaded challenges from localStorage');
+            return true;
+          } else {
+            console.warn('Challenges in localStorage were empty or invalid, using fallback data');
+            commit('setChallenges', localChallengesData);
+            // Store fallback data in localStorage to prevent future issues
+            localStorage.setItem('challenges', JSON.stringify(localChallengesData));
+            return false;
+          }
         } else {
-          // If no challenges in localStorage, use fallback data
+          console.warn('No challenges found in localStorage, using fallback data');
           commit('setChallenges', localChallengesData);
+          // Store fallback data in localStorage to prevent future issues
+          localStorage.setItem('challenges', JSON.stringify(localChallengesData));
           return false;
         }
       } catch (error) {
         console.error('Error loading local challenges:', error);
         commit('setChallenges', localChallengesData);
+        // Store fallback data in localStorage to prevent future issues
+        localStorage.setItem('challenges', JSON.stringify(localChallengesData));
         return false;
       }
     },
@@ -247,31 +297,46 @@ const store = createStore({
     async fetchChallenges({ commit, state }) {
       try {
         commit('setLoading', true);
+        console.log('Fetching challenges, API key valid:', state.isApiKeyValid);
         
         let challenges = [];
         
         // Try to fetch challenges from API
         if (state.apiKey && state.isApiKeyValid) {
           try {
+            console.log('Attempting to fetch challenges from API');
             challenges = await fetchChallenges(state.apiKey);
+            console.log('Fetched challenges from API:', challenges ? challenges.length : 0);
+            
+            // Verify challenges data
+            if (!challenges || !Array.isArray(challenges) || challenges.length === 0) {
+              console.warn('API returned invalid challenges data, using fallback');
+              challenges = [...localChallengesData];
+            }
           } catch (apiError) {
-            console.error('API error:', apiError);
+            console.error('API error when fetching challenges:', apiError);
             // Fallback to local data if API fails
-            challenges = localChallengesData;
+            challenges = [...localChallengesData];
           }
         } else {
-          challenges = localChallengesData;
+          console.log('No valid API key, using fallback challenge data');
+          challenges = [...localChallengesData];
         }
         
         // Store challenges in localStorage
         localStorage.setItem('challenges', JSON.stringify(challenges));
+        console.log('Stored challenges in localStorage, count:', challenges.length);
         
         commit('setChallenges', challenges);
         return true;
       } catch (error) {
-        console.error('Error fetching challenges:', error);
-        commit('setError', 'Failed to fetch challenges. Please try again.');
+        console.error('Error in fetchChallenges action:', error);
+        commit('setError', 'Failed to fetch challenges. Using local data instead.');
+        
+        // Ensure we always have challenges data
         commit('setChallenges', localChallengesData);
+        localStorage.setItem('challenges', JSON.stringify(localChallengesData));
+        
         return false;
       } finally {
         commit('setLoading', false);

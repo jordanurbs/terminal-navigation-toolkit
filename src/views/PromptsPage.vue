@@ -361,6 +361,8 @@ export default {
   margin-bottom: 1rem;
   border-left: 3px solid var(--accent);
   overflow-x: auto;
+  max-height: 150px;
+  overflow-y: auto;
 }
 
 .prompt-description {

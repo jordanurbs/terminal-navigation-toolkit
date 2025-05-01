@@ -21,7 +21,7 @@
             class="name-input"
             @keyup.enter="startJourney"
           >
-          <button @click="startJourney" class="start-button">Start Journey</button>
+          <button @click.prevent="startJourney" class="start-button">Start Journey</button>
         </div>
       </div>
       
@@ -368,9 +368,23 @@ export default {
   },
   created() {
     // Load challenges when component is created
-    if (this.isSetupComplete) {
-      this.$store.dispatch('loadLocalChallenges');
-    }
+    console.log('ChallengeCalendarPage created hook running');
+    console.log('isSetupComplete:', this.isSetupComplete);
+    
+    // Always load challenges, regardless of setup status
+    this.$store.dispatch('loadLocalChallenges').then(success => {
+      console.log('Loaded challenges status:', success);
+      console.log('Challenge count:', this.challenges.length);
+      
+      // If we're set up but don't have challenges, try to load them
+      if (this.challenges.length === 0) {
+        console.warn('No challenges loaded, forcing fallback data');
+        localStorage.removeItem('challenges'); // Clear potentially corrupted data
+        this.$store.dispatch('loadLocalChallenges');
+      }
+    }).catch(error => {
+      console.error('Error loading challenges:', error);
+    });
   },
   data() {
     return {
@@ -458,8 +472,18 @@ export default {
   methods: {
     startJourney() {
       if (this.newUserName.trim()) {
+        console.log('Setting user name:', this.newUserName.trim());
         this.$store.commit('setUserName', this.newUserName.trim());
         this.$store.dispatch('initializeUser');
+      } else {
+        // If no name entered, show a notification
+        console.log('No name entered');
+        // Optional: Add a visual indication that a name is required
+        const nameInput = document.querySelector('.name-input');
+        if (nameInput) {
+          nameInput.classList.add('error');
+          setTimeout(() => nameInput.classList.remove('error'), 2000);
+        }
       }
     },
     setCurrentWeek(week) {
@@ -491,9 +515,26 @@ export default {
       return milestone ? milestone.reward : 'Next Milestone';
     },
     async onSetupComplete() {
+      console.log('Setup completed, loading challenges');
       // Load challenges from local storage if needed
       if (!this.challenges.length) {
-        await this.$store.dispatch('loadLocalChallenges');
+        console.log('No challenges in store, loading from localStorage');
+        try {
+          await this.$store.dispatch('loadLocalChallenges');
+          console.log('Challenges loaded, count:', this.challenges.length);
+          
+          // Double check if challenges were actually loaded
+          if (this.challenges.length === 0) {
+            console.warn('No challenges loaded after setup completion, resetting localStorage');
+            localStorage.removeItem('challenges');
+            await this.$store.dispatch('loadLocalChallenges');
+            console.log('Reloaded challenges, count:', this.challenges.length);
+          }
+        } catch (error) {
+          console.error('Error loading challenges after setup completion:', error);
+        }
+      } else {
+        console.log('Challenges already loaded in store, count:', this.challenges.length);
       }
     },
     moveToNextDay(currentDay) {
@@ -679,7 +720,6 @@ export default {
       document.body.appendChild(a);
       a.click();
       window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
       
       // Show success message
       this.$toast.success('Captain\'s Log downloaded successfully! 📝');
@@ -957,6 +997,18 @@ export default {
   font-size: 1rem;
 }
 
+.name-input.error {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 1px #e53e3e;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
 .start-button {
   padding: 0.75rem 1.5rem;
   background-color: var(--primary);
@@ -965,11 +1017,18 @@ export default {
   border-radius: 0 4px 4px 0;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .start-button:hover {
   background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.start-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .week-selector {

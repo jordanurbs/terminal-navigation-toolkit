@@ -1,6 +1,18 @@
 // Prompt Categories
 export const promptCategories = [
   {
+    id: 'copilot',
+    icon: '💻',
+    name: 'Co-Captain Fun',
+    description: 'Guidance formats and system prompts (rules) for your vibe coding co-captain.'
+  },
+  {
+    id: 'features',
+    icon: '💻',
+    name: 'Features or Changes',
+    description: 'Add new functionality or adjust infrastructure.'
+  },
+  {
     id: 'projectsetup',
     icon: '🏗️',
     name: 'Project Setup',
@@ -12,12 +24,7 @@ export const promptCategories = [
     name: 'Debugging',
     description: 'Prompts to help you identify and fix issues in your code with AI assistance.'
   },
-  {
-    id: 'copilot',
-    icon: '💻',
-    name: 'Co-Captain Fun',
-    description: 'Guidance formats and system prompts (rules) for your vibe coding co-captain.'
-  },
+
   {
     id: 'documentation',
     icon: '📝',
@@ -221,7 +228,7 @@ Include sections for installation, usage examples, API documentation (if applica
   },
   {
     id: 'ssr-migration',
-    categoryId: 'copilot',
+    categoryId: 'features',
     title: 'Transform from Client Side to Server Side Rendering',
     tags: ['javascript', 'seo'],
     template: `This is a React website for a [SERVICE], so I assume it renders client-side. But we need to change it to render server side for better SEO. We will be deploying on [NETLIFY,VERCEL,ETC] and using [SUPABASE,UPSTASH,ETC] for data. There are no images for the db yet.

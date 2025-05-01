@@ -3,12 +3,13 @@
     <section class="hero">
       <div class="container hero-container">
         <div class="hero-content">
-          <h1>From Command Line Intimidation to Terminal Mastery</h1>
-          <p class="tagline">The difference between no-code passengers and AI Captains isn't advanced technical knowledge—it's a foundation of basic control and confidence.</p>
+          <h1>Command the Terminal, Unlock Your AI Potential</h1>
+          <p class="tagline">The Terminal Navigation Toolkit helps you develop your true vibe coding foundatio</p>
+          <p class="tagline">Build with AI confidently, run your own projects locally, and bridge the gap between great ideas and real-world creation—without becoming a full-stack developer.</p>
           
           <div class="hero-cta" v-if="!hasApiKey">
             <div class="button-group">
-              <router-link to="/dependencies" class="btn btn-accent">Set-Up Your Machine</router-link>
+              <router-link to="/dependencies" class="btn btn-accent">Set Up Your Machine</router-link>
               <router-link to="/prompts" class="btn btn-secondary">AI Prompts</router-link>
             </div>
           </div>
