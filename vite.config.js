@@ -14,7 +14,14 @@ export default defineConfig({
     port: 3000,
     strictPort: true,
     host: true,
-    open: true
+    open: true,
+    proxy: {
+      '/webhook-proxy': {
+        target: 'https://n8n.spirals.me/webhook-test',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/webhook-proxy/, '')
+      }
+    }
   },
   build: {
     outDir: 'dist',

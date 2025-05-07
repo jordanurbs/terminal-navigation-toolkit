@@ -4,7 +4,7 @@
       <div class="container hero-container">
         <div class="hero-content">
           <h1>Command the Terminal, Unlock Your AI Potential</h1>
-          <p class="tagline">The Terminal Navigation Toolkit helps you develop your true vibe coding foundatio</p>
+          <p class="tagline">The Terminal Navigation Toolkit helps you develop your true vibe coding foundation.</p>
           <p class="tagline">Build with AI confidently, run your own projects locally, and bridge the gap between great ideas and real-world creation—without becoming a full-stack developer.</p>
           
           <div class="hero-cta" v-if="!hasApiKey">

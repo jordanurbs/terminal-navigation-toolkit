@@ -40,3 +40,4 @@ Thumbs.db
 
 # En
 .env
+.env.local

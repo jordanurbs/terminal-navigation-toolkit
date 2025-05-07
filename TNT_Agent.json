@@ -1,0 +1,237 @@
+{
+  "name": "TNT Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "02a8e3b9-f7b6-4489-b1d5-b373e21c9e0f",
+        "responseMode": "responseNode",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "http://localhost:3000"
+              },
+              {
+                "name": "Access-Control-Allow-Methods",
+                "value": "POST, OPTIONS"
+              },
+              {
+                "name": "Access-Control-Allow-Headers",
+                "value": "Content-Type, Accept"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        700,
+        -420
+      ],
+      "id": "f85a91d5-8111-4b51-8601-902d6c4e6f11",
+      "name": "Webhook",
+      "webhookId": "02a8e3b9-f7b6-4489-b1d5-b373e21c9e0f"
+    },
+    {
+      "parameters": {
+        "functionCode": "// Process the incoming chat message\nconst incoming = $input.item.json;\n\n// Special command for testing markdown\nif (incoming.message && incoming.message.trim().toLowerCase() === '/markdown-test') {\n  // Return a markdown test message instead of the regular flow\n  return {\n    message: 'Here is a **markdown formatting** test:\\n\\n' + \n             '## Headings\\n' + \n             'Regular text with *italic* and **bold** formatting.\\n\\n' + \n             '### Code Examples\\n' + \n             'Inline code: `const name = \"JAX\";`\\n\\n' + \n             'Code block:\\n```javascript\\n' + \n             'function sayHello(name) {\\n' + \n             '  console.log(`Hello, ${name}!`);\\n' + \n             '}\\n\\n' + \n             'sayHello(\"Captain\");\\n' + \n             '```\\n\\n' + \n             '### Lists\\n' + \n             '* Unordered list item 1\\n' + \n             '* Unordered list item 2\\n\\n' + \n             '1. Ordered list item 1\\n' + \n             '2. Ordered list item 2\\n\\n' + \n             '### Table\\n' + \n             '| Command | Description |\\n' + \n             '| ------- | ----------- |\\n' + \n             '| `cd` | Change directory |\\n' + \n             '| `ls` | List contents |\\n' + \n             '| `echo` | Display message |'\n  };\n}\n\n// Check if this is a first-time greeting to add markdown instructions\nif (incoming.message && !incoming.history.find(msg => msg.sender === 'jax' && msg.text.includes('markdown'))) {\n  // Add a tip about markdown support to the history\n  $input.item.json.history.push({\n    sender: 'jax',\n    text: \"✨ *Tip:* You can use **markdown** in your messages! Format code with \\`backticks\\` or with code blocks:\\n```javascript\\nconsole.log('Hello World')\\n```\\n\\nTry typing `/markdown-test` to see all supported formatting.\"\n  });\n}\n\nreturn $input.item;"
+      },
+      "id": "e7e6ac14-37b7-4925-a05e-3bde4b81fe89",
+      "name": "Process Chat Input",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        920,
+        -420
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Ahoy! 👋 CaptainJAX reporting for duty. What can I help you with?",
+        "options": {}
+      },
+      "id": "308c5ef5-0977-4ff0-b209-88e012f5f824",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [
+        920,
+        -220
+      ],
+      "webhookId": "53c136fe-3e77-4709-a143-fe82746dd8b6",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {},
+      "id": "0334f4d8-dd44-4f4d-b7d1-b11b54d01a13",
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "position": [
+        1380,
+        -40
+      ],
+      "typeVersion": 1.3
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "id": "ed99daba-ba2d-4d4b-ab52-00d8118c9f16",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [
+        1168,
+        -100
+      ],
+      "typeVersion": 1.2,
+      "credentials": {
+        "openAiApi": {
+          "id": "LSy7Fl6N9LYVQG6d",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are JAX, a helpful assistant for the Content Commander Challenge. Your role is to provide guidance on terminal commands, programming concepts, and troubleshooting help. Be friendly, concise, and technically accurate. When users have questions about terminal commands or programming tasks, provide straightforward, accurate answers. When users are confused or stuck, provide clear step-by-step guidance. If you don't know something, admit it rather than making up information.\n\nYou can use markdown formatting in your responses, which will be rendered properly in the chat interface. For example:\n- Use **bold** for emphasis\n- Format code with `backticks` for inline code\n- Use ```language\ncode block\n``` for multi-line code examples\n- Create tables with | markdown syntax |\n\nWhen showing command examples, always use code blocks with the appropriate language (bash, javascript, etc)."
+        }
+      },
+      "id": "a7217477-e2ac-4863-818c-28cbd101e711",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1160,
+        -320
+      ],
+      "typeVersion": 1.8
+    },
+    {
+      "parameters": {
+        "functionCode": "// Format the message for better presentation\nconst input = $input.item.json;\n\n// Get the text content from the input\nlet text = input.text || input.message || JSON.stringify({output: \"Sorry, I couldn't process your request.\"});\n\n// If the response isn't already in JSON format, wrap it in a JSON structure\ntry {\n  // Check if the text is already a stringified JSON object\n  const parsedText = JSON.parse(text);\n  // If it has the expected output property, we're good, otherwise add it\n  if (!parsedText.output) {\n    // If we have a text/message property but no output, use that as output\n    if (parsedText.text || parsedText.message) {\n      parsedText.output = parsedText.text || parsedText.message;\n    } else {\n      // Otherwise just use the whole object as output\n      text = JSON.stringify({output: text});\n    }\n  } else {\n    // It already has output, just use as is\n    text = JSON.stringify(parsedText);\n  }\n} catch (e) {\n  // Not JSON, wrap it in our structure\n  text = JSON.stringify({output: text});\n}\n\nreturn { text };"
+      },
+      "id": "2c0b159f-45d9-46b0-866a-fc3538ba699e",
+      "name": "Format Response",
+      "type": "n8n-nodes-base.function",
+      "position": [
+        1516,
+        -320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.2,
+      "position": [
+        1736,
+        -320
+      ],
+      "id": "11b9e0aa-fc57-41ce-a2df-c2c6691347df",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Process Chat Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Chat Input": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Response": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d92edb4a-e4a4-4ec8-8c4f-85810f47f22a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9b24fa27e95a0f300e887c68ec13244b714fc607092e9874698b1673f91aa186"
+  },
+  "id": "Y0KfFj5sXvR5THmI",
+  "tags": []
+}
