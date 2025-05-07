@@ -345,7 +345,7 @@
       </div>
       <div class="jax-chat-label">
         <span class="jax-chat-title">Ask Captain JAX</span>
-        <span class="jax-chat-subtitle">Command Line Colonel</span>
+        <span class="jax-chat-subtitle">Command Line Expert</span>
       </div>
     </div>
     <ChatModal :visible="showHelp" @close="toggleHelp" @minimize="minimizeChat">
@@ -2114,6 +2114,11 @@ pre {
   word-break: break-word !important;
   margin-bottom: 1rem; /* Add margin for spacing */
 }
+.jax-bubble code {
+  background-color: #f8f9fa !important;
+  border-radius: 3px !important;
+  padding: 3px 6px !important;
+}
 
 .complete-challenge-container {
   margin: 1.5rem 0;
@@ -2165,6 +2170,10 @@ pre {
   color: white;
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.jax-bubble {
+  padding: .75rem 1rem .5rem 2rem !important;
 }
 
 /* Enhanced list styling for chat */
