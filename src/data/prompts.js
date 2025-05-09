@@ -7,16 +7,16 @@ export const promptCategories = [
     description: 'System prompts (rules) for your vibe coding co-captain.'
   },
   {
+    id: 'projectsetup',
+    icon: '🏗️',
+    name: 'Project Setup',
+    description: 'Prompts for setting up new projects, creating PRDs (Product Requirements Documents), initializing repositories, and configuring development environments.'
+  },
+  {
     id: 'features',
     icon: '💻',
     name: 'Features or Changes',
     description: 'Add new functionality or adjust infrastructure.'
-  },
-  {
-    id: 'projectsetup',
-    icon: '🏗️',
-    name: 'Project Setup',
-    description: 'Prompts for setting up new projects, initializing repositories, and configuring development environments.'
   },
   {
     id: 'debugging',
@@ -74,6 +74,47 @@ Set up the basic project structure with appropriate directory organization, conf
       'Specify your operating system for more targeted exclusions',
       'Mention any specific IDE or editor you use',
       'Include any unusual file types your project might generate'
+    ]
+  },
+  {
+    id: 'directory-prd',
+    categoryId: 'projectsetup',
+    title: 'Directory Build - PRD Prompt',
+    tags: ['astro', 'seo', 'directory', 'prd'],
+    template: `Create a PRD for this build:
+
+A [NUMBER OF RESOURCES] web directory interface using the Astro framework.
+
+The site must use a Hybrid SSG/SSR approach, where directory listing pages, category/tag browse pages, about/contact/info pages, and the initial state of search results use SSG. 
+
+For later versions (after the MVP), I will also want an administration backend linked directly to the database so I can modify or add new records direct from my browser. Any backend functionality like this (including user submissions, admin dashboard and content management, personalized content sections, or real-time search) should be SSR. 
+
+Consider implementing client-side caching strategies and lazy-loading for interactive components.
+
+The directory will be deployed on Netlify but I want to use minimal (if any) Netlify functions in regular usage of the app. 
+
+SEO Considerations: 
+Its code should be heavily Search Engine Optimized with a sitemap.xml and robots.txt. 
+
+[INSERT SEO METADATA STRATEGY]
+
+[IF USING A MAP: It will use Google Maps/OpenStreetMap embeds but I want to minimize API calls (so only load map if user clicks load button)]
+
+[DATA ON SUPABASE/SERVICE: The resources data will use Supabase. Attached is a CSV export of the sample data format we will use.]
+
+[DATA AS JSON: My resources data will stay in JSON files. Attached is a sample.]
+
+For later versions, users to the site should also be able to request tweaks, modifications, or submit new listings. They should not need to login but they should provide a name and email [AND X ACCOUNT]
+
+Attached is a screenshot of a front end design I like. Let's try to keep a design like that but be creative in enhancing its aesthetic appeal. It should be designed mobile-first.
+
+Include a database schema in the PRD.`,
+    description: 'Generate a comprehensive Product Requirements Document (PRD) for an Astro-based web directory with hybrid SSG/SSR rendering and strong SEO focus.',
+    tips: [
+      'Include details about the number and types of resources in your directory',
+      'Specify your preferred SEO metadata strategy',
+      'Attach any design references or data samples for more accurate results',
+      'Indicate if you need map integration and which mapping service you prefer'
     ]
   },
   {
@@ -255,4 +296,4 @@ I'm comfortable with "vibe coding" and learning as we go, but need a clear roadm
 // Helper function to get prompts by category
 export const getPromptsByCategory = (categoryId) => {
   return prompts.filter(prompt => prompt.categoryId === categoryId);
-}; 
+};
