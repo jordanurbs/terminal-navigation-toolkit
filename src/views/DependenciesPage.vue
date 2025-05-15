@@ -1,20 +1,20 @@
 <template>
   <div class="container">
-    <h1>Standard Dependencies Installation Guide</h1>
-    <p class="lead">This guide will help you install the essential tools needed for development: Git, Node.js, and Python.</p>
+    <h1>"Vibe Coding" Standard Setup Guide</h1>
+    <p class="lead">This page is basically all the tools you'll need to get your machine ready for development. If you're unsure or wary of what something is, just Google it or ask your AI co-captain.</p>
 
     <div class="accordion">
       <div class="card">
         <div class="card-header" @click="toggleSection('essential')" :aria-expanded="openSection === 'essential'">
-          <h2>Essential Tools</h2>
+          <h2>1. Essentials: Tools  & Accounts</h2>
           <span class="arrow" :class="{ 'arrow-down': openSection === 'essential' }">▼</span>
         </div>
         <transition name="slide">
           <div class="card-body" v-show="openSection === 'essential'">
-            <h3>1. Install Cursor</h3>
-            <p>Cursor is an AI-powered code editor that will be your primary development environment. It's like VS Code but with built-in AI assistance.</p>
+            <h3>1. Install Cursor (Your AI-Powered Coding Software)</h3>
+            <p>Here, when we say "Cursor," we simply mean your AI-enhanced coding software. Cursor is an AI-powered code editor that will be your primary development environment. You can also look into Windsurf or Github Co-pilot, as they are all very similar.</p>
             <a href="https://cursor.sh" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Cursor</a>
-
+            <p class="mt-3">In the AI Captains Academy, we'll be using Cursor, but you can use any AI-powered coding software you're most comfortable with.</p>
             <h3>2. Create a GitHub Account</h3>
             <p>GitHub is where you'll store your code and collaborate with others. It's essential for version control and sharing your work.</p>
             <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Sign Up for GitHub</a>
@@ -43,12 +43,13 @@
       </div>
 
       <div class="card">
-        <div class="card-header" @click="toggleSection('homebrew')" :aria-expanded="openSection === 'homebrew'">
-          <h2>Homebrew Installation (macOS)</h2>
-          <span class="arrow" :class="{ 'arrow-down': openSection === 'homebrew' }">▼</span>
+        <div class="card-header" @click="toggleSection('package-manager')" :aria-expanded="openSection === 'package-manager'">
+          <h2>2. Install Your Package Manager</h2>
+          <span class="arrow" :class="{ 'arrow-down': openSection === 'package-manager' }">▼</span>
         </div>
         <transition name="slide">
-          <div class="card-body" v-show="openSection === 'homebrew'">
+          <div class="card-body" v-show="openSection === 'package-manager'">
+            <h3>macOS: Homebrew</h3>
             <p>Homebrew is a package manager for macOS that makes it easy to install software. It's recommended to install Homebrew first as it will make installing other tools much easier.</p>
             <div class="terminal">
               <div class="terminal-input">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
@@ -62,17 +63,8 @@
             <div class="terminal">
               <div class="terminal-input">brew --version</div>
             </div>
-          </div>
-        </transition>
-      </div>
 
-      <div class="card">
-        <div class="card-header" @click="toggleSection('chocolatey')" :aria-expanded="openSection === 'chocolatey'">
-          <h2>Chocolatey Installation (Windows)</h2>
-          <span class="arrow" :class="{ 'arrow-down': openSection === 'chocolatey' }">▼</span>
-        </div>
-        <transition name="slide">
-          <div class="card-body" v-show="openSection === 'chocolatey'">
+            <h3>Windows: Chocolatey</h3>
             <p>Chocolatey is a popular package manager for Windows that makes it easy to install and manage software from the command line.</p>
             <p><strong>Requirements:</strong> Windows 7+ / Windows Server 2003+, PowerShell v2+ (v3+ recommended), .NET Framework 4.8+.</p>
             <ol>
@@ -89,7 +81,7 @@
 
       <div class="card">
         <div class="card-header" @click="toggleSection('git')" :aria-expanded="openSection === 'git'">
-          <h2>Git Installation</h2>
+          <h2>3. Git Installation</h2>
           <span class="arrow" :class="{ 'arrow-down': openSection === 'git' }">▼</span>
         </div>
         <transition name="slide">
@@ -118,7 +110,7 @@
 
       <div class="card">
         <div class="card-header" @click="toggleSection('node')" :aria-expanded="openSection === 'node'">
-          <h2>Node.js Installation</h2>
+          <h2>4. Node.js Installation</h2>
           <span class="arrow" :class="{ 'arrow-down': openSection === 'node' }">▼</span>
         </div>
         <transition name="slide">
@@ -147,7 +139,7 @@
 
       <div class="card">
         <div class="card-header" @click="toggleSection('python')" :aria-expanded="openSection === 'python'">
-          <h2>Python Installation</h2>
+          <h2>5. Python Installation</h2>
           <span class="arrow" :class="{ 'arrow-down': openSection === 'python' }">▼</span>
         </div>
         <transition name="slide">
@@ -176,7 +168,7 @@
 
       <div class="card">
         <div class="card-header" @click="toggleSection('verify')" :aria-expanded="openSection === 'verify'">
-          <h2>Verification</h2>
+          <h2>6. Verification</h2>
           <span class="arrow" :class="{ 'arrow-down': openSection === 'verify' }">▼</span>
         </div>
         <transition name="slide">
@@ -193,7 +185,7 @@
     </div>
 
     <div class="dependencies-cta">
-      <a :href="hasApiKey ? '/challenges' : 'https://ccc.ai-captains.com'" class="btn btn-accent btn-large">
+      <a :href="hasApiKey ? '/challenges' : '/#bootcamp'" class="btn btn-accent btn-large">
         Start Building
       </a>
     </div>

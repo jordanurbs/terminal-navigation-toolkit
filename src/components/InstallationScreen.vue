@@ -1,6 +1,6 @@
 <template>
   <div class="installation-screen">
-    <h2>Terminal Navigation Toolkit Setup</h2>
+    <h2>Get Started</h2>
     <div class="setup-steps">
       <!-- Step 1: API Key Validation -->
       <div v-if="currentStep === 1" class="setup-step">
@@ -19,7 +19,7 @@
             class="validate-button"
             :disabled="isLoading"
           >
-            <span v-if="isLoading">Validating...</span>
+            <span v-if="isLoading">Contacting Mission Control...</span>
             <span v-else>Validate & Download</span>
           </button>
         </div>

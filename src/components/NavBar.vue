@@ -3,8 +3,8 @@
       <div class="container navbar-container">
         <div class="navbar-brand">
           <router-link to="/" class="navbar-logo">
-            <img src="/images/terminal-icon.svg" alt="Terminal Icon">
-            <span class="logo-text">Terminal Nav Toolkit</span>
+            <img src="/images/terminal-icon.svg" alt="Terminal Navigation Toolkit Logo" class="terminal-icon">
+            <img src="/images/TNT-logo-min-text.png" alt="TNT logo" class="aicaptains-logo">
           </router-link>
         </div>
         
@@ -75,14 +75,14 @@
   }
   
   .navbar-logo img {
-    height: 40px;
+    height: 60px;
     margin-right: 0.5rem;
   }
   
-  .logo-text {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 1.25rem;
+  .aicaptains-logo {
+    height: 30px;
+    margin: 0;
+    object-fit: contain;
   }
   
   .navbar-links {

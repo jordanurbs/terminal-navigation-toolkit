@@ -3,6 +3,7 @@
     <section class="hero">
       <div class="container hero-container">
         <div class="hero-content">
+
           <h1>Command the Terminal, Unlock Your AI Potential</h1>
           <p class="tagline">The Terminal Navigation Toolkit helps you develop your true vibe coding foundation.</p>
           <p class="tagline">Build with AI confidently, run your own projects locally, and bridge the gap between great ideas and real-world creation—without becoming a full-stack developer.</p>
@@ -10,7 +11,7 @@
           <div class="hero-cta" v-if="!hasApiKey">
             <div class="button-group">
               <router-link to="/dependencies" class="btn btn-accent">Set Up Your Machine</router-link>
-              <router-link to="/prompts" class="btn btn-secondary">AI Prompts</router-link>
+              <router-link to="/prompts" class="btn btn-secondary">Prompts</router-link>
             </div>
           </div>
           
@@ -445,7 +446,7 @@ export default {
 }
 
 .hero {
-  padding: 3rem 0;
+  padding: 8rem 1rem;
   background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.85)), url('/images/background1.jpg');
   background-attachment: fixed;
   background-position: center;
@@ -470,6 +471,17 @@ export default {
 .hero-content {
   flex: 1;
   max-width: 600px;
+}
+
+.hero-icon {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 2rem;
+}
+
+.terminal-icon {
+  height: 80px; /* 2x the original 40px size */
+  width: auto;
 }
 
 .hero-content h1 {

@@ -1,8 +1,8 @@
 <template>
   <div class="challenge-calendar-page">
     <div class="container">
-      <h1 class="page-title">30-Day Content Commander</h1>
-      <p class="page-subtitle">Build Your Own AI-Powered Content Creation App</p>
+      <h1 class="page-title">30-Day Content Commander Challenge</h1>
+      <p class="page-subtitle">Build Your Own AI-Powered Content Creation App... from the terminal!</p>
       
       <!-- Installation Screen -->
       <div v-if="!isSetupComplete" class="setup-section">
