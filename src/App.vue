@@ -80,6 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 
 code, pre {
   font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 1rem;
 }
 
 .container {

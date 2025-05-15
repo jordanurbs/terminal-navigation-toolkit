@@ -345,7 +345,7 @@
       </div>
       <div class="jax-chat-label">
         <span class="jax-chat-title">Ask Captain JAX</span>
-        <span class="jax-chat-subtitle">Command Line Expert</span>
+        <span class="jax-chat-subtitle">Command Line Veteran</span>
       </div>
     </div>
     <ChatModal :visible="showHelp" @close="toggleHelp" @minimize="minimizeChat">
