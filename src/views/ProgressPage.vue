@@ -48,8 +48,10 @@
 
       <div class="start-over-section">
         <button @click="confirmStartOver" class="start-over-button">
-          Start Over
+          Reset Progress
         </button>
+        <p class="purchase-link" style="margin-top: 1rem; color: #333; font-size:.8em">
+        (Do this if you need to update the challenge tasks.)</p>
       </div>
       
       <div class="challenge-list">

@@ -3575,8 +3575,8 @@ pre {
   display: block;
   margin: 0.25em 0;
   width: 100%;
-  overflow-x: hidden;
-  max-height: 150px;
+  overflow-x: auto;
+  max-height: none;
 }
 
 .task-description :deep(.copy-code-btn) {
@@ -3605,7 +3605,7 @@ pre {
 }
 
 .task-description :deep(.hljs) {
-  padding: 0.5em 2em 0.5em 0.75em !important;
+  padding: 1rem 3rem 1rem 1rem !important;
   margin: 0 !important;
   background-color: #f8f9fa !important;
   border-radius: 3px !important;
