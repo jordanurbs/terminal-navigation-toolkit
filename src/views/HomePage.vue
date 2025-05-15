@@ -252,7 +252,7 @@
       <div class="container">
         <div class="bootcamp-card">
           <h2 class="bootcamp-title">5-Day Command Line Bootcamp</h2>
-          <p class="bootcamp-desc">If you haven't taken the <a style="color: white;" href="https://cli-bootcamp.jordanurbs.com">free 5-Day AI Captain's Command Line Bootcamp</a>, now's the perfect time!</p><p>This mini-course teaches you the basics before diving into the more comprehensive 30-day challenge:</p>
+          <p class="bootcamp-desc">A free e-mail course introducing you to the command line basics that are the fundamental to building modern apps & AI-powered projects:</p>
           
           <div class="bootcamp-days">
             <div class="bootcamp-day">
@@ -281,7 +281,7 @@
             <div class="form-container">
               <div class="form-header">
                 <h2 class="form-title">Start the Bootcamp!</h2>
-                <p class="form-subtitle">The first step to shift from prompting AI to programming with AI.</p>
+                <p class="form-subtitle">Take your first step from merely prompting AI to actually building with AI.</p>
               </div>
 
               <form @submit.prevent="handleSubmit" class="form-content">
