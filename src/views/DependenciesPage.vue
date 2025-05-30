@@ -66,6 +66,21 @@
 
             <h3>Windows: Chocolatey</h3>
             <p>Chocolatey is a popular package manager for Windows that makes it easy to install and manage software from the command line.</p>
+            
+            <h4>Option 1: Easy Way (Recommended)</h4>
+            <p>The easiest way to get Chocolatey is through the Node.js installer, which we will need to install anyway:</p>
+            <ol>
+              <li>Visit <a href="https://nodejs.org" target="_blank" rel="noopener noreferrer">nodejs.org</a> and download the LTS version.</li>
+              <li>Run the installer and make sure to <strong>check the box</strong> that says "Automatically install the necessary tools" (this includes Chocolatey).</li>
+              <li>Complete the installation and restart your computer.</li>
+              <li>Open Command Prompt or PowerShell and verify Chocolatey is installed:</li>
+            </ol>
+            <div class="terminal">
+              <div class="terminal-input">choco --version</div>
+            </div>
+
+            <h4>Option 2: Not-So-Easy Way (PowerShell)</h4>
+            <p>If you prefer to install Chocolatey directly without Node.js, or if the easy way didn't work:</p>
             <p><strong>Requirements:</strong> Windows 7+ / Windows Server 2003+, PowerShell v2+ (v3+ recommended), .NET Framework 4.8+.</p>
             <ol>
               <li>Open <strong>PowerShell</strong> as <strong>Administrator</strong>.</li>
@@ -98,7 +113,7 @@
               <div class="terminal-input">sudo apt install git</div>
             </div>
 
-            <h3>Windows</h3>
+            <h3>Windows (if you didn't do this earlier)</h3>
             <p>Using Chocolatey package manager:</p>
             <div class="terminal">
               <div class="terminal-input">choco install git</div>
