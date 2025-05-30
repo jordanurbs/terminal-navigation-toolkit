@@ -48,7 +48,7 @@ const routes = [
   },
   {
     path: '/prompts',
-    name: 'Prompts',
+    name: 'Prompts & Templates',
     component: PromptsPage
   }
 ]

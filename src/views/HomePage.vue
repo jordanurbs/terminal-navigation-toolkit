@@ -11,7 +11,7 @@
           <div class="hero-cta" v-if="!hasApiKey">
             <div class="button-group">
               <router-link to="/dependencies" class="btn btn-accent">Set Up Your Machine</router-link>
-              <router-link to="/prompts" class="btn btn-secondary">Prompts</router-link>
+              <router-link to="/prompts" class="btn btn-secondary">Prompts & Templates</router-link>
             </div>
           </div>
           

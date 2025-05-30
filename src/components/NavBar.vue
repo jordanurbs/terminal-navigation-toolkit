@@ -11,7 +11,7 @@
         <div class="navbar-links" :class="{ 'active': mobileMenuOpen }">
           <router-link to="/dependencies" class="nav-link">Start Here</router-link>
           <a href="/#bootcamp" class="nav-link">Free Bootcamp</a>
-          <router-link to="/prompts" class="nav-link">Prompts</router-link>
+          <router-link to="/prompts" class="nav-link">Prompts & Templates</router-link>
           <router-link to="/cheatsheet" class="nav-link">Cheat Sheet</router-link>
           <router-link to="/challenges" class="nav-link">Challenge</router-link>
           <router-link to="/troubleshooting" class="nav-link">Troubleshoot</router-link>
