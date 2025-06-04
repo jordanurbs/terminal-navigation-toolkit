@@ -362,9 +362,19 @@
           </div>
         </div>
         <form class="jax-chat-input-row" style="display: flex; gap: 0.5rem;" @submit.prevent="sendChatMessage">
-          <input v-model="chatInput" type="text" placeholder="Type your message..." style="flex: 1; padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #e2e8f0; font-size: 1rem;" />
+          <textarea 
+            v-model="chatInput" 
+            placeholder="Type your message..." 
+            class="chat-textarea"
+            @keydown="handleChatKeydown"
+            rows="1"
+            ref="chatTextarea"
+          ></textarea>
           <button type="submit" style="background: #2c8c89; color: #fff; border: none; border-radius: 8px; padding: 0.75rem 1.25rem; font-size: 1rem; cursor: pointer;">Send</button>
         </form>
+        <div class="chat-input-help">
+          <span>Use ⌘/Ctrl+Enter for a line break</span>
+        </div>
       </div>
     </ChatModal>
     <div v-if="isAuthenticated && showChatMinimized" class="jax-chat-minimized-bar" @click="restoreChat">
@@ -510,6 +520,13 @@ export default {
     },
     hasLogEntries() {
       return Object.keys(this.captainsLog).length > 0;
+    }
+  },
+  watch: {
+    chatInput() {
+      this.$nextTick(() => {
+        this.adjustTextareaHeight();
+      });
     }
   },
   methods: {
@@ -847,6 +864,11 @@ export default {
       this.chatMessages.push({ sender: 'user', text: userMessage });
       this.chatInput = '';
       
+      // Reset textarea height
+      this.$nextTick(() => {
+        this.adjustTextareaHeight();
+      });
+      
       // Scroll to bottom
       this.$nextTick(() => {
         const history = document.querySelector('.jax-chat-history');
@@ -980,6 +1002,43 @@ export default {
         const history = document.querySelector('.jax-chat-history');
         if (history) history.scrollTop = history.scrollHeight;
       });
+    },
+    handleChatKeydown(event) {
+      // Handle Enter key without shift/cmd/ctrl - submit the form
+      if (event.key === 'Enter' && !event.shiftKey && !event.metaKey && !event.ctrlKey) {
+        event.preventDefault();
+        this.sendChatMessage();
+      }
+      // Allow cmd/ctrl+enter to insert a line break
+      else if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
+        // Insert a line break at the cursor position
+        const textarea = this.$refs.chatTextarea;
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const value = this.chatInput;
+        this.chatInput = value.substring(0, start) + '\n' + value.substring(end);
+        // Move cursor after the inserted line break
+        this.$nextTick(() => {
+          textarea.selectionStart = textarea.selectionEnd = start + 1;
+          this.adjustTextareaHeight();
+        });
+      }
+    },
+    adjustTextareaHeight() {
+      const textarea = this.$refs.chatTextarea;
+      if (!textarea) return;
+      
+      // Reset height to auto to get the correct scrollHeight
+      textarea.style.height = 'auto';
+      
+      // Calculate new height based on content
+      const lineHeight = 24; // Approximate line height in pixels
+      const minHeight = lineHeight; // 1 row minimum
+      const maxHeight = lineHeight * 5; // 5 rows maximum
+      
+      const newHeight = Math.min(Math.max(textarea.scrollHeight, minHeight), maxHeight);
+      textarea.style.height = newHeight + 'px';
     }
   },
   mounted() {
@@ -3575,8 +3634,8 @@ pre {
   display: block;
   margin: 0.25em 0;
   width: 100%;
-  overflow-x: auto;
-  max-height: none;
+  overflow-x: hidden;
+  max-height: 150px;
 }
 
 .task-description :deep(.copy-code-btn) {
@@ -3605,7 +3664,7 @@ pre {
 }
 
 .task-description :deep(.hljs) {
-  padding: 1rem 3rem 1rem 1rem !important;
+  padding: 0.5em 2em 0.5em 0.75em !important;
   margin: 0 !important;
   background-color: #f8f9fa !important;
   border-radius: 3px !important;
@@ -4118,6 +4177,39 @@ pre {
   justify-content: center;
   color: #2c3e50;
   z-index: 2;
+}
+
+.chat-textarea {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.5;
+  min-height: 40px;
+  max-height: 120px;
+  transition: height 0.1s ease;
+}
+
+.chat-textarea:focus {
+  outline: none;
+  border-color: #2c8c89;
+  box-shadow: 0 0 0 2px rgba(44, 140, 137, 0.1);
+}
+
+.chat-input-help {
+  text-align: center;
+  color: #7f8c8d;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  opacity: 0.8;
+}
+
+.jax-chat-input-row {
+  align-items: flex-end;
 }
 </style>
 /* Hide scrollbars when not needed in task descriptions */
