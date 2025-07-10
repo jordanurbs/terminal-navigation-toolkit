@@ -7,7 +7,7 @@
     </main>
     <footer class="footer">
       <div class="container">
-        <p>© {{ currentYear }} Jordan Urbs & <a style="color: white;" href="https://spirals.me" target="_blank" rel="noopener noreferrer">Spirals Activation, LLC</a></p>
+        <p>© {{ currentYear }} Jordan Urbs & <a style="color: white;" href="https://aicaptains.ai" target="_blank" rel="noopener noreferrer">AI CAPTAINS LLC</a></p>
         <div class="social-links">
           <a href="https://jordanurbs.com" target="_blank" rel="noopener noreferrer" class="social-icon">
             <i class="fas fa-globe"></i>
