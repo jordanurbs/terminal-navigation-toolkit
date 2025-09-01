@@ -10,6 +10,196 @@
         </p>
       </div>
       
+      <!-- Claude Code Alternative Section -->
+      <div class="claude-code-section">
+        <div class="claude-header">
+          <h2 class="claude-title">⚡ Skip the Setup? Try Claude Code Instead</h2>
+          <p class="claude-subtitle">Get a fully configured AI-powered terminal in minutes, not hours</p>
+        </div>
+        
+        <div class="claude-comparison">
+          <div class="traditional-approach">
+            <h3>Traditional Approach</h3>
+            <ul>
+              <li>Run terminal setup scripts</li>
+              <li>Configure aliases and shortcuts</li>
+              <li>Set up AI API keys</li>
+              <li>Learn command line basics</li>
+              <li>Practice until confident</li>
+            </ul>
+            <div class="time-estimate">⏱️ Time: 1-2 hours + learning curve</div>
+          </div>
+          
+          <div class="claude-approach">
+            <h3>Claude Code Approach</h3>
+            <ul>
+              <li>Install Claude Code CLI</li>
+              <li>Authenticate once</li>
+              <li>Start building immediately</li>
+              <li>AI handles the complexity</li>
+              <li>Focus on your ideas, not syntax</li>
+            </ul>
+            <div class="time-estimate highlight">⚡ Time: 5-10 minutes</div>
+          </div>
+        </div>
+        
+        <div class="claude-installation">
+          <h3>Installation & Setup</h3>
+          
+          <div class="install-tabs">
+            <div class="install-method active" data-method="npm">
+              <h4>Method 1: NPM (Recommended)</h4>
+              <div class="install-steps">
+                <div class="step">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <p><strong>Install Node.js</strong> (if not already installed)</p>
+                    <p>Download from <a href="https://nodejs.org" target="_blank">nodejs.org</a> - requires Node.js 18 or higher</p>
+                  </div>
+                </div>
+                
+                <div class="step">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <p><strong>Install Claude Code globally</strong></p>
+                    <div class="code-block">
+                      <code>npm install -g @anthropic-ai/claude-code</code>
+                      <button class="copy-btn" @click="copyToClipboard('npm install -g @anthropic-ai/claude-code')">Copy</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="step">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <p><strong>Verify installation</strong></p>
+                    <div class="code-block">
+                      <code>claude-code --version</code>
+                      <button class="copy-btn" @click="copyToClipboard('claude-code --version')">Copy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="authentication-section">
+            <h4>Authentication Options</h4>
+            <div class="auth-options">
+              <div class="auth-option">
+                <div class="auth-icon">💳</div>
+                <div class="auth-content">
+                  <h5>Anthropic Console (Pay-per-use)</h5>
+                  <p>Best for: Developers who want precise control over costs</p>
+                  <ul>
+                    <li>Create account at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></li>
+                    <li>Add billing method (required for API access)</li>
+                    <li>Generate API key and authenticate with <code>claude-code auth</code></li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="auth-option">
+                <div class="auth-icon">🎯</div>
+                <div class="auth-content">
+                  <h5>Claude Pro/Max Subscription</h5>
+                  <p>Best for: Regular users who want predictable monthly costs</p>
+                  <ul>
+                    <li>Subscribe at <a href="https://claude.ai" target="_blank">claude.ai</a> ($20/month Pro or $30/month Max)</li>
+                    <li>Use your claude.ai account to authenticate</li>
+                    <li>Includes Claude Code access plus web interface</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="getting-started">
+            <h4>Getting Started Commands</h4>
+            <div class="command-grid">
+              <div class="command-item">
+                <div class="command-syntax">
+                  <code>claude-code auth</code>
+                </div>
+                <div class="command-desc">Authenticate with your account</div>
+              </div>
+              
+              <div class="command-item">
+                <div class="command-syntax">
+                  <code>claude-code start</code>
+                </div>
+                <div class="command-desc">Start Claude Code in current directory</div>
+              </div>
+              
+              <div class="command-item">
+                <div class="command-syntax">
+                  <code>claude-code --help</code>
+                </div>
+                <div class="command-desc">View all available commands</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="claude-benefits">
+            <h4>Why Claude Code?</h4>
+            <div class="benefits-grid">
+              <div class="benefit">
+                <div class="benefit-icon">🤖</div>
+                <h5>AI-First Development</h5>
+                <p>Describe what you want to build in plain English. Claude handles the implementation details.</p>
+              </div>
+              
+              <div class="benefit">
+                <div class="benefit-icon">⚡</div>
+                <h5>Instant Setup</h5>
+                <p>No need to learn dozens of command line tools. Start building from day one.</p>
+              </div>
+              
+              <div class="benefit">
+                <div class="benefit-icon">🔄</div>
+                <h5>Conversational Workflow</h5>
+                <p>Iterate on your projects through natural conversation, not complex commands.</p>
+              </div>
+              
+              <div class="benefit">
+                <div class="benefit-icon">🛠️</div>
+                <h5>Built-in Best Practices</h5>
+                <p>Automatically follows coding conventions, security practices, and project structure.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="decision-helper">
+          <h4>Which Approach Is Right for You?</h4>
+          <div class="approach-comparison">
+            <div class="approach-card">
+              <h5>Choose Terminal Scripts If:</h5>
+              <ul>
+                <li>You want to learn command line fundamentals</li>
+                <li>You enjoy customizing your development environment</li>
+                <li>You plan to work with multiple programming languages</li>
+                <li>You want full control over your terminal setup</li>
+              </ul>
+            </div>
+            
+            <div class="approach-card highlight">
+              <h5>Choose Claude Code If:</h5>
+              <ul>
+                <li>You want to start building projects immediately</li>
+                <li>You prefer conversation over commands</li>
+                <li>You're new to programming or development</li>
+                <li>You want AI assistance throughout your workflow</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section-divider">
+        <span>or continue with traditional terminal setup below</span>
+      </div>
+      
       <div class="os-selector">
         <button 
           class="os-button" 
@@ -640,6 +830,15 @@ export default {
     
     toggleFAQ(id) {
       this.faqOpen[id] = !this.faqOpen[id];
+    },
+    
+    copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        // Could add a toast notification here
+        console.log('Copied to clipboard:', text);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+      });
     }
   }
 }
@@ -1058,5 +1257,415 @@ code {
 .cta-section {
   margin: 3rem 0;
   padding: 0 1rem;
+}
+
+/* Claude Code Section */
+.claude-code-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 3rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.claude-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.claude-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.claude-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.claude-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.traditional-approach,
+.claude-approach {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.claude-comparison h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.claude-comparison ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.claude-comparison li {
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.claude-comparison li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4ade80;
+  font-weight: bold;
+}
+
+.time-estimate {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  text-align: center;
+}
+
+.time-estimate.highlight {
+  background: rgba(74, 222, 128, 0.2);
+  border: 2px solid #4ade80;
+}
+
+.claude-installation {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.claude-installation h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.claude-installation h4 {
+  color: #e2e8f0;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.install-method h4 {
+  margin-top: 0;
+  color: white;
+}
+
+.install-steps {
+  margin-top: 1rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.step-number {
+  background: #4ade80;
+  color: #1f2937;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-content p {
+  margin: 0 0 0.5rem 0;
+}
+
+.code-block {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  font-family: 'JetBrains Mono', monospace;
+  gap: 1rem;
+}
+
+.code-block code {
+  flex: 1;
+  background: none;
+  color: #4ade80;
+  font-weight: 600;
+  padding: 0;
+}
+
+.copy-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.authentication-section {
+  margin-top: 2rem;
+}
+
+.auth-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.auth-option {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.auth-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.auth-content h5 {
+  margin: 0 0 0.5rem 0;
+  color: #4ade80;
+  font-size: 1.1rem;
+}
+
+.auth-content p {
+  margin: 0 0 0.75rem 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.auth-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.auth-content li {
+  padding: 0.25rem 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.getting-started {
+  margin-top: 2rem;
+}
+
+.command-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.command-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.command-syntax {
+  margin-bottom: 0.5rem;
+}
+
+.command-syntax code {
+  background: rgba(0, 0, 0, 0.3);
+  color: #4ade80;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.command-desc {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.claude-benefits {
+  margin-top: 2rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.benefit {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.benefit h5 {
+  margin: 0 0 0.75rem 0;
+  color: #4ade80;
+  font-size: 1.1rem;
+}
+
+.benefit p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.decision-helper {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.decision-helper h4 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.approach-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.approach-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 2px solid transparent;
+}
+
+.approach-card.highlight {
+  border-color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.approach-card h5 {
+  margin: 0 0 1rem 0;
+  color: #4ade80;
+  font-size: 1.1rem;
+}
+
+.approach-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.approach-card li {
+  padding: 0.375rem 0 0.375rem 1.25rem;
+  position: relative;
+  opacity: 0.9;
+}
+
+.approach-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #4ade80;
+  font-weight: bold;
+}
+
+.section-divider {
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+  position: relative;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  z-index: 1;
+}
+
+.section-divider span {
+  background: var(--bg);
+  padding: 0 2rem;
+  color: var(--text-light);
+  font-style: italic;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .claude-comparison,
+  .auth-options,
+  .approach-comparison {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .claude-code-section {
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .claude-title {
+    font-size: 1.5rem;
+  }
+  
+  .auth-option {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .step {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .code-block {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
 }
 </style>
