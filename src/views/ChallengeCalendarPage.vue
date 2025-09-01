@@ -335,6 +335,29 @@
         </div>
       </div>
     </div>
+    
+    <!-- Content Commander Challenge CTA -->
+    <div class="content-commander-cta">
+      <div class="container">
+        <CourseCtaCard
+          variant="featured"
+          course-title="FROM COMMAND LINE TO CONFIDENCE:"
+          course-subtitle="Build Your First Real AI-Powered Tool in 30 Days"
+          course-description="Stop collecting knowledge.<br>Start building confidence.<br>Your first useful project awaits.<br><br>You've learned the commands. You've seen the possibilities.<br><br>Now build something real that you can actually use everyday—while mastering the command line skills that separate no-code passengers from AI Captains."
+          :bullet-points="[
+            'Transform from command line beginner to confident builder',
+            'Build a real AI-powered tool you will actually use every day',
+            'Master terminal commands through practical application',
+            'Join other aspiring AI Captains on the same journey'
+          ]"
+          image-url="/images/content-commander-challenge.png"
+          image-alt="Content Commander Challenge"
+          cta-text="Start the Content Commander Challenge"
+          supporting-text="Join the AI Captains Skool community and begin your transformation from passenger to captain."
+          student-count="100"
+        />
+      </div>
+    </div>
   </div>
 
   <!-- Help Toggle -->
@@ -403,6 +426,7 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/github.css'
 import confetti from 'canvas-confetti'
 import ChatModal from '../components/ChatModal.vue'
+import CourseCtaCard from '@/components/CourseCtaCard.vue'
 import { marked } from 'marked'
 import { markedHighlight } from 'marked-highlight'
 import { gfmHeadingId } from 'marked-gfm-heading-id'
@@ -412,7 +436,8 @@ export default {
   components: {
     ApiKeyInput,
     InstallationScreen,
-    ChatModal
+    ChatModal,
+    CourseCtaCard
   },
   created() {
     // Load challenges when component is created
@@ -502,7 +527,8 @@ export default {
     ...mapState({
       userName: state => state.user.name,
       isSetupComplete: state => state.isSetupComplete,
-      challenges: state => state.challenges
+      challenges: state => state.challenges,
+      apiKey: state => state.apiKey
     }),
     currentDay() {
       return this.$store.state.currentDay;

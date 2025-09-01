@@ -50,25 +50,114 @@
         </div>
       </div>
       
-      <!-- n8n Primers CTA -->
-      <div class="n8n-cta-section">
-        <CourseCtaCard
-          variant="compact"
-          course-title="Your Automation Fleet Awaits"
-          course-subtitle="Connect any service to any service with visual workflows that never sleep"
-          course-description="Stop manually running the same tasks over and over. Turn your prompts into automated workflows."
-          :bullet-points="[
-            'Visual automation - drag, drop, deploy (zero coding required)',
-            'Connect ChatGPT to Slack, Gmail to databases, websites to anything',
-            'Build workflows that handle tasks while you focus on strategy',
-            'Turn manual processes into automatic systems overnight'
-          ]"
-          image-url="/images/n8n-primer-min.png"
-          image-alt="n8n Primers Course"
-          cta-text="Launch Your Automation Armada"
-          supporting-text="Let your digital crew handle the routine while you captain bigger missions. 7 days free to test the waters."
-          student-count="350"
-        />
+      <!-- Learning Resources Section -->
+      <div class="learning-resources-section">
+        <h2 class="section-title">
+          <span class="section-icon">🎓</span>
+          Learning Resources
+        </h2>
+        <p class="section-description">Master the tools and mindsets that turn no-code prompt passengers into AI Captains</p>
+        
+        <div class="courses-grid">
+          <!-- n8n Primers Course -->
+          <div class="content-card course-card">
+            <div class="course-image">
+              <img src="/images/n8n-primer-min.png" alt="n8n Primers Course" />
+              <div class="trial-badge">
+                <span class="badge-icon">✨</span>
+                <span class="badge-text">7-Day Free Trial</span>
+              </div>
+            </div>
+            <div class="content-header">
+              <div class="content-type-badge course-badge">Course</div>
+              <h3 class="content-title">n8n Primers</h3>
+              <span class="course-subtitle">Your Automation Fleet Awaits</span>
+            </div>
+            
+            <div class="content-body">
+              <p class="content-description">Connect any service to any service with visual workflows that never sleep. Stop manually running the same tasks over and over.</p>
+              
+              <div class="course-features">
+                <ul>
+                  <li>Visual automation - drag, drop, deploy (zero coding required)</li>
+                  <li>Connect ChatGPT to Slack, Gmail to databases, websites to anything</li>
+                  <li>Build workflows that handle tasks while you focus on strategy</li>
+                  <li>Turn manual processes into automatic systems overnight</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="content-actions">
+              <a href="https://skool.com/aicaptains" target="_blank" class="btn btn-primary">Launch Your Automation Armada</a>
+            </div>
+          </div>
+
+          <!-- Conversation-Driven Development Course -->
+          <div class="content-card course-card">
+            <div class="course-image">
+              <img src="/images/conversation-driven-dev-min.png" alt="Conversation-Driven Development Course" />
+              <div class="trial-badge">
+                <span class="badge-icon">✨</span>
+                <span class="badge-text">7-Day Free Trial</span>
+              </div>
+            </div>
+            <div class="content-header">
+              <div class="content-type-badge course-badge">Course</div>
+              <h3 class="content-title">Conversation-Driven Development</h3>
+              <span class="course-subtitle">Stop Prompting. Start Building.</span>
+            </div>
+            
+            <div class="content-body">
+              <p class="content-description">Transform from AI passenger to coding captain with conversation-driven development. Turn English into working applications.</p>
+              
+              <div class="course-features">
+                <ul>
+                  <li>25 video lessons that turn English into working applications</li>
+                  <li>Complete machine setup module - no technical background required</li>
+                  <li>Build your first real project using nothing but conversation</li>
+                  <li>Go from wishing you could build that to actually building that</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="content-actions">
+              <a href="https://skool.com/aicaptains" target="_blank" class="btn btn-primary">Chart Your Course to Builder Status</a>
+            </div>
+          </div>
+
+          <!-- Architectural Literacy Course -->
+          <div class="content-card course-card">
+            <div class="course-image">
+              <img src="/images/architectural-literacy-min.png" alt="Architectural Literacy Course" />
+              <div class="trial-badge">
+                <span class="badge-icon">✨</span>
+                <span class="badge-text">7-Day Free Trial</span>
+              </div>
+            </div>
+            <div class="content-header">
+              <div class="content-type-badge course-badge">Course</div>
+              <h3 class="content-title">Architectural Literacy</h3>
+              <span class="course-subtitle">Build Your Technical Foundation</span>
+            </div>
+            
+            <div class="content-body">
+              <p class="content-description">Stop depending on others - master the core systems that power every application. The difference between passengers and captains.</p>
+              
+              <div class="course-features">
+                <ul>
+                  <li>Over 25 video lessons across 6 modules covering the fundamentals every builder needs to know</li>
+                  <li>From Command Line basics to API mastery and version control</li>
+                  <li>Build an AI chatbot capstone that proves your new capabilities</li>
+                  <li>Graduate from asking for help to providing solutions</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="content-actions">
+              <a href="https://skool.com/aicaptains" target="_blank" class="btn btn-primary">Claim Your Captain's Credentials</a>
+            </div>
+          </div>
+        </div>
       </div>
       
       <FavoritePrompts v-if="hasFavoritePrompts" />
@@ -884,9 +973,186 @@ export default {
   }
 }
 
-/* n8n CTA Section */
-.n8n-cta-section {
-  margin: 2rem 0;
-  padding: 0 1rem;
+/* Learning Resources Section */
+.learning-resources-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.section-icon {
+  font-size: 2rem;
+}
+
+.section-description {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.course-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.course-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-image img {
+  transform: scale(1.05);
+}
+
+.trial-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: var(--accent);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.badge-icon {
+  font-size: 0.875rem;
+}
+
+.course-badge {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.course-subtitle {
+  color: #aaa;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.course-features {
+  margin-top: 1rem;
+}
+
+.course-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.course-features li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.course-features li::before {
+  content: '⚡';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.course-card .btn-primary {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.course-card .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 76, 129, 0.3);
+}
+
+@media (max-width: 768px) {
+  .learning-resources-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+  
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .course-image {
+    height: 180px;
+  }
 }
 </style> 

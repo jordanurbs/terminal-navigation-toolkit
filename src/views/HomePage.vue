@@ -277,27 +277,6 @@
             </div>
           </div>
           
-          <!-- Architectural Literacy CTA -->
-          <div class="bootcamp-cta-section">
-            <CourseCtaCard
-              variant="featured"
-              course-title="Navigate Beyond the Bootcamp"
-              course-subtitle="Master the foundational systems that turn beginners into independent builders"
-              course-description="The 5-day bootcamp gives you confidence. This comprehensive course gives you mastery."
-              :bullet-points="[
-                '6 comprehensive modules covering Command Line, APIs, Git, and Dependencies',
-                'Build an AI chatbot from scratch as your capstone project',
-                'Understand how code actually works - no more mysterious errors',
-                'Foundation that lets you troubleshoot like a pro, not guess like a passenger'
-              ]"
-              image-url="/images/architectural-literacy-min.png"
-              image-alt="Architectural Literacy Course"
-              cta-text="Set Sail for Technical Independence"
-              supporting-text="The upgraded voyage our 350+ captains wish they'd taken first. Start your 7-day exploration risk-free."
-              student-count="350"
-            />
-          </div>
-          
           <div class="signup-form">
             <div class="form-container">
               <div class="form-header">
@@ -343,6 +322,27 @@
               </form>
             </div>
           </div>
+          
+          <!-- Architectural Literacy CTA -->
+          <div class="bootcamp-cta-section">
+            <CourseCtaCard
+              variant="featured"
+              course-title="Navigate Beyond the Bootcamp"
+              course-subtitle="Master the foundational systems that turn no-code passengers into AI Captains... in just a few weeks!"
+              course-description="The 5-day bootcamp gives you confidence.<br>This Architectural Literacy Crash Course gives you comprehensive understanding."
+              :bullet-points="[
+                'Over 25 video lessons across 6 comprehensive modules covering Command Line, APIs, Git, Dependencies, mindset and more.',
+                'Build an AI chatbot from scratch as your capstone project',
+                'Understand how code actually works - no more mysterious errors',
+                'Foundation that lets you troubleshoot like a pro, not guess like a passenger'
+              ]"
+              image-url="/images/architectural-literacy-min.png"
+              image-alt="Architectural Literacy Course"
+              cta-text="Set Sail for Technical Independence"
+              supporting-text="The upgraded voyage dozens of AI captains wish they'd taken first. Start your 7-day trial risk-free."
+              student-count="25"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -353,7 +353,7 @@
         <p class="get-started-text">The moment you run your first successful command, everything changes. The universe will open up once you realize what's possible beyond the walled gardens of no-code AI services.</p>
         
         <div class="get-started-cta">
-          <a href="https://ccc.ai-captains.com" class="btn btn-accent btn-large">Start Your AI Captain Journey</a>
+          <a href="https://skool.com/aicaptains" class="btn btn-accent btn-large">Start Your AI Captain Journey</a>
         </div>
       </div>
     </section>

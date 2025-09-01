@@ -40,7 +40,7 @@
             </div>
           </div>
           <p class="purchase-link" style="margin-top: 1rem; color: #333; font-size:.8em">
-          Don't have an API key? <a href="https://ccc.ai-captains.com/" target="_blank" rel="noopener noreferrer">Purchase one here</a>
+          Don't have an API key? <a href="https://skool.com/aicaptains" target="_blank" rel="noopener noreferrer">Get your API key by signing up for the AI Captains Skool.</a>
         </p>
         </div>
 
@@ -90,15 +90,40 @@
           </div>
         </div>
       </div>
+      
+      <!-- Content Commander Challenge CTA for users without API key -->
+      <div v-if="!apiKey" class="content-commander-cta">
+        <CourseCtaCard
+          variant="featured"
+          course-title="FROM COMMAND LINE TO CONFIDENCE:"
+          course-subtitle="Build Your First Real AI-Powered Tool in 30 Days"
+          course-description="Stop collecting knowledge.<br>Start building confidence.<br>Your first useful project awaits.<br><br>You've learned the commands. You've seen the possibilities.<br><br>Now build something real that you can actually use everyday—while mastering the command line skills that separate no-code passengers from AI Captains."
+          :bullet-points="[
+            'Transform from command line beginner to confident builder',
+            'Build a real AI-powered tool you will actually use every day',
+            'Master terminal commands through practical application',
+            'Join other aspiring AI Captains on the same journey'
+          ]"
+          image-url="/images/content-commander-challenge.png"
+          image-alt="Content Commander Challenge"
+          cta-text="Start the Content Commander Challenge"
+          supporting-text="Join the AI Captains Skool community and begin your transformation from passenger to captain."
+          student-count="100"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapState } from 'vuex'
+import CourseCtaCard from '@/components/CourseCtaCard.vue'
 
 export default {
   name: 'ProgressPage',
+  components: {
+    CourseCtaCard
+  },
   computed: {
     ...mapGetters([
       'completedDays',

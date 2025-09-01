@@ -29,7 +29,7 @@
         </div>
 
         <!-- Description -->
-        <p class="course-description">{{ courseDescription }}</p>
+        <p class="course-description" v-html="courseDescription"></p>
 
         <!-- Bullet Points -->
         <ul v-if="bulletPoints && bulletPoints.length" class="bullet-points">
@@ -60,12 +60,10 @@
             <span v-else class="loading-spinner"></span>
           </a>
           
-          <div class="supporting-info">
-            <p v-if="supportingText" class="supporting-text">{{ supportingText }}</p>
-            <p v-if="studentCount" class="student-count">
-              Join {{ studentCount }}+ captains on this voyage
-            </p>
-          </div>
+            <div class="supporting-info">
+              <p v-if="supportingText" class="supporting-text">{{ supportingText }}</p>
+   
+            </div>
         </div>
       </div>
     </div>
@@ -427,9 +425,26 @@ export default {
   font-size: 1rem;
 }
 
+.variant-compact .trial-badge {
+  top: auto;
+  bottom: 20px;
+  right: auto;
+  left: 20px;
+}
+
 /* Variant: Featured */
 .variant-featured {
   border: 3px solid var(--accent);
+}
+
+.variant-featured .card-content {
+  flex-direction: column;
+}
+
+.variant-featured .card-image {
+  flex: none;
+  min-height: 200px;
+  width: 100%;
 }
 
 .variant-featured .card-body {
@@ -438,6 +453,19 @@ export default {
 
 .variant-featured .course-title {
   font-size: 2rem;
+  color: white;
+}
+
+.variant-featured .course-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.variant-featured .bullet-points {
+  text-align: left;
+}
+
+.variant-featured .bullet-points li {
+  color: var(--text);
 }
 
 .variant-featured .trial-badge {

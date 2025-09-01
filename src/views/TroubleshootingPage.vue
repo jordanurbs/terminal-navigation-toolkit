@@ -285,14 +285,15 @@
         <!-- First CTA - Conversation-Driven Development after Emergency Recovery -->
         <div class="cta-section emergency-cta">
           <CourseCtaCard
+            variant="featured"
             course-title="Master the Storm, Command the Code"
             course-subtitle="Turn troubleshooting from panic into power by understanding how things actually work"
             course-description="Emergency recovery is good. Never needing it is better. Learn to build with confidence instead of stumbling through fixes."
             :bullet-points="[
               '25 lessons that demystify the building process from conversation to deployment',
-              'Learn to read error messages like navigation charts',
+              'Learn to read error messages like navigation charts',  
               'Build real projects while mastering the fundamentals',
-              'Transform from \"something\'s broken\" to \"I know exactly what\'s wrong\"'
+              'Transform from something broken to knowing exactly what is wrong'
             ]"
             image-url="/images/conversation-driven-dev-min.png"
             image-alt="Conversation-Driven Development Course"
@@ -349,20 +350,21 @@
         <!-- Second CTA - Architectural Literacy after Getting Help -->
         <div class="cta-section help-cta">
           <CourseCtaCard
-            course-title="Build Your Technical Foundation"
-            course-subtitle="Stop depending on others - master the core systems that power every application"
-            course-description="The difference between passengers and captains? Captains understand their ship from deck to keel."
+            variant="featured"
+            course-title="Navigate Beyond the Bootcamp"
+            course-subtitle="Master the foundational systems that turn no-code passengers into AI Captains... in just a few weeks!"
+            course-description="The 5-day bootcamp gives you confidence.<br>This Architectural Literacy Crash Course gives you comprehensive understanding."
             :bullet-points="[
-              '6 modules covering the fundamentals every builder needs to know',
-              'From Command Line basics to API mastery and version control',
-              'Build an AI chatbot capstone that proves your new capabilities',
-              'Graduate from asking for help to providing solutions'
+              'Over 25 video lessons across 6 comprehensive modules covering Command Line, APIs, Git, Dependencies, mindset and more.',
+              'Build an AI chatbot from scratch as your capstone project',
+              'Understand how code actually works - no more mysterious errors',
+              'Foundation that lets you troubleshoot like a pro, not guess like a passenger'
             ]"
             image-url="/images/architectural-literacy-min.png"
             image-alt="Architectural Literacy Course"
-            cta-text="Claim Your Captain's Credentials"
-            supporting-text="Start your 7-day journey from dependency to independence."
-            student-count="350"
+            cta-text="Set Sail for Technical Independence"
+            supporting-text="The upgraded voyage dozens of AI captains wish they'd taken first. Start your 7-day trial risk-free."
+            student-count="25"
           />
         </div>
       </div>

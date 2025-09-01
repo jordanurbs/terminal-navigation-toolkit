@@ -12,8 +12,8 @@
         <transition name="slide">
           <div class="card-body" v-show="openSection === 'essential'">
             <h3>1. Install Cursor (Your AI-Powered Coding Software)</h3>
-            <p>Here, when we say "Cursor," we simply mean your AI-enhanced coding software. Cursor is an AI-powered code editor that will be your primary development environment. You can also look into Windsurf or Github Co-pilot, as they are all very similar.</p>
-            <a href="https://cursor.sh" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Cursor</a>
+            <p>Here, when we say "Cursor," we simply mean your AI-enhanced coding software. Cursor is an AI-powered code editor that will be your primary development environment. You can also look into <a href="http://studio.vscode.com">VS Code</a> which is great for beginners and if you're using Claude Code.</p>
+            <a href="https://cursor.sh" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Cursor</a> or<br> <a href="https://studio.vscode.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download VS Code</a><br>
             <p class="mt-3">In the AI Captains Academy, we'll be using Cursor, but you can use any AI-powered coding software you're most comfortable with.</p>
             <h3>2. Create a GitHub Account</h3>
             <p>GitHub is where you'll store your code and collaborate with others. It's essential for version control and sharing your work.</p>
@@ -36,6 +36,74 @@
                 <h4>Venice.ai</h4>
                 <p>Alternative AI platform with competitive pricing:</p>
                 <a href="https://venice.ai/chat?ref=PA5RHk" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Venice.ai</a>
+              </div>
+            </div>
+
+            <h3>4. Alternative: Skip API Keys with Claude Code</h3>
+            <div class="claude-code-alternative">
+              <div class="alternative-header">
+                <h4>⚡ Want to skip the API key setup? Try Claude Code instead!</h4>
+                <p>Get a fully configured AI development environment in minutes, not hours.</p>
+              </div>
+              
+              <div class="alternative-benefits">
+                <div class="benefit-item">
+                  <span class="benefit-icon">🚀</span>
+                  <div>
+                    <strong>No API key management</strong>
+                    <p>Claude Code handles authentication automatically</p>
+                  </div>
+                </div>
+                <div class="benefit-item">
+                  <span class="benefit-icon">⚡</span>
+                  <div>
+                    <strong>5-minute setup</strong>
+                    <p>One command installs everything you need</p>
+                  </div>
+                </div>
+                <div class="benefit-item">
+                  <span class="benefit-icon">💬</span>
+                  <div>
+                    <strong>Built for conversation</strong>
+                    <p>Turn natural language into working code</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="installation-steps">
+                <h5>Quick Installation:</h5>
+                <div class="step-list">
+                  <div class="step">
+                    <span class="step-number">1</span>
+                    <div class="step-content">
+                      <p>Install Node.js from <a href="https://nodejs.org" target="_blank">nodejs.org</a> (18 or higher--we'll do this down in Step 4)</p>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <span class="step-number">2</span>
+                    <div class="step-content">
+                      <p>Install Claude Code globally:</p>
+                      <div class="terminal">
+                        <div class="terminal-input">npm install -g @anthropic-ai/claude-code</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step">
+                    <span class="step-number">3</span>
+                    <div class="step-content">
+                      <p>Authenticate and start coding:</p>
+                      <div class="terminal">
+                        <div class="terminal-input">claude-code auth</div>
+                        <div class="terminal-input">claude-code start</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="alternative-cta">
+                <p><strong>Authentication options:</strong> Use your claude.ai account (Pro/Max subscription) or Anthropic Console billing account.</p>
+                <a href="https://claude.ai" target="_blank" class="btn btn-accent">Get Claude Pro/Max →</a>
               </div>
             </div>
           </div>
@@ -199,19 +267,38 @@
       </div>
     </div>
 
+    <!-- Conversation-Driven Development CTA -->
     <div class="dependencies-cta">
-      <a :href="hasApiKey ? '/challenges' : '/#bootcamp'" class="btn btn-accent btn-large">
-        Start Building
-      </a>
+      <CourseCtaCard
+        variant="featured"
+        course-title="Stop Prompting. Start Building."
+        course-subtitle="Transform from blind prompter to coding captain with the Conversation-Driven Development course. You can access it for free."
+        course-description="Your machine setup is complete.<br>Ready to turn those tools into real applications using nothing but conversation?"
+        :bullet-points="[
+          '25 video lessons that turn English into working applications',
+          'Complete video guides for machine setup - no technical background required',
+          'Build your first real project using nothing but conversation',
+          'Go from wishing you could build that to actually building that'
+        ]"
+        image-url="/images/conversation-driven-dev-min.png"
+        image-alt="Conversation-Driven Development Course"
+        cta-text="START VIBE CODING!"
+        supporting-text="Join dozens of other students who've discovered the secret to building as non-coders. Your 7-day trial awaits!"
+        student-count="350"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import CourseCtaCard from '../components/CourseCtaCard.vue'
 
 export default {
   name: 'DependenciesPage',
+  components: {
+    CourseCtaCard
+  },
   data() {
     return {
       openSection: 'essential'
@@ -356,12 +443,142 @@ h3 {
   font-size: 1.1rem;
 }
 
+/* Claude Code Alternative Section */
+.claude-code-alternative {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.alternative-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.alternative-header h4 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.alternative-header p {
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.alternative-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.benefit-item strong {
+  color: var(--primary);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.benefit-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.installation-steps {
+  background: white;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.installation-steps h5 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.step-number {
+  background: var(--primary);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-content p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.alternative-cta {
+  text-align: center;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 6px;
+}
+
+.alternative-cta p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
 @media (max-width: 768px) {
   .dependencies-cta {
     margin-top: 3rem;
     margin-bottom: 3rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+  
+  .claude-code-alternative {
+    padding: 1.5rem;
+  }
+  
+  .alternative-benefits {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .benefit-item {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
   }
 }
 </style> 

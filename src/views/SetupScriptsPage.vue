@@ -13,7 +13,7 @@
       <!-- Claude Code Alternative Section -->
       <div class="claude-code-section">
         <div class="claude-header">
-          <h2 class="claude-title">⚡ Skip the Setup? Try Claude Code Instead</h2>
+          <h2 class="claude-title">⚡ Skip the Setup? Try Claude Code Instead 🚀</h2>
           <p class="claude-subtitle">Get a fully configured AI-powered terminal in minutes, not hours</p>
         </div>
         
@@ -733,6 +733,7 @@ alias findtext="grep -r"
       <!-- Conversation-Driven Development CTA -->
       <div class="cta-section">
         <CourseCtaCard
+          variant="featured"
           course-title="Stop Prompting. Start Building."
           course-subtitle="Transform from AI passenger to coding captain with conversation-driven development"
           course-description="Your terminal setup is just the beginning. Ready to turn those commands into real applications using nothing but conversation?"
@@ -740,12 +741,12 @@ alias findtext="grep -r"
             '25 video lessons that turn English into working applications',
             'Complete machine setup module - no technical background required',
             'Build your first real project using nothing but conversation',
-            'Go from \"I wish I could build that\" to \"I just built that\"'
+            'Go from wishing you could build that to actually building that'
           ]"
           image-url="/images/conversation-driven-dev-min.png"
           image-alt="Conversation-Driven Development Course"
           cta-text="Chart Your Course to Builder Status"
-          supporting-text="Join 350+ students who've discovered the secret to building without traditional coding. Your 7-day free trial awaits."
+          supporting-text="Join 20 other students who've discovered the secret to building without traditional coding. Your 7-day free trial awaits."
           student-count="350"
         />
       </div>

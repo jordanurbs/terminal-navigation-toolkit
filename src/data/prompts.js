@@ -21,7 +21,7 @@ export const promptCategories = [
   {
     id: 'mcp',
     icon: '⚡',
-    name: 'MCP',
+    name: 'MCP Stuff',
     description: 'Model Context Protocol servers, resources, tools, and documentation for extending AI capabilities.'
   }
 ];
@@ -275,7 +275,7 @@ Include sections for installation, usage examples, API documentation (if applica
   },
   {
     id: 'debugger-agent',
-    categoryId: 'copilot',
+    categoryId: 'claude-code-agents',
     title: 'Debugger Agent',
     tags: ['debugging', 'error-handling', 'troubleshooting'],
     template: `---
@@ -745,66 +745,6 @@ claude-code-agent stars:>10
       'Use specific search filters to find relevant agents',
       'Check repository activity before using agents',
       'Contribute improvements back to the community'
-    ]
-  },
-  {
-    id: 'discord-claude-community',
-    categoryId: 'claude-code-agents',
-    title: 'Discord Community Configs',
-    tags: ['discord', 'community', 'real-time'],
-    template: `**Claude Development Discord Community**
-https://discord.gg/claude-dev
-
-Real-time community support for Claude Code agents and configurations.
-
-**Discord Channels:**
-- **#agent-showcase** - Share your successful agent configurations
-- **#troubleshooting** - Get real-time help with agent issues
-- **#configuration-exchange** - Trade and improve agent setups
-- **#announcements** - Latest updates and new agent releases
-- **#general-discussion** - General Claude Code agent topics
-- **#workflow-optimization** - Discuss productivity improvements
-
-**Community Features:**
-- **Voice Channels** - Screen sharing for complex troubleshooting
-- **File Sharing** - Exchange configuration files securely
-- **Bot Integration** - Automated alerts for new resources
-- **Role System** - Connect with experts in specific areas
-- **Event Notifications** - Community meetups and workshops
-
-**Real-Time Benefits:**
-- Immediate responses to urgent issues
-- Screen sharing for complex problems
-- Voice chat for detailed explanations
-- File sharing for configurations
-- Live coding sessions and demos
-
-**Community Guidelines:**
-- Be respectful and constructive
-- Use appropriate channels for discussions
-- Share working configurations when possible
-- Help others when you can
-- Follow Discord terms of service
-
-**Getting the Most Value:**
-1. Introduce yourself in #general-discussion
-2. Set up relevant role notifications
-3. Share your experience level and interests
-4. Participate in community events
-5. Contribute to discussions regularly
-6. Help newcomers get started
-
-**Expert Office Hours:**
-- Weekly Q&A sessions with experienced users
-- Specialized workshops on advanced topics
-- Guest speakers from the development community
-- Live troubleshooting sessions
-- New feature demonstrations`,
-    description: 'Real-time Discord community for Claude Code agent support and configuration sharing.',
-    tips: [
-      'Join relevant channels based on your interests',
-      'Set up notifications for important channels',
-      'Participate actively to build community connections'
     ]
   },
   {
