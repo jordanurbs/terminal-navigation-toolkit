@@ -277,6 +277,27 @@
             </div>
           </div>
           
+          <!-- Architectural Literacy CTA -->
+          <div class="bootcamp-cta-section">
+            <CourseCtaCard
+              variant="featured"
+              course-title="Navigate Beyond the Bootcamp"
+              course-subtitle="Master the foundational systems that turn beginners into independent builders"
+              course-description="The 5-day bootcamp gives you confidence. This comprehensive course gives you mastery."
+              :bullet-points="[
+                '6 comprehensive modules covering Command Line, APIs, Git, and Dependencies',
+                'Build an AI chatbot from scratch as your capstone project',
+                'Understand how code actually works - no more mysterious errors',
+                'Foundation that lets you troubleshoot like a pro, not guess like a passenger'
+              ]"
+              image-url="/images/architectural-literacy-min.png"
+              image-alt="Architectural Literacy Course"
+              cta-text="Set Sail for Technical Independence"
+              supporting-text="The upgraded voyage our 350+ captains wish they'd taken first. Start your 7-day exploration risk-free."
+              student-count="350"
+            />
+          </div>
+          
           <div class="signup-form">
             <div class="form-container">
               <div class="form-header">
@@ -343,11 +364,13 @@
 <script>
 import { mapState } from 'vuex'
 import TerminalSimulator from '@/components/TerminalSimulator.vue'
+import CourseCtaCard from '@/components/CourseCtaCard.vue'
 
 export default {
   name: 'HomePage',
   components: {
-    TerminalSimulator
+    TerminalSimulator,
+    CourseCtaCard
   },
   data() {
     return {
@@ -1044,6 +1067,12 @@ export default {
   .jordan-bio .section-title {
     text-align: center;
   }
+}
+
+/* Bootcamp CTA Section */
+.bootcamp-cta-section {
+  margin: 3rem 0;
+  padding: 0 1rem;
 }
 
 @media (max-width: 768px) {

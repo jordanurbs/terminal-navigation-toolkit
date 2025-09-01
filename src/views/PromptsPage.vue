@@ -50,6 +50,27 @@
         </div>
       </div>
       
+      <!-- n8n Primers CTA -->
+      <div class="n8n-cta-section">
+        <CourseCtaCard
+          variant="compact"
+          course-title="Your Automation Fleet Awaits"
+          course-subtitle="Connect any service to any service with visual workflows that never sleep"
+          course-description="Stop manually running the same tasks over and over. Turn your prompts into automated workflows."
+          :bullet-points="[
+            'Visual automation - drag, drop, deploy (zero coding required)',
+            'Connect ChatGPT to Slack, Gmail to databases, websites to anything',
+            'Build workflows that handle tasks while you focus on strategy',
+            'Turn manual processes into automatic systems overnight'
+          ]"
+          image-url="/images/n8n-primer-min.png"
+          image-alt="n8n Primers Course"
+          cta-text="Launch Your Automation Armada"
+          supporting-text="Let your digital crew handle the routine while you captain bigger missions. 7 days free to test the waters."
+          student-count="350"
+        />
+      </div>
+      
       <FavoritePrompts v-if="hasFavoritePrompts" />
       
       <div class="content-categories">
@@ -211,11 +232,13 @@
 import { mapGetters } from 'vuex'
 import { allCategories, prompts, templates, getItemsByCategory, getItemsByType } from '../data/prompts'
 import FavoritePrompts from '../components/FavoritePrompts.vue'
+import CourseCtaCard from '../components/CourseCtaCard.vue'
 
 export default {
   name: 'PromptsPage',
   components: {
-    FavoritePrompts
+    FavoritePrompts,
+    CourseCtaCard
   },
   data() {
     return {
@@ -859,5 +882,11 @@ export default {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* n8n CTA Section */
+.n8n-cta-section {
+  margin: 2rem 0;
+  padding: 0 1rem;
 }
 </style> 

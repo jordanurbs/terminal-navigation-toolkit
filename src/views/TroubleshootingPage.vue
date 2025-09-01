@@ -282,6 +282,26 @@
           </div>
         </div>
         
+        <!-- First CTA - Conversation-Driven Development after Emergency Recovery -->
+        <div class="cta-section emergency-cta">
+          <CourseCtaCard
+            course-title="Master the Storm, Command the Code"
+            course-subtitle="Turn troubleshooting from panic into power by understanding how things actually work"
+            course-description="Emergency recovery is good. Never needing it is better. Learn to build with confidence instead of stumbling through fixes."
+            :bullet-points="[
+              '25 lessons that demystify the building process from conversation to deployment',
+              'Learn to read error messages like navigation charts',
+              'Build real projects while mastering the fundamentals',
+              'Transform from \"something\'s broken\" to \"I know exactly what\'s wrong\"'
+            ]"
+            image-url="/images/conversation-driven-dev-min.png"
+            image-alt="Conversation-Driven Development Course"
+            cta-text="Navigate From Chaos to Clarity"
+            supporting-text="Join our crew of confident builders who troubleshoot like captains, not passengers."
+            student-count="350"
+          />
+        </div>
+        
         <div class="mindset-section">
           <h2 class="section-title">The Captain's Troubleshooting Mindset</h2>
           <div class="mindset-card">
@@ -325,13 +345,38 @@
             <p class="help-reminder">The captains who progress fastest are those who balance figuring things out themselves with knowing when to ask for help.</p>
           </div>
         </div>
+        
+        <!-- Second CTA - Architectural Literacy after Getting Help -->
+        <div class="cta-section help-cta">
+          <CourseCtaCard
+            course-title="Build Your Technical Foundation"
+            course-subtitle="Stop depending on others - master the core systems that power every application"
+            course-description="The difference between passengers and captains? Captains understand their ship from deck to keel."
+            :bullet-points="[
+              '6 modules covering the fundamentals every builder needs to know',
+              'From Command Line basics to API mastery and version control',
+              'Build an AI chatbot capstone that proves your new capabilities',
+              'Graduate from asking for help to providing solutions'
+            ]"
+            image-url="/images/architectural-literacy-min.png"
+            image-alt="Architectural Literacy Course"
+            cta-text="Claim Your Captain's Credentials"
+            supporting-text="Start your 7-day journey from dependency to independence."
+            student-count="350"
+          />
+        </div>
       </div>
     </div>
   </template>
   
   <script>
+  import CourseCtaCard from '../components/CourseCtaCard.vue'
+
   export default {
     name: 'TroubleshootingPage',
+    components: {
+      CourseCtaCard
+    },
     data() {
       return {
         searchQuery: '',
@@ -987,5 +1032,21 @@
   
   .btn-primary:hover {
     background-color: var(--primary-dark);
+  }
+
+  /* CTA Sections */
+  .cta-section {
+    margin: 3rem 0;
+    padding: 0 1rem;
+  }
+
+  .emergency-cta {
+    border-top: 2px solid var(--accent);
+    padding-top: 2rem;
+  }
+
+  .help-cta {
+    border-top: 2px solid var(--secondary);
+    padding-top: 2rem;
   }
   </style>

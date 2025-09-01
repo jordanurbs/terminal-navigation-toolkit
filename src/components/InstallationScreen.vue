@@ -24,7 +24,7 @@
           </button>
         </div>
         <p class="purchase-link">
-          Don't have an API key? <a href="https://ccc.ai-captains.com/" target="_blank" rel="noopener noreferrer">Purchase one here</a>
+          Don't have an API key? <a href="https://skool.com/aicaptains" target="_blank" rel="noopener noreferrer">Get your API key in the AI Captains Skool (free 7-day trial)</a>
         </p>
         <div v-if="error" class="error-message">
           {{ error }}

@@ -540,6 +540,26 @@ alias findtext="grep -r"
         </div>
       </div>
       
+      <!-- Conversation-Driven Development CTA -->
+      <div class="cta-section">
+        <CourseCtaCard
+          course-title="Stop Prompting. Start Building."
+          course-subtitle="Transform from AI passenger to coding captain with conversation-driven development"
+          course-description="Your terminal setup is just the beginning. Ready to turn those commands into real applications using nothing but conversation?"
+          :bullet-points="[
+            '25 video lessons that turn English into working applications',
+            'Complete machine setup module - no technical background required',
+            'Build your first real project using nothing but conversation',
+            'Go from \"I wish I could build that\" to \"I just built that\"'
+          ]"
+          image-url="/images/conversation-driven-dev-min.png"
+          image-alt="Conversation-Driven Development Course"
+          cta-text="Chart Your Course to Builder Status"
+          supporting-text="Join 350+ students who've discovered the secret to building without traditional coding. Your 7-day free trial awaits."
+          student-count="350"
+        />
+      </div>
+      
       <div class="next-steps">
         <h2 class="section-title">Next Steps</h2>
         <p class="next-steps-intro">After setting up your terminal, try these commands to test your new environment:</p>
@@ -582,8 +602,13 @@ alias findtext="grep -r"
 </template>
 
 <script>
+import CourseCtaCard from '../components/CourseCtaCard.vue'
+
 export default {
   name: 'SetupScriptsPage',
+  components: {
+    CourseCtaCard
+  },
   data() {
     return {
       selectedOS: 'mac',
@@ -1027,5 +1052,11 @@ code {
     align-items: flex-start;
     gap: 0.5rem;
   }
+}
+
+/* CTA Section */
+.cta-section {
+  margin: 3rem 0;
+  padding: 0 1rem;
 }
 </style>
