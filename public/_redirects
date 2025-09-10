@@ -1,0 +1,5 @@
+# Netlify _redirects file for Vue.js SPA
+# This ensures that all routes fallback to index.html for client-side routing
+
+# Handle all SPA routes - must be last rule
+/*    /index.html   200
