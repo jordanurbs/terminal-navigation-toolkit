@@ -66,21 +66,43 @@
     <section class="features">
       <div class="container">
         <h2 class="section-title">What You'll Find Here</h2>
-        
         <div class="feature-grid">
           <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Full Getting Started Guide</h3>
+            <p>Complete setup guide for Claude Code and terminal essentials. From zero to building with AI in one comprehensive walkthrough.</p>
+            <router-link to="/dependencies" class="feature-link">Get Started</router-link>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>Claude Code Agents</h3>
+            <p>Curated collection of Claude Code agent configurations and resources. Access official and community-created agents for enhanced AI development.</p>
+            <router-link to="/prompts" class="feature-link">Browse Agents</router-link>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>System Prompts & Rules</h3>
+            <p>Battle-tested prompts and system rules that transform AI assistants into powerful coding partners. Copy, customize, and deploy instantly.</p>
+            <router-link to="/prompts" class="feature-link">View Prompts</router-link>
+          </div>
+          
+        
+
+          <div class="feature-card">
             <div class="feature-icon">📋</div>
-            <h3>Command Cheat Sheet</h3>
+            <h3>Command Line Help</h3>
             <p>The essential commands you'll need at your fingertips. No more Googling basic commands—everything explained in plain English.</p>
             <router-link to="/cheatsheet" class="feature-link">Explore Commands</router-link>
           </div>
 
 
           <div class="feature-card">
-            <div class="feature-icon">🚀</div>
+            <div class="feature-icon">🧭</div>
             <h3>30-Day Content Commander Challenge</h3>
-            <p>The step-by-step journey that transforms you from no-code passenger to AI captain by building a practical tool you'll actually use.</p>
-            <a href="https://ccc.ai-captains.com" class="feature-link">Get API Key</a>
+            <p>The step-by-step journey that transforms you from no-code passenger to AI Captain by building a practical tool you'll actually use.</p>
+            <a href="https://skool.com/aicaptains" class="feature-link">Get API Key</a>
           </div>
           
           <div class="feature-card">
@@ -89,6 +111,7 @@
             <p>Turn error messages from scary to solvable with our comprehensive guide. Common issues explained without technical jargon.</p>
             <router-link to="/troubleshooting" class="feature-link">Fix Common Issues</router-link>
           </div>
+      
           
         </div>
       </div>
@@ -162,7 +185,7 @@
         
         <div class="commander-cta">
       
-          <a href="https://ccc.ai-captains.com" class="btn btn-accent btn-large">Get Started with the Challenge</a>
+          <a href="/challenges" class="btn btn-accent btn-large">Get Started with the Challenge</a>
         </div>
       </div>
     </section>
@@ -199,23 +222,18 @@
           <div class="faq-item">
             <h3 class="faq-question">Why should I listen to you?</h3>
             <div class="faq-answer">
-              <p>Don't! Seriously. <em>Don't trust, verify.</em> Google everything I'm saying to verify it.</p><p>The benefit isn't that I'm some genius developer (I'm not)—it's that I've curated the minimal technical foundation you need as a business builder and organized it in a way that makes sense for non-technical folks.</p>
+              <p>Don't! Seriously. <em>Don't trust, verify.</em> Google everything stated here to verify it.</p><p>The benefit isn't that I'm some genius developer (I'm not)—it's that I've curated the minimal technical foundation you need as an online builder and organized it in a way that makes sense for non-technical folks.</p>
             </div>
           </div>
           
           <div class="faq-item">
-            <h3 class="faq-question">Why is this valuable if I can Google everything?</h3>
+            <h3 class="faq-question">Why is this valuable if I can Google/ChatGPT everything?</h3>
             <div class="faq-answer">
-              <p>You absolutely can Google everything here!</p><p>The value is having it all in one place, organized specifically for entrepreneurs and creators who are competent in other areas but unfamiliar with the command line.</p><p>It's the difference between having scattered puzzle pieces and a complete picture. Plus, it's been designed to be enjoyable rather than overwhelming.</p>
+              <p>You absolutely use any other tool to learn everything here!</p><p>The value is having it all in one place, organized specifically for builders & creators who are tech-savvy but unfamiliar with the command line and building with AI.</p><p>It's the difference between having scattered puzzle pieces and a complete picture. Plus, it's been designed to be enjoyable rather than overwhelming.</p>
             </div>
           </div>
           
-          <div class="faq-item">
-            <h3 class="faq-question">Who is the challenge for?</h3>
-            <div class="faq-answer">
-              <p>No-coders, non-developers, creators, solopreneurs, and all the other builders who haven't had the time to become a full stack developer, but want to take their technical proficiency to the next level. Especially those who struggle with resistance when faced with a terminal or command line interface.</p>
-            </div>
-          </div>
+    
           
           <div class="faq-item">
             <h3 class="faq-question">Is this a coding course?</h3>
@@ -234,6 +252,7 @@
       </div>
     </section>
     
+    <!-- Important Information About The Challenge - Hidden
     <section class="local-storage-notice">
       <div class="container">
         <div class="notice-card">
@@ -246,6 +265,7 @@
         </div>
       </div>
     </section>
+    -->
     
 
     <section class="bootcamp-reminder" id="bootcamp">

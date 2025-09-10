@@ -5,48 +5,114 @@
       <p class="page-subtitle">A comprehensive collection of Claude Code agents, AI prompts, and development resources to enhance your coding experience and automate your workflows.</p>
       
       <div class="filtering-controls">
-        <div class="filter-section">
-          <div class="type-filter">
-            <label class="filter-label">Content Type:</label>
-            <select 
-              class="type-select" 
-              @change="handleTypeChange($event)"
-              :value="selectedType || ''"
-            >
-              <option value="">All Content</option>
-              <option value="prompt">AI Prompts Only</option>
-              <option value="template">Workflow Templates Only</option>
-            </select>
-          </div>
-        </div>
-        
-        <div class="filter-section">
-          <div class="category-dropdown">
-            <label class="filter-label">Category:</label>
-            <select 
-              class="category-select" 
-              @change="handleCategoryChange($event)"
-              :value="selectedCategory || ''"
-            >
-              <option value="">All Categories</option>
-              <option 
-                v-for="category in availableCategories" 
-                :key="category.id"
-                :value="category.id"
+        <!-- Top Row: Content Type + Search -->
+        <div class="filter-row top-row">
+          <!-- Content Type Filter -->
+          <div class="filter-group content-type-group">
+            <label class="filter-label">Content Type</label>
+            <div class="button-group content-type-buttons">
+              <button 
+                class="filter-button"
+                :class="{ active: !selectedType }"
+                @click="setContentType(null)"
               >
-                {{ category.icon }} {{ category.name }}
-              </option>
-            </select>
+                <span class="button-icon">📚</span>
+                <span class="button-text">All Content</span>
+              </button>
+              <button 
+                class="filter-button"
+                :class="{ active: selectedType === 'prompt' }"
+                @click="setContentType('prompt')"
+              >
+                <span class="button-icon">💡</span>
+                <span class="button-text">AI Prompts</span>
+              </button>
+              <button 
+                class="filter-button"
+                :class="{ active: selectedType === 'template' }"
+                @click="setContentType('template')"
+              >
+                <span class="button-icon">⚙️</span>
+                <span class="button-text">Templates</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Enhanced Search -->
+          <div class="filter-group search-group">
+            <label class="filter-label">Search</label>
+            <div class="search-wrapper">
+              <div class="search-input-container">
+                <span class="search-icon">🔍</span>
+                <input 
+                  type="text" 
+                  v-model="searchQuery" 
+                  :placeholder="currentSearchPlaceholder" 
+                  class="search-input enhanced-search"
+                >
+                <button 
+                  v-if="searchQuery"
+                  class="clear-search"
+                  @click="clearSearch"
+                  aria-label="Clear search"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="filter-section search-section">
-          <input 
-            type="text" 
-            v-model="searchQuery" 
-            placeholder="Search prompts and templates..." 
-            class="search-input"
-          >
+        <!-- Bottom Row: Categories -->
+        <div class="filter-row bottom-row">
+          <div class="filter-group category-group">
+            <label class="filter-label">Categories</label>
+            <div class="button-group category-buttons">
+              <button 
+                class="filter-button category-all"
+                :class="{ active: !selectedCategory }"
+                @click="setCategoryFilter(null)"
+              >
+                <span class="button-icon">🌟</span>
+                <span class="button-text">All Categories</span>
+              </button>
+              <button 
+                v-for="category in availableCategories" 
+                :key="category.id"
+                class="filter-button category-button"
+                :class="{ 
+                  active: selectedCategory === category.id,
+                  [`category-${category.id}`]: true 
+                }"
+                @click="setCategoryFilter(category.id)"
+              >
+                <span class="button-icon">{{ category.icon }}</span>
+                <span class="button-text">{{ category.name }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Filters Display -->
+        <div v-if="hasActiveFilters" class="active-filters">
+          <span class="active-filters-label">Active filters:</span>
+          <div class="active-filter-pills">
+            <span v-if="selectedType" class="filter-pill">
+              {{ getContentTypeLabel(selectedType) }}
+              <button @click="setContentType(null)" class="remove-filter">✕</button>
+            </span>
+            <span v-if="selectedCategory" class="filter-pill">
+              {{ getCategoryLabel(selectedCategory) }}
+              <button @click="setCategoryFilter(null)" class="remove-filter">✕</button>
+            </span>
+            <span v-if="searchQuery" class="filter-pill">
+              "{{ searchQuery }}"
+              <button @click="clearSearch" class="remove-filter">✕</button>
+            </span>
+          </div>
+          <button class="reset-all-filters" @click="resetFilters">
+            Clear All
+          </button>
         </div>
       </div>
       
@@ -347,6 +413,14 @@ export default {
       selectedCategory: null,
       selectedType: null,
       searchQuery: '',
+      searchPlaceholders: [
+        'Search prompts and templates...',
+        'Find your perfect prompt...',
+        'Discover hidden gems...',
+        'What are you building today?',
+        'Explore automation magic...'
+      ],
+      currentPlaceholderIndex: 0,
       categoryColors: {
         // Prompt categories
         copilot: '#4299e1',
@@ -388,6 +462,14 @@ export default {
       return this.allCategories.filter(category => relevantCategoryIds.includes(category.id));
     },
     
+    currentSearchPlaceholder() {
+      return this.searchPlaceholders[this.currentPlaceholderIndex];
+    },
+    
+    hasActiveFilters() {
+      return !!(this.selectedType || this.selectedCategory || this.searchQuery);
+    },
+    
     filteredCategories() {
       if (!this.selectedCategory) {
         return this.availableCategories;
@@ -418,8 +500,8 @@ export default {
     }
   },
   methods: {
-    handleTypeChange(event) {
-      this.selectedType = event.target.value || null;
+    setContentType(type) {
+      this.selectedType = type;
       // Reset category if it's not available for the selected type
       if (this.selectedType && this.selectedCategory) {
         const availableCategoryIds = this.availableCategories.map(cat => cat.id);
@@ -429,8 +511,25 @@ export default {
       }
     },
     
-    handleCategoryChange(event) {
-      this.selectedCategory = event.target.value || null;
+    setCategoryFilter(categoryId) {
+      this.selectedCategory = categoryId;
+    },
+    
+    clearSearch() {
+      this.searchQuery = '';
+    },
+    
+    getContentTypeLabel(type) {
+      const labels = {
+        'prompt': 'AI Prompts',
+        'template': 'Templates'
+      };
+      return labels[type] || type;
+    },
+    
+    getCategoryLabel(categoryId) {
+      const category = this.allCategories.find(cat => cat.id === categoryId);
+      return category ? category.name : categoryId;
     },
     
     itemMatchesSearch(item) {
@@ -533,6 +632,13 @@ export default {
       this.selectedType = null;
       this.searchQuery = '';
     }
+  },
+  
+  mounted() {
+    // Rotate search placeholder text
+    setInterval(() => {
+      this.currentPlaceholderIndex = (this.currentPlaceholderIndex + 1) % this.searchPlaceholders.length;
+    }, 3000);
   }
 }
 </script>
@@ -564,48 +670,323 @@ export default {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.filter-section {
+/* Filter Rows */
+.filter-row {
   display: flex;
-  align-items: center;
-  flex: 1;
-  min-width: 200px;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-.type-filter {
+.filter-row:last-child {
+  margin-bottom: 0;
+}
+
+.top-row {
+  align-items: flex-start;
+}
+
+.bottom-row {
+  align-items: flex-start;
+}
+
+/* Filter Groups */
+.filter-group {
+  flex: 1;
+  min-width: 0; /* Allow flex items to shrink below content size */
+}
+
+.content-type-group {
+  flex: 0 0 auto; /* Don't grow or shrink */
+  min-width: 400px;
+}
+
+.search-group {
+  flex: 2 1 400px; /* Grow more aggressively, minimum 400px */
+}
+
+.category-group {
+  flex: 1;
+}
+
+/* Button Groups */
+.button-group {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-buttons {
+  gap: 0.75rem;
 }
 
 .filter-label {
-  margin-right: 0.5rem;
+  display: block;
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.type-select {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 0.25rem;
-  background-color: white;
-  font-size: 1rem;
+/* Filter Buttons */
+.filter-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.category-select {
+.filter-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
   width: 100%;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 0.25rem;
-  background-color: white;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.filter-button:hover::before {
+  left: 100%;
+}
+
+.filter-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--secondary);
+}
+
+.filter-button.active {
+  background: linear-gradient(135deg, var(--primary) 0%, #2c5f8a 100%);
+  border-color: var(--primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(52, 144, 220, 0.3);
+}
+
+.filter-button.active .button-icon {
+  animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  80% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Button Icons and Text */
+.button-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.button-text {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* Category-specific styling */
+.category-button.category-copilot.active {
+  background: linear-gradient(135deg, #4299e1 0%, #2b6cb0 100%);
+  border-color: #4299e1;
+}
+
+.category-button.category-projectsetup.active {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  border-color: #48bb78;
+}
+
+.category-button.category-claude-code-agents.active {
+  background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+  border-color: #ed8936;
+}
+
+.category-button.category-mcp.active {
+  background: linear-gradient(135deg, #805ad5 0%, #6b46c1 100%);
+  border-color: #805ad5;
+}
+
+.category-button.category-n8n-automation.active {
+  background: linear-gradient(135deg, #ff4f64 0%, #e53e3e 100%);
+  border-color: #ff4f64;
+}
+
+/* Enhanced Search */
+.search-group {
+  position: relative;
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
   font-size: 1rem;
+  color: var(--text-light);
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
+
+.enhanced-search {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 2.5rem;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.enhanced-search:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(52, 144, 220, 0.1);
+  background: white;
+}
+
+.enhanced-search:focus + .search-icon {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.clear-search {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--text-light);
   cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  z-index: 2;
 }
 
-.search-input {
-  width: 100%;
+.clear-search:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--text);
+  transform: rotate(90deg);
+}
+
+/* Active Filters */
+.active-filters {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.active-filters-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.active-filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--primary);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.remove-filter {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 0.25rem;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.remove-filter:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.reset-all-filters {
+  background: #dc3545;
+  color: white;
+  border: none;
   padding: 0.5rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 0.25rem;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.reset-all-filters:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
 }
 
 .category-section {
@@ -756,17 +1137,124 @@ export default {
   margin-top: 2rem;
 }
 
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .content-type-group {
+    min-width: 350px;
+  }
+}
+
 @media (max-width: 768px) {
+  .filtering-controls {
+    padding: 1.5rem;
+  }
+  
+  /* Stack filter rows vertically on mobile */
+  .filter-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .content-type-group,
+  .search-group,
+  .category-group {
+    flex: 1;
+    min-width: 0;
+    max-width: none;
+  }
+  
+  .button-group {
+    justify-content: center;
+  }
+  
+  .filter-button {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+  }
+  
+  .category-buttons {
+    gap: 0.5rem;
+  }
+  
+  .category-buttons .filter-button {
+    flex: 1 1 calc(50% - 0.25rem);
+    min-width: 140px;
+  }
+  
+  .active-filters {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .active-filter-pills {
+    width: 100%;
+  }
+  
+  .reset-all-filters {
+    width: 100%;
+  }
+  
   .content-grid {
     grid-template-columns: 1fr;
   }
-  
-  .filtering-controls {
-    flex-direction: column;
+}
+
+@media (max-width: 480px) {
+  .filter-button .button-text {
+    font-size: 0.8rem;
   }
   
-  .filter-section {
-    width: 100%;
+  .category-buttons .filter-button {
+    flex: 1 1 100%;
+  }
+}
+
+/* Hover states for better UX */
+@media (hover: hover) {
+  .filter-button:hover .button-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  .search-input-container:hover .search-icon {
+    animation: wiggle 0.5s ease-in-out;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+/* Accessibility improvements */
+.filter-button:focus {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+.enhanced-search:focus {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .filter-button,
+  .enhanced-search,
+  .filter-pill,
+  .button-icon {
+    animation: none;
+    transition: none;
+  }
+  
+  .filter-button:hover {
+    transform: none;
+  }
+  
+  .filter-button.active {
+    transform: none;
   }
 }
 
@@ -871,35 +1359,28 @@ export default {
 
 /* Enhanced filtering controls */
 .filtering-controls {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 1px solid #e9ecef;
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
 }
 
-.filter-label {
-  font-weight: 600;
-  color: var(--primary);
-  font-size: 0.875rem;
-  white-space: nowrap;
+.filtering-controls::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0.3;
 }
 
-.type-filter,
-.category-dropdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.type-select,
-.category-select {
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.type-select:focus,
-.category-select:focus {
-  outline: none;
-  border-color: var(--secondary);
-  box-shadow: 0 0 0 2px rgba(52, 144, 220, 0.2);
-}
 
 /* Enhanced content cards */
 .content-card {
