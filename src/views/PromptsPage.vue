@@ -1,8 +1,8 @@
 <template>
   <div class="prompts-page">
     <div class="container">
-      <h1 class="page-title">AI Vibe Coding Prompts & Templates</h1>
-      <p class="page-subtitle">A comprehensive collection of effective prompts and workflow templates to enhance your AI coding assistant experience and automate your processes.</p>
+      <h1 class="page-title">Agents, Prompts & Resources</h1>
+      <p class="page-subtitle">A comprehensive collection of Claude Code agents, AI prompts, and development resources to enhance your coding experience and automate your workflows.</p>
       
       <div class="filtering-controls">
         <div class="filter-section">
@@ -51,7 +51,7 @@
       </div>
       
       <!-- Learning Resources Section -->
-      <div class="learning-resources-section">
+      <div v-if="showLearningResources" class="learning-resources-section">
         <h2 class="section-title">
           <span class="section-icon">🎓</span>
           Learning Resources
@@ -217,6 +217,16 @@
                 <button class="btn btn-primary btn-sm" @click="copyToClipboard(prompt.template)">
                   Copy Prompt
                 </button>
+                <a 
+                  v-if="prompt.resourceUrl" 
+                  :href="prompt.resourceUrl" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn btn-resource btn-sm"
+                >
+                  <span class="resource-icon">🔗</span>
+                  View Resource
+                </a>
                 <button 
                   class="btn btn-secondary btn-sm" 
                   @click="saveItem(prompt)"
@@ -360,6 +370,11 @@ export default {
     
     hasFavoritePrompts() {
       return this.favoritePrompts.length > 0;
+    },
+    
+    showLearningResources() {
+      // Only show learning resources when no filters are active
+      return !this.selectedCategory && !this.selectedType && !this.searchQuery;
     },
     
     availableCategories() {
@@ -935,6 +950,28 @@ export default {
 .btn-accent:hover {
   background-color: #d4a226;
   border-color: #d4a226;
+}
+
+.btn-resource {
+  background-color: #10b981;
+  color: white;
+  border: 1px solid #10b981;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.btn-resource:hover {
+  background-color: #059669;
+  border-color: #059669;
+  color: white;
+  text-decoration: none;
+}
+
+.resource-icon {
+  font-size: 0.875rem;
 }
 
 /* No results styling */

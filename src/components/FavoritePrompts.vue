@@ -1,10 +1,10 @@
 <template>
   <div class="favorites-section">
-    <h2 class="favorites-title">My Favorite Prompts & Templates</h2>
+    <h2 class="favorites-title">My Favorite Agents, Prompts & Resources</h2>
     
     <div v-if="favoritePrompts.length === 0" class="no-favorites">
-      <p>You haven't saved any favorite prompts or templates yet.</p>
-      <p>Click on "Save to Favorites" on any prompt or template card to add it here.</p>
+      <p>You haven't saved any favorite agents, prompts, or resources yet.</p>
+      <p>Click on "Save to Favorites" on any card to add it here.</p>
     </div>
     
     <div v-else class="favorites-grid">

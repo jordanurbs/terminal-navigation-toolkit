@@ -131,6 +131,16 @@
                 <div class="command-desc">Start Claude Code in current directory</div>
               </div>
               
+              <div class="command-item important">
+                <div class="command-syntax">
+                  <code>claude</code>
+                </div>
+                <div class="command-desc">
+                  <strong>Within your IDE:</strong> Opens Claude Code directly in your editor
+                  <div class="command-note">💡 Once Claude Code is running, simply type 'claude' in your IDE's terminal to access the AI assistant</div>
+                </div>
+              </div>
+              
               <div class="command-item">
                 <div class="command-syntax">
                   <code>claude-code --help</code>
@@ -1495,6 +1505,22 @@ code {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 6px;
   padding: 1rem;
+}
+
+.command-item.important {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  position: relative;
+}
+
+.command-note {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(250, 204, 21, 0.1);
+  border-left: 3px solid #facc15;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #fbbf24;
 }
 
 .command-syntax {

@@ -344,6 +344,7 @@ I'm comfortable with "vibe coding" and learning as we go, but need a clear roadm
     categoryId: 'claude-code-agents',
     title: 'Official Claude Code Agents Repository',
     tags: ['agents', 'claude-code', 'official'],
+    resourceUrl: 'https://github.com/anthropics/claude-code-agents',
     template: `**Official Claude Code Agents Repository**
 https://github.com/anthropics/claude-code-agents
 
@@ -389,6 +390,7 @@ The official repository maintained by Anthropic containing verified agent config
     categoryId: 'claude-code-agents',
     title: 'Awesome Claude Code Agents',
     tags: ['agents', 'awesome-list', 'community'],
+    resourceUrl: 'https://github.com/hesreallyhim/awesome-claude-code-agents',
     template: `**Awesome Claude Code Agents Collection**
 https://github.com/hesreallyhim/awesome-claude-code-agents
 
@@ -434,6 +436,7 @@ A comprehensive, community-curated list of Claude Code agent configurations and 
     categoryId: 'claude-code-agents',
     title: 'Agent Collection by wshobson',
     tags: ['agents', 'collection', 'productivity'],
+    resourceUrl: 'https://github.com/wshobson/agents',
     template: `**Agent Collection by wshobson**
 https://github.com/wshobson/agents
 
@@ -484,6 +487,7 @@ A personal collection of Claude Code agents focused on productivity and developm
     categoryId: 'claude-code-agents',
     title: 'Claude Agents by iannuttall',
     tags: ['agents', 'specialized', 'development'],
+    resourceUrl: 'https://github.com/iannuttall/claude-agents',
     template: `**Claude Agents by iannuttall**
 https://github.com/iannuttall/claude-agents
 
@@ -536,6 +540,7 @@ Specialized Claude Code agents designed for specific development tasks and workf
     categoryId: 'claude-code-agents',
     title: 'Awesome Claude Code Subagents',
     tags: ['subagents', 'modular', 'architecture'],
+    resourceUrl: 'https://github.com/VoltAgent/awesome-claude-code-subagents',
     template: `**Awesome Claude Code Subagents**
 https://github.com/VoltAgent/awesome-claude-code-subagents
 
@@ -588,6 +593,7 @@ Modular subagent architectures for building complex Claude Code workflows.
     categoryId: 'claude-code-agents',
     title: 'Contains Studio Agent Collection',
     tags: ['agents', 'studio', 'professional'],
+    resourceUrl: 'https://github.com/contains-studio/agents',
     template: `**Contains Studio Agent Collection**
 https://github.com/contains-studio/agents
 
@@ -646,6 +652,7 @@ Professional-grade Claude Code agents designed for studio and team environments.
     categoryId: 'claude-code-agents',
     title: 'r/ClaudeAI Agent Configurations',
     tags: ['community', 'reddit', 'discussions'],
+    resourceUrl: 'https://reddit.com/r/ClaudeAI',
     template: `**r/ClaudeAI Agent Configurations Community**
 https://reddit.com/r/ClaudeAI
 
@@ -699,6 +706,7 @@ Active Reddit community sharing Claude Code agent configurations and experiences
     categoryId: 'claude-code-agents',
     title: 'GitHub Claude Agent Examples',
     tags: ['github', 'search', 'examples'],
+    resourceUrl: 'https://github.com/search?q=claude-code-agent',
     template: `**GitHub Claude Agent Examples Search**
 https://github.com/search?q=claude-code-agent
 
@@ -752,6 +760,7 @@ claude-code-agent stars:>10
     categoryId: 'claude-code-agents',
     title: 'Discord Community Configs',
     tags: ['discord', 'community', 'real-time'],
+    resourceUrl: 'https://discord.gg/claude-dev',
     template: `**Claude Development Discord Community**
 https://discord.gg/claude-dev
 
