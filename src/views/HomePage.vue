@@ -4,9 +4,9 @@
       <div class="container hero-container">
         <div class="hero-content">
 
-          <h1>Command the Terminal, Unlock Your AI Potential</h1>
-          <p class="tagline">The Terminal Navigation Toolkit helps you develop your true vibe coding foundation.</p>
-          <p class="tagline">Build with AI confidently, run your own projects locally, and bridge the gap between great ideas and real-world creation—without becoming a full-stack developer.</p>
+          <h1>Build A Vibe-Coded Business With AI</h1>
+          <p class="tagline">Learn the technical foundation that transforms online builders into business owners—using AI as your coding partner to build directories, SaaS tools, and automation that can actually generate revenue.</p>
+          <p class="tagline">You know AI is the future. You understand vibe coding beats traditional development. Now build the foundational skills to deploy, scale, and own what you build—instead of renting tools forever.</p>
           
           <div class="hero-cta" v-if="!hasApiKey">
             <div class="button-group">
@@ -52,16 +52,6 @@
       </div>
     </section>
     
-    <section class="about-toolkit">
-      <div class="container">
-        <h2 class="section-title">The Bridge You've Been Missing</h2>
-        <div class="about-content">
-          <p class="about-lead">The Terminal Navigation Toolkit is your comprehensive gateway to conquering the foundational knowledge to start vibe coding your own tools — without becoming a full-stack developer!</p>
-          <p>Whether you master the basics in a weekend or take the full 30-day challenge, you'll transform from avoiding the terminal to confidently directing AI to build custom tools for your specific needs.</p>
-          <p>With this toolkit, you'll bridge the gap between having great AI-powered ideas and having the confidence to bring them to life. The command line isn't just for "real programmers"—it's for builders who want control over what they create.</p>
-        </div>
-      </div>
-    </section>
     
     <section class="features">
       <div class="container">
@@ -201,14 +191,23 @@
             </div>
           </div>
           <div class="jordan-bio">
-            <h2 class="section-title">Why I Created This Toolkit</h2>
-            <p>For years, I avoided anything that required using the command line. Every time I saw those intimidating black screens with white text in coding tutorials, I'd immediately close the tab because I just didn't want to deal with it.</p>
-            <p>But when AI tools like Cursor started emerging, I quickly realized this was the future. I'd ask these AIs to help me build things, but then get stuck when it came time to post the site online, make it easy to update, or connect APIs.</p>
-            <p>The shocking discovery? Learning just enough command line and coding basics is now easier than ever with AI co-pilots.</p>
-            <p>Suddenly, I'm using AI to build web applications and automation tools I never thought possible without a computer science degree.</p>
-            <p>And you can, too.</p>
-            <p>I created the Terminal Navigation Toolkit to help you skip the years of intimidation I experienced, and jump straight to technical confidence.</p>
-            <p>Let's get it!</p>
+            <h2 class="section-title">From Online Builder to Business Owner</h2>
+   
+            <h3 style="color:white;">My Breakthrough Moment:</h3>
+            <p>Realizing that vibe coding with AI wasn't just a productivity hack—it was the unlock to building the exact tools & ideas I'd been DREAMING of for years.</p>
+            <h3 style="color:white;">The Business Transformation:</h3>
+            <ul style="margin-bottom:20px;">
+              <li>Started out building local directories to learn</li>
+              <li>Created custom automation workflows that are now saving me $400+/month in SaaS subscriptions</li>
+              <li>Deployed client projects that I previously had to turn down or outsource</li>
+              <li>I'm now shipping my first SaaS products (mostly RAG voice agents)</li>
+            </ul>
+            <h3 style="color:white;">What changed everything:</h3> <p>Learning just enough infrastructure fundamentals to deploy, scale, and maintain what AI helps me build.</p>
+            <h3 style="color:white;">I am now FREE.</h3>
+            <p>I can ship projects that solve real problems... for real money.</p>
+            <p>And you can learn, too.</p>
+            <p>I started AI Captains because the gap between "online builder" and "tech entrepreneur" is smaller than most people think—but the bridge isn't obvious.</p>
+            <p>Let's build your first vibe-coded business together.</p>
           </div>
         </div>
       </div>
@@ -220,32 +219,45 @@
         
         <div class="faq-list">
           <div class="faq-item">
-            <h3 class="faq-question">Why should I listen to you?</h3>
+            <h3 class="faq-question">Why should I trust someone who's not a "real developer"?</h3>
             <div class="faq-answer">
-              <p>Don't! Seriously. <em>Don't trust, verify.</em> Google everything stated here to verify it.</p><p>The benefit isn't that I'm some genius developer (I'm not)—it's that I've curated the minimal technical foundation you need as an online builder and organized it in a way that makes sense for non-technical folks.</p>
+              <p><strong>This is exactly why you SHOULD trust me.</strong></p><p>I learned this as a complete outsider, so I know which parts actually matter for builders vs. which parts are just programmer gatekeeping. I explain things the way I needed them explained 18 months ago.</p>
             </div>
           </div>
           
           <div class="faq-item">
-            <h3 class="faq-question">Why is this valuable if I can Google/ChatGPT everything?</h3>
+            <h3 class="faq-question">Will this Toolkit help me build a directory specifically?</h3>
             <div class="faq-answer">
-              <p>You absolutely use any other tool to learn everything here!</p><p>The value is having it all in one place, organized specifically for builders & creators who are tech-savvy but unfamiliar with the command line and building with AI.</p><p>It's the difference between having scattered puzzle pieces and a complete picture. Plus, it's been designed to be enjoyable rather than overwhelming.</p>
-            </div>
-          </div>
-          
-    
-          
-          <div class="faq-item">
-            <h3 class="faq-question">Is this a coding course?</h3>
-            <div class="faq-answer">
-              <p>NO! This is about learning to work WITH code, not becoming a programmer. AI agents will do all the coding for you, but you still have to learn how to manage the AI agent.</p><p>It's like learning to drive without needing to understand how to build the car.</p>
+              <p><strong>No—but the AI Captains Skool can!</strong></p><p>Directories are a great way to start learning. Unlike generic coding courses that teach to-do apps, in the <a href="https://skool.com/aicaptains">Skool community</a> we use directory building to learn things like: data scraping, API calls, AI data processing, interface building, dashboard creation, and more.</p>
             </div>
           </div>
           
           <div class="faq-item">
-            <h3 class="faq-question">Why should I pay for the challenge if I can just learn it with ChatGPT or Claude?</h3>
+            <h3 class="faq-question">Is this just another subscription I'll forget about?</h3>
             <div class="faq-answer">
-              <p>You can learn this stuff anywhere, even Google, but I've formatted it to be fun—and cool—to learn. </p><p>More importantly, I've structured it around building something genuinely useful while learning, which gives you both the skills AND a valuable tool at the end.</p>
+              <p><strong>There are no charges for the core toolkit—only if you upgrade to the Skool.</strong></p><p>You either commit to learning this or you don't—but the Terminal Navigation Toolkit won't slowly drain your bank account.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <h3 class="faq-question">What if I don't even know what an IDE is?</h3>
+            <div class="faq-answer">
+              <p><strong>Perfect. That's exactly who this is for!</strong></p><p>15% of our community started with that exact question. We begin with installing Cursor or VS Code and then using different AI agents such as Claude Code to start building inside the IDE.</p><p>No assumptions, no skipped steps.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <h3 class="faq-question">How is this different from YouTube tutorials?</h3>
+            <div class="faq-answer">
+              <p><strong>Structure + Focus + No BS.</strong></p><p>Instead of "Here's how to build a blog in React," I prefer to share "Here's how to scrape business data, organize it, and deploy a searchable directory that solves a real problem."</p><p>Every lesson builds toward something you'd actually use.</p>
+            </div>
+          </div>
+          
+          
+          <div class="faq-item">
+            <h3 class="faq-question">Is the command line actually necessary, or is this just gatekeeping?</h3>
+            <div class="faq-answer">
+              <p><strong>It's necessary, but not in the way "real programmers" make it seem.</strong></p><p>You need maybe 20 commands total. It's like learning to drive—you don't need to understand the engine, just the pedals and steering wheel.</p>
             </div>
           </div>
         </div>
@@ -271,29 +283,29 @@
     <section class="bootcamp-reminder" id="bootcamp">
       <div class="container">
         <div class="bootcamp-card">
-          <h2 class="bootcamp-title">5-Day Command Line Bootcamp</h2>
-          <p class="bootcamp-desc">A free e-mail course introducing you to the command line basics that are the fundamental to building modern apps & AI-powered projects:</p>
+          <h2 class="bootcamp-title">5-Day Command Line Confidence Course</h2>
+          <p class="bootcamp-desc">For People Who Don't Even Know What Terminal Means:</p>
           
           <div class="bootcamp-days">
             <div class="bootcamp-day">
               <span class="day-number">1</span>
-              <span class="day-title">The Captain's Mindset</span>
+              <span class="day-title">The Captain's Mindset (Why this matters for builders)</span>
             </div>
             <div class="bootcamp-day">
               <span class="day-number">2</span>
-              <span class="day-title">Command Line Essentials</span>
+              <span class="day-title">Your First 10 Commands (The only ones you actually need)</span>
             </div>
             <div class="bootcamp-day">
               <span class="day-number">3</span>
-              <span class="day-title">Code Literacy</span>
+              <span class="day-title">Project Setup Basics (Stop getting lost in folder structures)</span>
             </div>
             <div class="bootcamp-day">
               <span class="day-number">4</span>
-              <span class="day-title">API Fundamentals</span>
+              <span class="day-title">API Fundamentals (How systems talk to each other)</span>
             </div>
             <div class="bootcamp-day">
               <span class="day-number">5</span>
-              <span class="day-title">Git Basics</span>
+              <span class="day-title">Git Essentials (Your time machine for code changes)</span>
             </div>
           </div>
           
@@ -369,11 +381,16 @@
 
     <section class="get-started">
       <div class="container">
-        <h2 class="section-title">Build the foundation to thrive in an AI-driven future. </h2>
-        <p class="get-started-text">The moment you run your first successful command, everything changes. The universe will open up once you realize what's possible beyond the walled gardens of no-code AI services.</p>
+        <h2 class="section-title">Stop Watching. Start Building.</h2>
+        <p class="get-started-text"><strong>The moment you run your first successful command, everything changes.</strong></p>
+        <p class="get-started-text">No more "I have an idea but can't build it." No more "$300/month for tools that do 60% of what I need." No more "I'll hire someone when I have the budget."</p>
+        <p class="get-started-text"><strong>Two paths forward:</strong></p>
+        <p class="get-started-text"><strong>Path 1:</strong> Keep watching YouTube tutorials, collecting bookmarks, and waiting for the "right time" to learn. (Spoiler: There isn't one.)</p>
+        <p class="get-started-text"><strong>Path 2:</strong> Join the builders who chose structure over scattered learning and now run their own automation workflows.</p>
         
         <div class="get-started-cta">
-          <a href="https://skool.com/aicaptains" class="btn btn-accent btn-large">Start Your AI Captain Journey</a>
+          <a href="https://skool.com/aicaptains" class="btn btn-accent btn-large">Start Your Technical Independence Journey</a>
+          <p class="cta-subtitle">7-day trial. Complete beginner-friendly. Directory-focused examples. No subscription bloat.</p>
         </div>
       </div>
     </section>
@@ -984,6 +1001,13 @@ export default {
   background-color: #0a192f;
   color: white;
   padding: 4rem 0 2rem;
+}
+
+.cta-subtitle {
+  margin-top: 1rem;
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.9rem;
 }
 
 .footer-content {

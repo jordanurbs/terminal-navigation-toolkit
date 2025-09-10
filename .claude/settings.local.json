@@ -4,7 +4,8 @@
       "mcp__firecrawl__firecrawl_scrape",
       "mcp__firecrawl__firecrawl_search",
       "WebSearch",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Read(//Users/jordanurbs/Documents/NXTC/xd/jordanurbs2.0/4.0/ai-captains/FULL ACADEMY DOCUMENTATION/**)"
     ],
     "deny": [],
     "ask": []
